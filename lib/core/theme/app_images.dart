@@ -1,0 +1,34 @@
+class AppImages {
+  // Private constructor to prevent instantiation
+  AppImages._();
+
+  // PNG image
+  static const String applePayImage = 'assets/image/applePayImage.png';
+  static const String binanceCoinImage = 'assets/image/binanceCoinImage.png';
+  static const String bitcoinImage = 'assets/image/bitcoinImage.png';
+  static const String etheriumImage = 'assets/image/etheriumImage.png';
+  static const String litecoinImage = 'assets/image/litecoinImage.png';
+  static const String masterCardImage = 'assets/image/masterCardImage.png';
+  static const String profileImage = 'assets/image/profileImage.png';
+  static const String rippleImage = 'assets/image/rippleImaeg.png';
+  static const String solanaImage = 'assets/image/solanaImage.png';
+  static const String visaImage = 'assets/image/visaImage.png';
+
+  // SVG Icons
+  static const String binanceCoinIcon = 'assets/svg/BinanceCoinIcon.svg';
+  static const String bitcoinIcon = 'assets/svg/BitcoinIcon.svg';
+  static const String darkModeIcon = 'assets/svg/darkModeIcon.svg';
+  static const String ethereumIcon = 'assets/svg/EthereumIcon.svg';
+  static const String failureIcon = 'assets/svg/failureIcon.svg';
+  static const String homeIcon = 'assets/svg/homeIcon.svg';
+  static const String languageIcon = 'assets/svg/languageIcon.svg';
+  static const String litecoinIcon = 'assets/svg/LitecoinIcon.svg';
+  static const String marketIcon = 'assets/svg/marketIcon.svg';
+  static const String notificationIcon = 'assets/svg/notificationIcon.svg';
+  static const String portfolioIcon = 'assets/svg/portfolioIcon.svg';
+  static const String profileIcon = 'assets/svg/profileIcon.svg';
+  static const String settingIcon = 'assets/svg/settingIcon.svg';
+  static const String successIcon = 'assets/svg/successIcon.svg';
+  static const String supportIcon = 'assets/svg/supportIcon.svg';
+  static const String walletIcon = 'assets/svg/walletIcon.svg';
+}
