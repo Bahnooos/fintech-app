@@ -9,22 +9,24 @@ class AppColors {
   // ==================== PRIMARY PALETTE ====================
 
   /// Primary brand colors used for main UI elements
-  static const Color deepOcean = Color(0xFF1D3A70);
+  static const Color primary = Color(0xFF1D3A70);
   static const Color twilightPurple = Color(0xFF1E1F4B);
   static const Color electricBlue = Color(0xFF4766F9);
 
   // ==================== NEUTRALS ====================
 
   /// Black shades - darkest to lightest
+  static const Color darkerBlack = Color(0xFF1F1F1F);
   static const Color blackColor = Color(0xFF0D0D0D);
   static const Color obsidianBlack = Color(0xFF1A1A1A);
   static const Color inkBlack = Color(0xFF222222);
 
   /// Gray shades - darkest to lightest
+  static const Color darkGray = Color(0xFF494D58);
   static const Color smokeGray = Color(0xFF5D5C5D);
   static const Color stormGray = Color(0xFF787A8D);
   static const Color mediumGray = Color(0xFF8F8F8F);
-  static const Color stoneGray = Color(0xFF979797);
+  static const Color stoneGray = Color(0xFF949494);
 
   /// White shades - darkest to lightest
   static const Color silverWhite = Color(0xFFF7F7F7);
