@@ -1,4 +1,5 @@
 import 'package:fintech_app/core/di/dependency_injection.dart';
+import 'package:fintech_app/core/routing/app_router.dart';
 import 'package:fintech_app/fintech_app.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,6 @@ Future<void> main() async {
   //await Firebase.initializeApp();
   initGetIt();
   runApp(
-    const FintechApp(),
+     FintechApp(appRouter: AppRouter(),),
   );
 }
