@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -13,10 +15,17 @@ class DioFactory {
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
       addDioInterceptor();
+      addHeader();
       return dio!;
     } else {
       return dio!;
     }
+  }
+
+  static void addHeader() async {
+    dio?.options.headers = {
+      'x-cg-demo-api-key': '',
+    };
   }
 
   static void addDioInterceptor() {
