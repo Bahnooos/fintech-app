@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widget_previews.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../core/theme/app_color.dart';
 import '../data/models/balance_model.dart';
 import '../data/models/home_data_model.dart';
@@ -63,15 +62,13 @@ class HomeScreen extends StatelessWidget {
         ),
       ],
     );
-    
+
     return Scaffold(
-      backgroundColor: AppColors.silverWhite,
+      backgroundColor: AppColors.cloudWhite,
       body: SafeArea(
         child: HomeScreenBody(data: mockData),
       ),
       bottomNavigationBar: const CustomBottomNavBar(),
     );
   }
-
 }
-
