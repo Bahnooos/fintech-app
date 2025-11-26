@@ -29,7 +29,14 @@ class BalanceCard extends StatelessWidget {
           CustomGradientCard(
             top: -60.h,
             right: -60.w,
-            width: 120.w,
+            width: 110.w,
+            height: 110.h,
+            opacity: .1,
+          ),
+          CustomGradientCard(
+            top: -60.h,
+            right: -60.w,
+            width: 123.w,
             height: 120.h,
             opacity: .1,
           ),
@@ -38,13 +45,6 @@ class BalanceCard extends StatelessWidget {
             right: -60.w,
             width: 133.w,
             height: 130.h,
-            opacity: .1,
-          ),
-          CustomGradientCard(
-            top: -60.h,
-            right: -60.w,
-            width: 143.w,
-            height: 140.h,
             opacity: .1,
           ),
           Center(
@@ -86,8 +86,8 @@ class BalanceCard extends StatelessWidget {
           CustomGradientCard(
             bottom: -60.h,
             left: -60.w,
-            width: 148.w,
-            height: 150.h,
+            width: 152.w,
+            height: 152.h,
             opacity: .1,
           ),
           CustomGradientCard(
