@@ -20,6 +20,7 @@ class AppColors {
   static const Color blackColor = Color(0xFF0D0D0D);
   static const Color obsidianBlack = Color(0xFF1A1A1A);
   static const Color inkBlack = Color(0xFF222222);
+  static const Color onboardingBlack = Color(0xFF18191F);
 
   /// Gray shades - darkest to lightest
   static const Color darkGray = Color(0xFF494D58);

@@ -15,6 +15,11 @@ class TextStyles {
     color: AppColors.mediumGray,
     fontWeight: FontWeightHelper.regular,
   );
+  static TextStyle font20PrimaryRegular = GoogleFonts.lato(
+    fontSize: 20,
+    color: AppColors.primary,
+    fontWeight: FontWeightHelper.regular,
+  );
   static TextStyle font16SmokeGrayRegular = GoogleFonts.lato(
     fontSize: 16,
     color: AppColors.smokeGray,
@@ -168,6 +173,16 @@ class TextStyles {
   static TextStyle font20DeepForestBold = GoogleFonts.lato(
     fontSize: 20,
     color: AppColors.deepForest,
+    fontWeight: FontWeightHelper.bold,
+  );
+  static TextStyle font36onboardingBlackBold = GoogleFonts.lato(
+    fontSize: 30,
+    color: AppColors.onboardingBlack,
+    fontWeight: FontWeightHelper.bold,
+  );
+  static TextStyle font36onboardingPrimary = GoogleFonts.lato(
+    fontSize: 30,
+    color: AppColors.primary,
     fontWeight: FontWeightHelper.bold,
   );
   static TextStyle font16DeepForestBold = GoogleFonts.lato(
