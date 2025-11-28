@@ -72,6 +72,11 @@ class TextStyles {
     color: AppColors.electricBlue,
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle font14MediumGrayMeduim = GoogleFonts.lato(
+    fontSize: 14,
+    color: AppColors.mediumGray,
+    fontWeight: FontWeightHelper.medium,
+  );
   static TextStyle font12CloudWhiteMeduim = GoogleFonts.lato(
     fontSize: 12,
     color: AppColors.cloudWhite,
@@ -87,6 +92,7 @@ class TextStyles {
     color: AppColors.stoneGray,
     fontWeight: FontWeightHelper.medium,
   );
+
   static TextStyle font12PrimaryMeduim = GoogleFonts.lato(
     fontSize: 12,
     color: AppColors.primary,
@@ -116,6 +122,16 @@ class TextStyles {
   static TextStyle font14PrimarySemiBold = GoogleFonts.lato(
     fontSize: 14,
     color: AppColors.primary,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font18OnboardingBlacktSemiBold = GoogleFonts.lato(
+    fontSize: 18,
+    color: AppColors.onboardingBlack,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font18SnowWhiteSemiBold = GoogleFonts.lato(
+    fontSize: 18,
+    color: AppColors.snowWhite,
     fontWeight: FontWeightHelper.semiBold,
   );
   static TextStyle font18TwilightPurpleSemiBold = GoogleFonts.lato(
@@ -150,6 +166,11 @@ class TextStyles {
     color: AppColors.snowWhite,
     fontWeight: FontWeightHelper.bold,
   );
+  static TextStyle font28PrimaryBold = GoogleFonts.lato(
+    fontSize: 28,
+    color: AppColors.primary,
+    fontWeight: FontWeightHelper.bold,
+  );
   static TextStyle font18PrimaryBold = GoogleFonts.lato(
     fontSize: 18,
     color: AppColors.primary,
@@ -168,6 +189,11 @@ class TextStyles {
   static TextStyle font16PrimaryBold = GoogleFonts.lato(
     fontSize: 16,
     color: AppColors.primary,
+    fontWeight: FontWeightHelper.bold,
+  );
+  static TextStyle font16SnowWhiteBold = GoogleFonts.lato(
+    fontSize: 16,
+    color: AppColors.snowWhite,
     fontWeight: FontWeightHelper.bold,
   );
   static TextStyle font20DeepForestBold = GoogleFonts.lato(
@@ -190,6 +216,7 @@ class TextStyles {
     color: AppColors.deepForest,
     fontWeight: FontWeightHelper.bold,
   );
+
   static TextStyle font32DeepForestBold = GoogleFonts.lato(
     fontSize: 32,
     color: AppColors.deepForest,

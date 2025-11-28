@@ -8,13 +8,13 @@ class CustomTextButton extends StatelessWidget {
     required this.onTap,
     required this.isDarkMode,
     required this.text,
-    this.textStyle,
+    this.style,
   });
 
   final void Function()? onTap;
   final bool isDarkMode;
   final String text;
-  final TextStyle? textStyle;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class CustomTextButton extends StatelessWidget {
       child: Text(
         text,
         style:
-            textStyle ??
+            style ??
             TextStyles.font20PrimaryRegular.copyWith(
               color: isDarkMode ? AppColors.snowWhite : AppColors.primary,
             ),

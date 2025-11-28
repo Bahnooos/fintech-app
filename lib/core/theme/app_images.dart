@@ -19,7 +19,8 @@ class AppImages {
   static const String onboarding3 = 'assets/image/onboarding3.png';
   static const String arrowImageLightMode =
       'assets/image/arrowImageLightMode.png';
-
+  static const String shadowBackgroundIamge =
+      'assets/image/shadowBackgroundIamge.png';
   // SVG Icons
   static const String binanceCoinIcon = 'assets/svg/BinanceCoinIcon.svg';
   static const String bitcoinIcon = 'assets/svg/BitcoinIcon.svg';

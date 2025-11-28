@@ -48,7 +48,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 18),

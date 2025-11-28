@@ -1,4 +1,6 @@
+import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:fintech_app/core/helpers/spacing.dart';
+import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/theme/app_color.dart';
 import 'package:fintech_app/core/theme/app_images.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
@@ -36,13 +38,13 @@ class AuthScreen extends StatelessWidget {
               verticalSpace(60),
               CustomButton(
                 text: 'Login',
-                onPressed: () {},
+                onPressed: () => context.pushNamed(Routes.loginScreen),
                 type: ButtonType.filled,
               ),
               verticalSpace(18),
               CustomButton(
                 text: 'Register',
-                onPressed: () {},
+                onPressed: () => context.pushNamed(Routes.registerScreen),
                 type: ButtonType.outlined,
               ),
             ],

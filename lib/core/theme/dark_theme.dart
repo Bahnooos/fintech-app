@@ -52,7 +52,7 @@ class DarkTheme {
     const colorScheme = ColorScheme.dark(
       primary: AppColors.primary,
       secondary: AppColors.electricBlue,
-      surface: AppColors.obsidianBlack,
+      surface: AppColors.blackColor,
       onPrimary: Colors.white,
       onSecondary: Colors.white,
       onSurface: Colors.white,

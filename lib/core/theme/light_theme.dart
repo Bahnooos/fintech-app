@@ -52,7 +52,7 @@ class LightTheme {
     const colorScheme = ColorScheme.light(
       primary: AppColors.primary,
       secondary: AppColors.electricBlue,
-      surface: AppColors.snowWhite,
+      surface: AppColors.cloudWhite,
       onPrimary: AppColors.snowWhite,
       onSecondary: AppColors.snowWhite,
       onSurface: AppColors.twilightPurple,
