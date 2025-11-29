@@ -58,9 +58,8 @@ class VerifiedLoginScreen extends StatelessWidget {
 
                   CustomButton(
                     text: 'Continue To Home',
-                    onPressed: () => context.pushNamedAndRemoveUntil(
+                    onPressed: () => context.pushNamed(
                       Routes.homeScreen,
-                      (route) => false,
                     ),
                   ),
                   verticalSpace(30),

@@ -57,7 +57,7 @@ class FingerprintRegisterScreen extends StatelessWidget {
                       width: 162,
                       type: ButtonType.outlined,
                       text: 'Skip ',
-                      onPressed: () => context.pushReplacementNamed(
+                      onPressed: () => context.pushNamed(
                         Routes.verifiedRegisterScreen,
                       ),
                     ),

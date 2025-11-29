@@ -58,17 +58,16 @@ class LoginScreen extends StatelessWidget {
                     verticalSpace(30),
                     CustomButton(
                       text: 'Login',
-                      onPressed: () =>
-                          context.pushReplacementNamed(Routes.homeScreen),
+                      onPressed: () => context.pushNamed(Routes.homeScreen),
                     ),
                     verticalSpace(36),
                     const CustomDividerWithText(text: 'Or login with'),
                     verticalSpace(30),
                     BiometricLoginButtons(
-                      onFingerprintTap: () => context.pushReplacementNamed(
+                      onFingerprintTap: () => context.pushNamed(
                         Routes.verifiedLoginScreen,
                       ),
-                      onFaceIdTap: () => context.pushReplacementNamed(
+                      onFaceIdTap: () => context.pushNamed(
                         Routes.faceIdLoginScreen,
                       ),
                     ),

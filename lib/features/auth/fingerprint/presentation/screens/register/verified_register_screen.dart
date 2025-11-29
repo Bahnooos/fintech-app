@@ -58,7 +58,7 @@ class VerifiedRegisterScreen extends StatelessWidget {
 
                   CustomButton(
                     text: 'Continue',
-                    onPressed: () => context.pushReplacementNamed(
+                    onPressed: () => context.pushNamed(
                       Routes.faceIdRegisterScreen,
                     ),
                   ),

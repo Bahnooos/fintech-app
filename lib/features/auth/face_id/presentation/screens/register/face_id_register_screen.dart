@@ -54,16 +54,14 @@ class FaceIdRegisterScreen extends StatelessWidget {
                         child: CustomButton(
                           type: ButtonType.outlined,
                           text: 'Skip',
-                          onPressed: () =>
-                              context.pushReplacementNamed(Routes.homeScreen),
+                          onPressed: () => context.pushNamed(Routes.homeScreen),
                         ),
                       ),
                       horizontalSpace(18),
                       Expanded(
                         child: CustomButton(
                           text: 'Continue',
-                          onPressed: () =>
-                              context.pushReplacementNamed(Routes.homeScreen),
+                          onPressed: () => context.pushNamed(Routes.homeScreen),
                         ),
                       ),
                     ],
