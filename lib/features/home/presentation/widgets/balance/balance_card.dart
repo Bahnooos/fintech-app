@@ -1,8 +1,8 @@
+import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/theme/app_color.dart';
-import '../../../../../core/theme/text_styles.dart';
 import 'custom_gradient_card.dart';
 import 'weekly_profit_pill.dart';
 
@@ -53,16 +53,15 @@ class BalanceCard extends StatelessWidget {
                 children: [
                   Text(
                     'Current Balance',
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      color: AppColors.snowWhite.withValues(alpha: 0.8),
+                    style: context.bodyMedium_14?.copyWith(
+                      color: AppColors.cloudWhite,
                     ),
                   ),
                   8.verticalSpace,
                   Text(
                     '\$${143421.12}',
-                    style: TextStyles.font28SnowWhiteBold.copyWith(
-                      letterSpacing: .44,
+                    style: context.displayMedium_28?.copyWith(
+                      color: Colors.white,
                     ),
                   ),
                   8.verticalSpace,

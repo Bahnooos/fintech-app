@@ -20,6 +20,24 @@ extension Navigation on BuildContext {
   void pop() => Navigator.pop(this);
 }
 
+extension ThemeContext on BuildContext {
+  // Quick access to the TextTheme
+  TextTheme get textTheme => Theme.of(this).textTheme;
+  
+  // Optional: Quick access to specific styles (Super Clean)
+  TextStyle? get displayLarge_32 => textTheme.displayLarge;
+  TextStyle? get displayMedium_28 => textTheme.displayMedium;
+  TextStyle? get displaySmall_20 => textTheme.displaySmall;
+  TextStyle? get headlineMedium_18 => textTheme.headlineMedium;
+  TextStyle? get titleMedium_16 => textTheme.titleMedium;
+  TextStyle? get bodyLarge_16 => textTheme.bodyLarge;
+  TextStyle? get bodyMedium_14 => textTheme.bodyMedium;
+  TextStyle? get bodySmall_12 => textTheme.bodySmall;
+  TextStyle? get labelLarge_16 => textTheme.labelLarge;
+  TextStyle? get labelMedium_14 => textTheme.labelMedium;
+  TextStyle? get labelSmall_12 => textTheme.labelSmall;
+}
+
 extension CompactNumber on double {
   String toCompact() {
     if (this >= 1e12) {

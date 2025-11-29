@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/theme/app_color.dart';
 import 'widgets/custom_bottom_nav_bar.dart';
 import 'widgets/home_screen_body.dart';
 
@@ -23,7 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       body: SafeArea(
         child: IndexedStack(
           index: _currentIndex,

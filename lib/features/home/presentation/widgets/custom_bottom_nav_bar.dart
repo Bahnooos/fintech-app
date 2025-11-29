@@ -1,10 +1,10 @@
+import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/theme/app_color.dart';
 import '../../../../core/theme/app_images.dart';
-import '../../../../core/theme/text_styles.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -18,9 +18,12 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
     return Container(
       height: 70.h,
+      padding: EdgeInsets.symmetric(horizontal: 15.w),
       decoration: BoxDecoration(
+        color: isDark ? AppColors.blackColor : Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.05),
@@ -109,8 +112,10 @@ class _NavBarItem extends StatelessWidget {
             Text(
               label,
               style: isSelected
-                  ? TextStyles.font12DarkerBlackBold
-                  : TextStyles.font12StoneGrayMeduim,
+                  ? context.bodySmall_12?.copyWith(
+                      color: AppColors.primary,
+                    )
+                  : context.bodySmall_12,
             ),
           ],
         ),

@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fintech_app/core/helpers/app_regex.dart';
+import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:fintech_app/features/home/data/models/trending_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/theme/app_color.dart';
-import '../../../../../core/theme/text_styles.dart';
 
 class TrendingCoinCard extends StatelessWidget {
   final CoinWrapper? coins;
@@ -14,6 +14,7 @@ class TrendingCoinCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
     final double isPositive = coins?.item?.data?.changePercentage?['btc'];
 
     return Container(
@@ -25,7 +26,7 @@ class TrendingCoinCard extends StatelessWidget {
         vertical: 8.h,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDark ? AppColors.blackColor : Colors.white,
         borderRadius: BorderRadius.circular(16.r),
       ),
       child: Column(
@@ -37,7 +38,7 @@ class TrendingCoinCard extends StatelessWidget {
             children: [
               Text(
                 coins?.item?.name?.split(' ').first ?? '',
-                style: TextStyles.font14TwilightPurpleMeduim,
+                style: context.labelMedium_14,
               ),
               const Spacer(),
               CachedNetworkImage(
@@ -53,7 +54,7 @@ class TrendingCoinCard extends StatelessWidget {
           ),
           Text(
             coins?.item?.symbol ?? '',
-            style: TextStyles.font12StormGrayRegular,
+            style: context.bodySmall_12,
           ),
           16.verticalSpace,
           Row(
@@ -62,12 +63,12 @@ class TrendingCoinCard extends StatelessWidget {
                 AppRegex.formatWithCommas(
                   coins?.item?.data?.price?.round() ?? 0,
                 ),
-                style: TextStyles.font20TwilightPurpleMeduim,
+                style: context.displaySmall_20,
               ),
               const Spacer(),
               Text(
                 '${coins?.item?.data?.changePercentage?['btc'].toStringAsFixed(2)}%',
-                style: TextStyles.font12ElectricBlueRegular.copyWith(
+                style: context.bodySmall_12?.copyWith(
                   color: isPositive > 0
                       ? AppColors.electricBlue
                       : AppColors.errorRed,

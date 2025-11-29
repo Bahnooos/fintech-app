@@ -1,4 +1,4 @@
-import 'package:fintech_app/core/theme/text_styles.dart';
+import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,7 +18,7 @@ class MarketOverviewSection extends StatelessWidget {
         children: [
           Text(
             'Market Overview',
-            style: TextStyles.font18PrimaryBold,
+            style: context.headlineMedium_18,
           ),
           16.verticalSpace,
           const MarketOverviewBlocBuilder(),

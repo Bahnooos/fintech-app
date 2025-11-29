@@ -1,4 +1,5 @@
-import 'package:fintech_app/core/theme/text_styles.dart';
+import 'package:fintech_app/core/helpers/extension.dart';
+import 'package:fintech_app/core/theme/font_weight_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,7 +22,10 @@ class WeeklyProfitPill extends StatelessWidget {
       children: [
         Text(
           'Weekly Profit',
-          style: TextStyles.font12CloudWhiteMeduim,
+          style: context.labelMedium_14?.copyWith(
+            fontWeight: FontWeightHelper.regular,
+            color: Colors.white,
+          ),
         ),
         4.horizontalSpace,
 
@@ -30,7 +34,7 @@ class WeeklyProfitPill extends StatelessWidget {
 
           padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 4.h),
           decoration: BoxDecoration(
-            color: Colors.white.withValues(alpha:  0.2),
+            color: Colors.white.withValues(alpha: 0.2),
             borderRadius: BorderRadius.circular(16.r),
           ),
           child: Row(
@@ -39,7 +43,9 @@ class WeeklyProfitPill extends StatelessWidget {
             children: [
               Text(
                 '${percentage.toStringAsFixed(2)}%',
-                style: TextStyles.font12CloudWhiteMeduim,
+                style: context.labelSmall_12?.copyWith(
+                  color: AppColors.cloudWhite,
+                ),
               ),
               2.horizontalSpace,
               Icon(

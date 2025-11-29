@@ -1,3 +1,4 @@
+import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:fintech_app/features/home/data/models/coin_model.dart';
 import 'package:fintech_app/features/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../../core/theme/text_styles.dart';
 import '../../logic/cubit/home_state.dart';
 import 'top_gainer_tile.dart';
 
@@ -16,6 +16,7 @@ class TopGainersSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Column(
@@ -23,7 +24,7 @@ class TopGainersSection extends StatelessWidget {
         children: [
           Text(
             'Top Gainers',
-            style: TextStyles.font16PrimaryBold,
+            style: context.headlineMedium_18,
           ),
           16.verticalSpace,
           BlocBuilder<HomeCubit, HomeState>(
@@ -34,16 +35,21 @@ class TopGainersSection extends StatelessWidget {
             builder: (context, state) {
               switch (state.coinsStatus) {
                 case SectionStatus.initial:
-                  return const SizedBox.shrink();
                 case SectionStatus.loading:
                   return Skeletonizer(
                     enabled: true,
                     ignoreContainers: false,
-                    containersColor: Colors.white,
-                    effect: const ShimmerEffect(
-                      baseColor: Color(0xFFE0E0E0),
-                      highlightColor: Color(0xFFF5F5F5),
-                    ),
+                    containersColor: isDark ? Colors.black : Colors.white,
+
+                    effect: isDark
+                        ? const ShimmerEffect(
+                            baseColor: Color(0xFF2A2A2A),
+                            highlightColor: Color(0xFF454545),
+                          )
+                        : const ShimmerEffect(
+                            baseColor: Color(0xFFE0E0E0),
+                            highlightColor: Color(0xFFF5F5F5),
+                          ),
                     child: ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),

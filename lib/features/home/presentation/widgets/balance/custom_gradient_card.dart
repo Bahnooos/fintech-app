@@ -22,6 +22,7 @@ class CustomGradientCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
     return Positioned(
       top: top,
       left: left,
@@ -32,7 +33,9 @@ class CustomGradientCard extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: AppColors.cloudWhite.withValues(alpha: opacity),
+          color: isDark
+              ? AppColors.scaffoldBackGroundDark.withValues(alpha: opacity)
+              : AppColors.cloudWhite.withValues(alpha: opacity),
         ),
       ),
     );

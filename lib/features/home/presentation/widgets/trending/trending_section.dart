@@ -1,10 +1,11 @@
-import 'package:fintech_app/core/theme/text_styles.dart';
+import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:fintech_app/features/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../../core/theme/app_color.dart';
 import '../../../data/models/trending_response.dart';
 import '../../logic/cubit/home_state.dart';
 import 'trending_coin_card.dart';
@@ -16,6 +17,7 @@ class TrendingSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
     return Column(
       children: [
         Padding(
@@ -25,11 +27,13 @@ class TrendingSection extends StatelessWidget {
             children: [
               Text(
                 'Trending Now',
-                style: TextStyles.font18PrimaryBold,
+                style: context.headlineMedium_18,
               ),
               Text(
                 'View all',
-                style: TextStyles.font12ElectricBlueMeduim,
+                style: context.labelSmall_12?.copyWith(
+                  color: AppColors.primary,
+                ),
               ),
             ],
           ),
@@ -45,16 +49,21 @@ class TrendingSection extends StatelessWidget {
             builder: (context, state) {
               switch (state.trendingStatus) {
                 case SectionStatus.initial:
-                  return const SizedBox.shrink();
                 case SectionStatus.loading:
                   return Skeletonizer(
                     enabled: true,
                     ignoreContainers: false,
-                    containersColor: Colors.white,
-                    effect: const ShimmerEffect(
-                      baseColor: Color(0xFFE0E0E0),
-                      highlightColor: Color(0xFFF5F5F5),
-                    ),
+                    containersColor: isDark ? Colors.black : Colors.white,
+
+                    effect: isDark
+                        ? const ShimmerEffect(
+                            baseColor: Color(0xFF2A2A2A),
+                            highlightColor: Color(0xFF454545),
+                          )
+                        : const ShimmerEffect(
+                            baseColor: Color(0xFFE0E0E0),
+                            highlightColor: Color(0xFFF5F5F5),
+                          ),
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       padding: EdgeInsets.symmetric(horizontal: 20.w),

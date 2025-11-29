@@ -14,6 +14,7 @@ class MarketOverviewBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
     return BlocBuilder<HomeCubit, HomeState>(
       buildWhen: (previous, current) =>
           current.globalStatus.isLoading ||
@@ -28,12 +29,18 @@ class MarketOverviewBlocBuilder extends StatelessWidget {
               ignoreContainers: false,
               // 👇 This MUST be White.
               // White Card on cloudWhite Background = Visible Card.
-              containersColor: Colors.white,
+              containersColor: isDark ? Colors.black : Colors.white,
 
-              effect: const ShimmerEffect(
-                baseColor: Color(0xFFE0E0E0),
-                highlightColor: Color(0xFFF5F5F5),
-              ),
+              effect: isDark
+                  ? const ShimmerEffect(
+                      baseColor: Color(0xFF2A2A2A),
+                      highlightColor: Color(0xFF454545),
+                    )
+                  : const ShimmerEffect(
+                      baseColor: Color(0xFFE0E0E0),
+                      highlightColor: Color(0xFFF5F5F5),
+                    ),
+
               child: MarketOverviewGrid(
                 globalMarketData: GlobalMarketData.mock(),
               ),

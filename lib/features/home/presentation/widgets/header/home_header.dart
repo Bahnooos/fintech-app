@@ -1,4 +1,4 @@
-import 'package:fintech_app/core/theme/text_styles.dart';
+import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,7 +22,7 @@ class HomeHeader extends StatelessWidget {
           12.horizontalSpace,
           Text(
             'Hi, Ahmed 👋',
-            style: TextStyles.font18PrimaryBold,
+            style: context.headlineMedium_18,
           ),
           const Spacer(),
           Container(

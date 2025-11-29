@@ -1,5 +1,5 @@
+import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:fintech_app/core/theme/app_color.dart';
-import 'package:fintech_app/core/theme/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,11 +17,12 @@ class MarketOverviewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
     return Container(
       height: 94.h,
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDark ? AppColors.blackColor : Colors.white,
         borderRadius: BorderRadius.circular(16.r),
       ),
       child: Column(
@@ -30,12 +31,12 @@ class MarketOverviewItem extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyles.font14TwilightPurpleMeduim,
+            style: context.labelMedium_14,
           ),
           8.verticalSpace,
           Text(
             value ?? '',
-            style: TextStyles.font20TwilightPurpleMeduim,
+            style: context.displaySmall_20,
           ),
           if (percentage != null) ...[
             4.verticalSpace,
@@ -43,7 +44,7 @@ class MarketOverviewItem extends StatelessWidget {
               children: [
                 Text(
                   '${percentage?.toStringAsFixed(2)}%',
-                  style: TextStyles.font12ElectricBlueRegular.copyWith(
+                  style: context.bodySmall_12?.copyWith(
                     color: (percentage ?? 0) > 0
                         ? AppColors.lavenderPurple
                         : Colors.red,

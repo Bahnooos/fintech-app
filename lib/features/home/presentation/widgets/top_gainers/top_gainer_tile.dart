@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fintech_app/core/helpers/app_regex.dart';
-import 'package:fintech_app/core/theme/text_styles.dart';
+import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:fintech_app/features/home/data/models/coin_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,11 +16,13 @@ class TopGainerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
+    final bool isPositive = (coinModel?.priceChangePercentage24h ?? 0) > 0;
     return Container(
       margin: EdgeInsets.only(bottom: 12.h),
       padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
       decoration: BoxDecoration(
-        
+        color: isDark ? AppColors.blackColor : Colors.white,
         borderRadius: BorderRadius.circular(16.r),
       ),
       child: Row(
@@ -49,11 +51,11 @@ class TopGainerTile extends StatelessWidget {
               children: [
                 Text(
                   coinModel?.name ?? '',
-                  style: TextStyles.font16PrimaryBold,
+                  style: context.bodyLarge_16,
                 ),
                 Text(
                   coinModel?.symbol ?? '',
-                  style: TextStyles.font14StoneGrayMeduim,
+                  style: context.bodyMedium_14,
                 ),
               ],
             ),
@@ -65,13 +67,17 @@ class TopGainerTile extends StatelessWidget {
                 AppRegex.formatWithCommas(
                   coinModel?.currentPrice?.toInt() ?? 0,
                 ),
-                style: TextStyles.font14TwilightPurpleMeduim,
+                style: context.labelMedium_14,
               ),
               4.verticalSpace,
               Text(
-                '+${coinModel?.priceChangePercentage24h?.toStringAsFixed(2)}%',
-                style: TextStyles.font12AlertOrangeRegular.copyWith(
-                  color: AppColors.seafoamGreen,
+                isPositive
+                    ? '+${coinModel?.priceChangePercentage24h?.toStringAsFixed(2)}%'
+                    : '${coinModel?.priceChangePercentage24h?.toStringAsFixed(2)}%',
+                style: context.bodySmall_12?.copyWith(
+                  color: isPositive
+                      ? AppColors.seafoamGreen
+                      : AppColors.redColor,
                 ),
               ),
             ],
