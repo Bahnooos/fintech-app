@@ -15,7 +15,7 @@ class TrendingCoinCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
-    final double isPositive = coins?.item?.data?.changePercentage?['btc'];
+    final double isPositive = coins?.item?.data?.changePercentage?['btc']??0;
 
     return Container(
       width: 192.w,
@@ -67,7 +67,7 @@ class TrendingCoinCard extends StatelessWidget {
               ),
               const Spacer(),
               Text(
-                '${coins?.item?.data?.changePercentage?['btc'].toStringAsFixed(2)}%',
+                '${coins?.item?.data?.changePercentage?['btc']?.toStringAsFixed(2)}%',
                 style: context.bodySmall_12?.copyWith(
                   color: isPositive > 0
                       ? AppColors.electricBlue

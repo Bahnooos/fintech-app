@@ -21,9 +21,14 @@ GlobalMarketData _$GlobalMarketDataFromJson(
   ongoingIcos: (json['ongoing_icos'] as num?)?.toInt(),
   endedIcos: (json['ended_icos'] as num?)?.toInt(),
   markets: (json['markets'] as num?)?.toInt(),
-  totalMarketCap: json['total_market_cap'] as Map<String, dynamic>?,
-  totalVolume: json['total_volume'] as Map<String, dynamic>?,
-  marketCapPercentage: json['market_cap_percentage'] as Map<String, dynamic>?,
+  totalMarketCap: (json['total_market_cap'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, (e as num?)?.toDouble()),
+  ),
+  totalVolume: (json['total_volume'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, (e as num?)?.toDouble()),
+  ),
+  marketCapPercentage: (json['market_cap_percentage'] as Map<String, dynamic>?)
+      ?.map((k, e) => MapEntry(k, (e as num?)?.toDouble())),
   marketCapChangePercentage24hUsd:
       (json['market_cap_change_percentage_24h_usd'] as num?)?.toDouble(),
   updatedAt: (json['updated_at'] as num?)?.toInt(),

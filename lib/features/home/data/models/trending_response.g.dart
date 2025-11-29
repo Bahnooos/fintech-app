@@ -30,5 +30,8 @@ CoinItem _$CoinItemFromJson(Map<String, dynamic> json) => CoinItem(
 
 CoinData _$CoinDataFromJson(Map<String, dynamic> json) => CoinData(
   price: (json['price'] as num?)?.toDouble(),
-  changePercentage: _parseCurrencyMap(json['price_change_percentage_24h']),
+  changePercentage:
+      (json['price_change_percentage_24h'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, (e as num?)?.toDouble()),
+      ),
 );

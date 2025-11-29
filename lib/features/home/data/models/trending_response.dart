@@ -62,8 +62,8 @@ class CoinItem {
 class CoinData {
   final double? price;
 
-  @JsonKey(name: 'price_change_percentage_24h', fromJson: _parseCurrencyMap)
-  final Map<String, dynamic>? changePercentage;
+  @JsonKey(name: 'price_change_percentage_24h')
+  final Map<String, double?>? changePercentage;
 
   const CoinData({
     this.price,
@@ -74,13 +74,4 @@ class CoinData {
       _$CoinDataFromJson(json);
 }
 
-double _toDouble(dynamic value) {
-  if (value is num) return value.toDouble();
-  if (value is String) return double.tryParse(value) ?? 0.0;
-  return 0.0;
-}
 
-Map<String, dynamic> _parseCurrencyMap(dynamic json) {
-  if (json is! Map) return {};
-  return json.map((key, value) => MapEntry(key.toString(), _toDouble(value)));
-}

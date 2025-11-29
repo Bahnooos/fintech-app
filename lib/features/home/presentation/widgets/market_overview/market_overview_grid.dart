@@ -21,19 +21,18 @@ class MarketOverviewGrid extends StatelessWidget {
       children: [
         MarketOverviewItem(
           label: 'Market Cap',
-          value: (globalMarketData?.totalMarketCap?['usd'] as double)
-              .toCompact(),
+          value: (globalMarketData?.totalMarketCap?['usd'] ?? 0.0).toCompact(),
           percentage: globalMarketData?.marketCapChangePercentage24hUsd,
         ),
         MarketOverviewItem(
           label: '24h Volume',
-          value: (globalMarketData?.totalVolume?['usd'] as double).toCompact(),
+          value: (globalMarketData?.totalVolume?['usd'] ?? 0.0).toCompact(),
           percentage: globalMarketData?.marketCapChangePercentage24hUsd,
         ),
         MarketOverviewItem(
           label: 'BTC Dominance',
           value:
-              '${(globalMarketData?.marketCapPercentage?['btc'] as double).toStringAsFixed(2)}%',
+              '${(globalMarketData?.marketCapPercentage?['btc'] ?? 0).toStringAsFixed(2)}%',
         ),
         MarketOverviewItem(
           label: 'Active Coins',

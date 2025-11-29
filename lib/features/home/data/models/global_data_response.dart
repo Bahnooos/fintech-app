@@ -24,11 +24,11 @@ class GlobalMarketData {
   final int? endedIcos;
   final int? markets;
   @JsonKey(name: 'total_market_cap')
-  final Map<String, dynamic>? totalMarketCap;
+  final Map<String, double?>? totalMarketCap;
   @JsonKey(name: 'total_volume')  
-  final Map<String, dynamic>? totalVolume;
+  final Map<String, double?>? totalVolume;
   @JsonKey(name: 'market_cap_percentage')
-  final Map<String, dynamic>? marketCapPercentage;
+  final Map<String, double?>? marketCapPercentage;
   @JsonKey(name: 'market_cap_change_percentage_24h_usd')
   final double? marketCapChangePercentage24hUsd;
   @JsonKey(name: 'updated_at')
