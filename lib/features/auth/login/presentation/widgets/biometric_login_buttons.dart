@@ -24,7 +24,7 @@ class BiometricLoginButtons extends StatelessWidget {
         IconButton(
           icon: Icon(
             MyFlutterApp.fingerprinticon,
-            color: isDarkMode ? AppColors.lighterGray : AppColors.snowWhite,
+            color: isDarkMode ? AppColors.snowWhite : AppColors.lighterGray,
             size: iconSize.sp,
           ),
           onPressed: onFingerprintTap,
@@ -32,7 +32,7 @@ class BiometricLoginButtons extends StatelessWidget {
         IconButton(
           icon: Icon(
             MyFlutterApp.faceidicon,
-            color: isDarkMode ? AppColors.lighterGray : AppColors.snowWhite,
+            color: isDarkMode ? AppColors.snowWhite : AppColors.lighterGray,
             size: iconSize.sp,
           ),
           onPressed: onFaceIdTap,

@@ -1,5 +1,7 @@
+import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:fintech_app/core/helpers/spacing.dart';
 import 'package:fintech_app/core/icons/my_flutter_app_icons.dart';
+import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/widgets/custom_auth_footer.dart';
 import 'package:fintech_app/core/widgets/custom_auth_header.dart';
 import 'package:fintech_app/core/widgets/custom_background_image.dart';
@@ -59,8 +61,9 @@ class LoginScreen extends StatelessWidget {
                     const CustomDividerWithText(text: 'Or login with'),
                     verticalSpace(30),
                     BiometricLoginButtons(
-                      onFaceIdTap: () {},
-                      onFingerprintTap: () {},
+                      onFaceIdTap: () => context.pushNamed(Routes.faceIdScreen),
+                      onFingerprintTap: () =>
+                          context.pushNamed(Routes.fingerprintScreen),
                     ),
                     verticalSpace(22),
                     const CustomAuthFooter(

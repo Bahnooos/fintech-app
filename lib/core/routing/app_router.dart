@@ -1,4 +1,7 @@
 import 'package:fintech_app/core/routing/routes.dart';
+import 'package:fintech_app/features/auth/face_id/presentation/screens/face_id_screen.dart';
+import 'package:fintech_app/features/auth/fingerprint/presentation/screens/fingerprint_screen.dart';
+import 'package:fintech_app/features/auth/fingerprint/presentation/screens/verified_screen.dart';
 import 'package:fintech_app/features/auth/get_started/auth_screen.dart';
 import 'package:fintech_app/features/auth/login/presentation/screens/login_screen.dart';
 import 'package:fintech_app/features/auth/register/presentation/screens/register_screen.dart';
@@ -19,6 +22,12 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.registerScreen:
         return MaterialPageRoute(builder: (_) => const RegisterScreen());
+      case Routes.faceIdScreen:
+        return MaterialPageRoute(builder: (_) => const FaceIdScreen());
+      case Routes.fingerprintScreen:
+        return MaterialPageRoute(builder: (_) => const FingerprintScreen());
+      case Routes.verifiedScreen:
+        return MaterialPageRoute(builder: (_) => const VerifiedScreen());
       default:
         return null;
     }

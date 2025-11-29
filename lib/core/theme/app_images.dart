@@ -21,6 +21,15 @@ class AppImages {
       'assets/image/arrowImageLightMode.png';
   static const String shadowBackgroundIamge =
       'assets/image/shadowBackgroundIamge.png';
+  static const String faceIdImage = 'assets/image/faceIdImage.png';
+  static const String faceIdDarkImage = 'assets/image/faceIdDarkImage.png';
+  static const String faceIdVerifiedImage =
+      'assets/image/faceIdVerifiedImage.png';
+  static const String faceIdVerifiedDarkImage =
+      'assets/image/faceIdVerifiedDarkImage.png';
+  static const String fingerPrintImage = 'assets/image/fingerPrintImage.png';
+  static const String verifiedImage = 'assets/image/verifiedImage.png';
+  static const String verifiedDarkImage = 'assets/image/verifiedDarkImage.png';
   // SVG Icons
   static const String binanceCoinIcon = 'assets/svg/BinanceCoinIcon.svg';
   static const String bitcoinIcon = 'assets/svg/BitcoinIcon.svg';

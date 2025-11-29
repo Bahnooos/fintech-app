@@ -29,6 +29,7 @@ class CustomAuthHeader extends StatelessWidget {
         verticalSpace(topSpacing),
         Center(
           child: Text(
+            textAlign: TextAlign.center,
             title,
             style:
                 titleStyle ??
@@ -40,6 +41,7 @@ class CustomAuthHeader extends StatelessWidget {
         verticalSpace(spacingBetween),
         Center(
           child: Text(
+            textAlign: TextAlign.center,
             subtitle,
             style:
                 subtitleStyle ??
