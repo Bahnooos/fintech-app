@@ -28,41 +28,27 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cached_network_image: ^3.4.1
   cupertino_icons: ^1.0.8
+  dio: ^5.9.0
   firebase_auth: ^6.1.2
   firebase_core: ^4.2.1
   fl_chart: ^1.1.1
   flutter:
     sdk: flutter
- 
- # for state management
   flutter_bloc: ^9.1.1
-
   flutter_native_splash: ^2.4.7
-
-  # # A flutter plugin for adapting screen and font size.Guaranteed to look good on different models
   flutter_screenutil: ^5.9.3
-
-  # An SVG rendering and widget library for Flutter, which allows painting and displaying Scalable Vector
   flutter_svg: ^2.2.2
   freezed: ^3.2.3
   freezed_annotation: ^3.1.0
-
-  # Dependency Injection
   get_it: ^9.0.5
   google_fonts: ^6.3.2
   intl: ^0.20.2
-
-  # Automatically generate code for converting to and from JSON by annotating Dart classes
   json_annotation: ^4.9.0
-
-  # Networking
-  dio: ^5.9.0
   pretty_dio_logger: ^1.4.0
   retrofit: ^4.9.1
   retrofit_generator: ^10.2.0
-
-  # Converts already built widgets into skeleton loaders with no extra effort.
   skeletonizer: ^2.1.0+1
 
 dev_dependencies:

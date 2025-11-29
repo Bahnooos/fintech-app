@@ -7,19 +7,14 @@ import 'custom_gradient_card.dart';
 import 'weekly_profit_pill.dart';
 
 class BalanceCard extends StatelessWidget {
-  final double balance;
-  final double weeklyProfitPercentage;
-
   const BalanceCard({
     super.key,
-    required this.balance,
-    required this.weeklyProfitPercentage,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20.w),
+      margin: EdgeInsets.symmetric(horizontal: 24.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.r),
         color: AppColors.cardGradient,
@@ -60,18 +55,18 @@ class BalanceCard extends StatelessWidget {
                     'Current Balance',
                     style: TextStyle(
                       fontSize: 14.sp,
-                      color: AppColors.snowWhite.withOpacity(0.8),
+                      color: AppColors.snowWhite.withValues(alpha: 0.8),
                     ),
                   ),
-                  SizedBox(height: 8.h),
+                  8.verticalSpace,
                   Text(
-                    '\$${balance.toStringAsFixed(2)}',
+                    '\$${143421.12}',
                     style: TextStyles.font28SnowWhiteBold.copyWith(
                       letterSpacing: .44,
                     ),
                   ),
-                  SizedBox(height: 8.h),
-                  WeeklyProfitPill(percentage: weeklyProfitPercentage),
+                  8.verticalSpace,
+                  const WeeklyProfitPill(percentage: 2.53),
                 ],
               ),
             ),

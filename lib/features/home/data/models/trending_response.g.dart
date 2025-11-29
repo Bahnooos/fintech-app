@@ -22,7 +22,7 @@ CoinWrapper _$CoinWrapperFromJson(Map<String, dynamic> json) => CoinWrapper(
 CoinItem _$CoinItemFromJson(Map<String, dynamic> json) => CoinItem(
   name: json['name'] as String?,
   symbol: json['symbol'] as String?,
-  image: json['large'] as String?,
+  image: json['small'] as String?,
   data: json['data'] == null
       ? null
       : CoinData.fromJson(json['data'] as Map<String, dynamic>),

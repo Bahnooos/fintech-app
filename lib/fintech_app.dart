@@ -14,9 +14,11 @@ class FintechApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder:(context,child)=> MaterialApp(
+      builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: AppTheme.lightTheme,
+        theme: AppTheme.darkTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: ThemeMode.system,
         initialRoute: Routes.homeScreen,
         onGenerateRoute: appRouter.onGenerateRoute,
       ),

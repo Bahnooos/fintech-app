@@ -1,10 +1,11 @@
+import 'package:fintech_app/core/theme/app_color.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MarketOverviewItem extends StatelessWidget {
   final String label;
-  final String value;
+  final String? value;
   final double? percentage;
 
   const MarketOverviewItem({
@@ -33,14 +34,31 @@ class MarketOverviewItem extends StatelessWidget {
           ),
           8.verticalSpace,
           Text(
-            value,
+            value ?? '',
             style: TextStyles.font20TwilightPurpleMeduim,
           ),
           if (percentage != null) ...[
             4.verticalSpace,
-            Text(
-              '${percentage!.toStringAsFixed(2)}%',
-              style: TextStyles.font12ElectricBlueRegular,
+            Row(
+              children: [
+                Text(
+                  '${percentage?.toStringAsFixed(2)}%',
+                  style: TextStyles.font12ElectricBlueRegular.copyWith(
+                    color: (percentage ?? 0) > 0
+                        ? AppColors.lavenderPurple
+                        : Colors.red,
+                  ),
+                ),
+                Icon(
+                  (percentage ?? 0) > 0
+                      ? Icons.arrow_drop_up
+                      : Icons.arrow_drop_down,
+                  color: (percentage ?? 0) > 0
+                      ? AppColors.lavenderPurple
+                      : Colors.red,
+                  size: 10,
+                ),
+              ],
             ),
           ],
         ],

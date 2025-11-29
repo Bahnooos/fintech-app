@@ -23,14 +23,14 @@ class WeeklyProfitPill extends StatelessWidget {
           'Weekly Profit',
           style: TextStyles.font12CloudWhiteMeduim,
         ),
-        SizedBox(width: 4.w),
+        4.horizontalSpace,
 
         Container(
           height: 22.h,
 
           padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 4.h),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.2),
+            color: Colors.white.withValues(alpha:  0.2),
             borderRadius: BorderRadius.circular(16.r),
           ),
           child: Row(
@@ -41,7 +41,7 @@ class WeeklyProfitPill extends StatelessWidget {
                 '${percentage.toStringAsFixed(2)}%',
                 style: TextStyles.font12CloudWhiteMeduim,
               ),
-              SizedBox(width: 2.w),
+              2.horizontalSpace,
               Icon(
                 Icons.keyboard_arrow_down,
                 size: 16.r,

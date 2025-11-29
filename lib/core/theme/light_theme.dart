@@ -52,7 +52,7 @@ class LightTheme {
     const colorScheme = ColorScheme.light(
       primary: AppColors.primary,
       secondary: AppColors.electricBlue,
-      surface: AppColors.snowWhite,
+      surface: AppColors.cloudWhite,
       onPrimary: AppColors.snowWhite,
       onSecondary: AppColors.snowWhite,
       onSurface: AppColors.twilightPurple,
@@ -88,7 +88,7 @@ class LightTheme {
       unselectedItemColor: _colorScheme.onSurface.withAlpha(153),
       type: BottomNavigationBarType.fixed,
       elevation: 0,
-      selectedLabelStyle: TextStyles.font12CloudWhiteMeduim,
+      selectedLabelStyle: TextStyles.font12DarkerBlackBold,
       unselectedLabelStyle: TextStyles.font12SmokeGrayRegular,
     );
   }

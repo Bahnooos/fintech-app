@@ -1,15 +1,18 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fintech_app/core/helpers/app_regex.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
+import 'package:fintech_app/features/home/data/models/coin_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/theme/app_color.dart';
-import '../../../data/models/top_gainer_model.dart';
 
 class TopGainerTile extends StatelessWidget {
-  final TopGainerModel coin;
-
-  const TopGainerTile({super.key, required this.coin});
+  const TopGainerTile({
+    super.key,
+    this.coinModel,
+  });
+  final CoinModel? coinModel;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class TopGainerTile extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 12.h),
       padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        
         borderRadius: BorderRadius.circular(16.r),
       ),
       child: Row(
@@ -30,7 +33,14 @@ class TopGainerTile extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             alignment: Alignment.center,
-            child: Text(coin.iconUrl, style: TextStyle(fontSize: 20.sp)),
+            child: CachedNetworkImage(
+              imageUrl: coinModel?.image ?? '',
+              fit: BoxFit.contain,
+              width: 24.w,
+              height: 24.h,
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            ),
           ),
           12.horizontalSpace,
           Expanded(
@@ -38,11 +48,11 @@ class TopGainerTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  coin.name,
+                  coinModel?.name ?? '',
                   style: TextStyles.font16PrimaryBold,
                 ),
                 Text(
-                  coin.symbol,
+                  coinModel?.symbol ?? '',
                   style: TextStyles.font14StoneGrayMeduim,
                 ),
               ],
@@ -52,12 +62,14 @@ class TopGainerTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                AppRegex.formatWithCommas(coin.price.toInt()),
+                AppRegex.formatWithCommas(
+                  coinModel?.currentPrice?.toInt() ?? 0,
+                ),
                 style: TextStyles.font14TwilightPurpleMeduim,
               ),
               4.verticalSpace,
               Text(
-                '+${coin.percentageChange.toStringAsFixed(2)}%',
+                '+${coinModel?.priceChangePercentage24h?.toStringAsFixed(2)}%',
                 style: TextStyles.font12AlertOrangeRegular.copyWith(
                   color: AppColors.seafoamGreen,
                 ),

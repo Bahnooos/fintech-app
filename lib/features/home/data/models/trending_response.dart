@@ -10,6 +10,10 @@ class TrendingResponse {
 
   factory TrendingResponse.fromJson(Map<String, dynamic> json) =>
       _$TrendingResponseFromJson(json);
+
+  factory TrendingResponse.mock() => TrendingResponse(
+    coins: List.generate(5, (index) => CoinWrapper.mock()),
+  );
 }
 
 @JsonSerializable(createToJson: false)
@@ -20,6 +24,8 @@ class CoinWrapper {
 
   factory CoinWrapper.fromJson(Map<String, dynamic> json) =>
       _$CoinWrapperFromJson(json);
+
+  factory CoinWrapper.mock() => CoinWrapper(item: CoinItem.mock());
 }
 
 @JsonSerializable(createToJson: false)
@@ -27,7 +33,7 @@ class CoinItem {
   final String? name;
   final String? symbol;
 
-  @JsonKey(name: 'large')
+  @JsonKey(name: 'small')
   final String? image;
   final CoinData? data;
 
@@ -40,6 +46,16 @@ class CoinItem {
 
   factory CoinItem.fromJson(Map<String, dynamic> json) =>
       _$CoinItemFromJson(json);
+
+  factory CoinItem.mock() => const CoinItem(
+    name: 'Bitcoin Placeholder',
+    symbol: 'BTC',
+    image: '',
+    data: CoinData(
+      price: 45000.0,
+      changePercentage: {'btc': 2.5},
+    ),
+  );
 }
 
 @JsonSerializable(createToJson: false)

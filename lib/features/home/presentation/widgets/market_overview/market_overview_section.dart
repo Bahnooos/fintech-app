@@ -2,15 +2,11 @@ import 'package:fintech_app/core/theme/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../data/models/market_overview_model.dart';
-import 'market_overview_grid.dart';
+import 'market_overview_bloc_builder.dart';
 
 class MarketOverviewSection extends StatelessWidget {
-  final MarketOverviewModel data;
-
   const MarketOverviewSection({
     super.key,
-    required this.data,
   });
 
   @override
@@ -25,7 +21,7 @@ class MarketOverviewSection extends StatelessWidget {
             style: TextStyles.font18PrimaryBold,
           ),
           16.verticalSpace,
-          MarketOverviewGrid(data: data),
+          const MarketOverviewBlocBuilder(),
         ],
       ),
     );

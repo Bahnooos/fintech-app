@@ -1,16 +1,17 @@
 import 'package:fintech_app/core/theme/text_styles.dart';
+import 'package:fintech_app/features/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../data/models/trending_coin_model.dart';
+import '../../../data/models/trending_response.dart';
+import '../../logic/cubit/home_state.dart';
 import 'trending_coin_card.dart';
 
 class TrendingSection extends StatelessWidget {
-  final List<TrendingCoinModel> coins;
-
   const TrendingSection({
     super.key,
-    required this.coins,
   });
 
   @override
@@ -36,12 +37,56 @@ class TrendingSection extends StatelessWidget {
         16.verticalSpace,
         SizedBox(
           height: 110.h,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
-            itemCount: coins.length,
-            itemBuilder: (context, index) {
-              return TrendingCoinCard(coin: coins[index]);
+          child: BlocBuilder<HomeCubit, HomeState>(
+            buildWhen: (previous, current) =>
+                current.trendingStatus.isLoading ||
+                current.trendingStatus.isSuccess ||
+                current.trendingStatus.isError,
+            builder: (context, state) {
+              switch (state.trendingStatus) {
+                case SectionStatus.initial:
+                  return const SizedBox.shrink();
+                case SectionStatus.loading:
+                  return Skeletonizer(
+                    enabled: true,
+                    ignoreContainers: false,
+                    containersColor: Colors.white,
+                    effect: const ShimmerEffect(
+                      baseColor: Color(0xFFE0E0E0),
+                      highlightColor: Color(0xFFF5F5F5),
+                    ),
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      itemCount: 5,
+                      itemBuilder: (context, index) {
+                        return TrendingCoinCard(
+                          coins: CoinWrapper.mock(),
+                        );
+                      },
+                    ),
+                  );
+
+                case SectionStatus.success:
+                  return Skeletonizer(
+                    enabled: false,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      itemCount: state.trendingCoins?.coins?.length,
+                      itemBuilder: (context, index) {
+                        return TrendingCoinCard(
+                          coins: state.trendingCoins?.coins?[index],
+                        );
+                      },
+                    ),
+                  );
+
+                case SectionStatus.error:
+                  return Center(
+                    child: Text(state.globalError ?? ''),
+                  );
+              }
             },
           ),
         ),

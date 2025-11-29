@@ -1,16 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:fintech_app/core/helpers/extension.dart';
+import 'package:fintech_app/features/home/data/models/global_data_response.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../data/models/market_overview_model.dart';
 import 'market_overview_item.dart';
 
 class MarketOverviewGrid extends StatelessWidget {
-  final MarketOverviewModel data;
-
-  const MarketOverviewGrid({
-    super.key,
-    required this.data,
-  });
+  const MarketOverviewGrid({super.key, this.globalMarketData});
+  final GlobalMarketData? globalMarketData;
 
   @override
   Widget build(BuildContext context) {
@@ -24,21 +21,23 @@ class MarketOverviewGrid extends StatelessWidget {
       children: [
         MarketOverviewItem(
           label: 'Market Cap',
-          value: data.marketCap,
-          percentage: data.marketCapPercentage,
+          value: (globalMarketData?.totalMarketCap?['usd'] as double)
+              .toCompact(),
+          percentage: globalMarketData?.marketCapChangePercentage24hUsd,
         ),
         MarketOverviewItem(
           label: '24h Volume',
-          value: data.volume24h,
-          percentage: data.volume24hPercentage,
+          value: (globalMarketData?.totalVolume?['usd'] as double).toCompact(),
+          percentage: globalMarketData?.marketCapChangePercentage24hUsd,
         ),
         MarketOverviewItem(
           label: 'BTC Dominance',
-          value: '${data.btcDominance}%',
+          value:
+              '${(globalMarketData?.marketCapPercentage?['btc'] as double).toStringAsFixed(2)}%',
         ),
         MarketOverviewItem(
           label: 'Active Coins',
-          value: data.activeCoins.toString(),
+          value: globalMarketData?.activeCryptocurrencies.toString(),
         ),
       ],
     );

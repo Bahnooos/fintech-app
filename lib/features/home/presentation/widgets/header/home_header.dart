@@ -11,24 +11,23 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 4.h),
       child: Row(
         children: [
           CircleAvatar(
-            radius: 20.r,
+            radius: 16.r,
             backgroundColor: AppColors.stoneGray,
             child: Icon(Icons.person, size: 24.sp, color: AppColors.snowWhite),
           ),
-          SizedBox(width: 12.w),
+          12.horizontalSpace,
           Text(
             'Hi, Ahmed 👋',
-            style: TextStyles.font18DarkerBlackBold,
+            style: TextStyles.font18PrimaryBold,
           ),
           const Spacer(),
           Container(
             padding: EdgeInsets.all(8.r),
             decoration: BoxDecoration(
-              color: AppColors.cloudWhite,
               borderRadius: BorderRadius.circular(12.r),
             ),
             child: SvgPicture.asset(

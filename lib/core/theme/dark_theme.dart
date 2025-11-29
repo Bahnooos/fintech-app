@@ -52,14 +52,17 @@ class DarkTheme {
     const colorScheme = ColorScheme.dark(
       primary: AppColors.primary,
       secondary: AppColors.electricBlue,
-      surface: AppColors.obsidianBlack,
+      surface: AppColors.scaffoldBackGroundDark,
       onPrimary: Colors.white,
       onSecondary: Colors.white,
       onSurface: Colors.white,
+      primaryContainer: AppColors.blackColor,
       // Use darker gray for containers in dark theme - better contrast than mediumGray
       surfaceContainerHighest: AppColors.inkBlack,
       error: AppColors.errorRed,
       onError: Colors.white,
+
+      onPrimaryContainer: AppColors.blackColor,
     );
     return colorScheme;
   }
@@ -84,7 +87,7 @@ class DarkTheme {
   /// Bottom Navigation Bar Theme
   static BottomNavigationBarThemeData get _bottomNavigationBarTheme {
     return BottomNavigationBarThemeData(
-      backgroundColor: _colorScheme.surface,
+      backgroundColor: _colorScheme.primaryContainer,
       selectedItemColor: _colorScheme.primary,
       // Use lighter opacity for better visibility on dark background
       unselectedItemColor: _colorScheme.onSurface.withAlpha(180),
@@ -155,7 +158,7 @@ class DarkTheme {
 
   /// Icon Theme
   static IconThemeData get _iconTheme {
-    return IconThemeData(color: _colorScheme.onSurface, size: 24);
+    return const IconThemeData(size: 24);
   }
 
   /// Divider Theme

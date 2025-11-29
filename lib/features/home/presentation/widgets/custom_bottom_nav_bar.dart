@@ -1,0 +1,120 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../../core/theme/app_color.dart';
+import '../../../../core/theme/app_images.dart';
+import '../../../../core/theme/text_styles.dart';
+
+class CustomBottomNavBar extends StatelessWidget {
+  final int currentIndex;
+  final ValueChanged<int>? onTap;
+
+  const CustomBottomNavBar({
+    super.key,
+    this.currentIndex = 0,
+    this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 70.h,
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, -2),
+          ),
+        ],
+      ),
+      child: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _NavBarItem(
+                icon: AppImages.homeIcon,
+                activeIcon: AppImages.homeActiveColor,
+                label: 'Home',
+                isSelected: currentIndex == 0,
+                onTap: () => onTap?.call(0),
+              ),
+              _NavBarItem(
+                icon: AppImages.marketIcon,
+                activeIcon: AppImages.marketActiveColor,
+                label: 'Market',
+                isSelected: currentIndex == 1,
+                onTap: () => onTap?.call(1),
+              ),
+              _NavBarItem(
+                icon: AppImages.portfolioIcon,
+                activeIcon: AppImages.portfolioActiveColor,
+                label: 'Portfolio',
+                isSelected: currentIndex == 2,
+                onTap: () => onTap?.call(2),
+              ),
+              _NavBarItem(
+                icon: AppImages.settingIcon,
+                activeIcon: AppImages.settingActiveColor,
+                label: 'Settings',
+                isSelected: currentIndex == 3,
+                onTap: () => onTap?.call(3),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _NavBarItem extends StatelessWidget {
+  final String icon;
+  final String activeIcon;
+  final String label;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const _NavBarItem({
+    required this.icon,
+    required this.activeIcon,
+    required this.label,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              isSelected ? activeIcon : icon,
+              width: 24.w,
+              height: 24.h,
+              colorFilter: ColorFilter.mode(
+                isSelected ? AppColors.primary : AppColors.stormGray,
+                BlendMode.srcIn,
+              ),
+            ),
+            6.verticalSpace,
+            Text(
+              label,
+              style: isSelected
+                  ? TextStyles.font12DarkerBlackBold
+                  : TextStyles.font12StoneGrayMeduim,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

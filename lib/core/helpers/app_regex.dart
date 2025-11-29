@@ -5,4 +5,5 @@ class AppRegex {
     (Match m) => '${m[1]},',
   );
 }
+
 }
