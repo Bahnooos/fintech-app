@@ -7,8 +7,8 @@ import 'package:fintech_app/core/widgets/custom_background_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FingerprintScreen extends StatelessWidget {
-  const FingerprintScreen({super.key});
+class FingerprintLoginScreen extends StatelessWidget {
+  const FingerprintLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

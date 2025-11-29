@@ -28,7 +28,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void _skipButton() {
-    context.pushNamed(Routes.authScreen);
+    context.pushReplacementNamed(Routes.authScreen);
   }
 
   void _onNextPage() {

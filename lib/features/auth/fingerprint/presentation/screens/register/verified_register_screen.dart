@@ -1,4 +1,6 @@
+import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:fintech_app/core/helpers/spacing.dart';
+import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/theme/app_images.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
 import 'package:fintech_app/core/widgets/custom_background_image.dart';
@@ -7,8 +9,8 @@ import 'package:fintech_app/features/auth/fingerprint/presentation/widgets/custo
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class VerifiedScreen extends StatelessWidget {
-  const VerifiedScreen({super.key});
+class VerifiedRegisterScreen extends StatelessWidget {
+  const VerifiedRegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class VerifiedScreen extends StatelessWidget {
                   Expanded(
                     child: Column(
                       children: [
-                        verticalSpace(250),
+                        verticalSpace(200),
                         Center(
                           child: Image.asset(
                             isDarkMode
@@ -40,12 +42,12 @@ class VerifiedScreen extends StatelessWidget {
                         ),
                         CustomTitleSubtitle(
                           topSpacing: 80,
-                          title: ' You’re verified',
+                          title: 'Your scanning is complete',
                           titleStyle: isDarkMode
                               ? TextStyles.font26SnowWhiteBold
                               : TextStyles.font26PrimaryBold,
                           subtitle:
-                              'You have been verified your\ninformation completely. Let’s make transactions!',
+                              'you will be able to sign in by using fingerprint',
                           subtitleStyle: isDarkMode
                               ? TextStyles.font18SnowWhiteRegular
                               : TextStyles.font18OnboardingBlackRegular,
@@ -55,8 +57,10 @@ class VerifiedScreen extends StatelessWidget {
                   ),
 
                   CustomButton(
-                    text: 'Continue To Home',
-                    onPressed: () {},
+                    text: 'Continue',
+                    onPressed: () => context.pushReplacementNamed(
+                      Routes.faceIdRegisterScreen,
+                    ),
                   ),
                   verticalSpace(30),
                 ],

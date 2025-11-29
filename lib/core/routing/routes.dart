@@ -4,7 +4,10 @@ class Routes {
   static const String authScreen = '/authScreen';
   static const String loginScreen = '/loginScreen';
   static const String registerScreen = '/registerScreen';
-  static const String faceIdScreen = '/faceIdScreen';
-  static const String fingerprintScreen = '/fingerprintScreen';
-  static const String verifiedScreen = '/verifiedScreen';
+  static const String faceIdLoginScreen = '/faceIdLoginScreen';
+  static const String fingerprintLoginScreen = '/fingerprintLoginScreen';
+  static const String verifiedLoginScreen = '/verifiedLoginScreen';
+  static const String faceIdRegisterScreen = '/faceIdRegisterScreen';
+  static const String fingerprintRegisterScreen = '/fingerprintRegisterScreen';
+  static const String verifiedRegisterScreen = '/verifiedRegisterScreen';
 }

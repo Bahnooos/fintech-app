@@ -1,4 +1,6 @@
+import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:fintech_app/core/helpers/spacing.dart';
+import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/theme/app_images.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
 import 'package:fintech_app/core/widgets/custom_background_image.dart';
@@ -7,8 +9,8 @@ import 'package:fintech_app/features/auth/fingerprint/presentation/widgets/custo
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FaceIdScreen extends StatelessWidget {
-  const FaceIdScreen({super.key});
+class FaceIdLoginScreen extends StatelessWidget {
+  const FaceIdLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,10 @@ class FaceIdScreen extends StatelessWidget {
 
                   CustomButton(
                     text: 'Continue To Home',
-                    onPressed: () {},
+                    onPressed: () => context.pushNamedAndRemoveUntil(
+                      Routes.homeScreen,
+                      (route) => false,
+                    ),
                   ),
                   verticalSpace(30),
                 ],
