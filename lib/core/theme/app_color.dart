@@ -12,6 +12,11 @@ class AppColors {
   static const Color primary = Color(0xFF1D3A70);
   static const Color twilightPurple = Color(0xFF1E1F4B);
   static const Color electricBlue = Color(0xFF4766F9);
+  static const Color lighterCardGradient = Color(0xFF4F5962);
+  static const Color cardGradient = Color(0xFF1D3A70);
+  static const Color backGroundCard = Color(0xFF3A5489);
+  static const Color scaffoldBackGroundDark = Color(0xFF121212);
+
 
   // ==================== NEUTRALS ====================
 

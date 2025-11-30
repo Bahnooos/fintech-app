@@ -27,13 +27,17 @@ class AppImages {
   static const String ethereumIcon = 'assets/svg/EthereumIcon.svg';
   static const String failureIcon = 'assets/svg/failureIcon.svg';
   static const String homeIcon = 'assets/svg/homeIcon.svg';
+  static const String homeActiveColor = 'assets/svg/homeActiveColor.svg';
   static const String languageIcon = 'assets/svg/languageIcon.svg';
   static const String litecoinIcon = 'assets/svg/LitecoinIcon.svg';
   static const String marketIcon = 'assets/svg/marketIcon.svg';
+  static const String marketActiveColor = 'assets/svg/marketActiveColor.svg';
   static const String notificationIcon = 'assets/svg/notificationIcon.svg';
   static const String portfolioIcon = 'assets/svg/portfolioIcon.svg';
+  static const String portfolioActiveColor = 'assets/svg/protfolioActiveColor.svg';
   static const String profileIcon = 'assets/svg/profileIcon.svg';
   static const String settingIcon = 'assets/svg/settingIcon.svg';
+  static const String settingActiveColor = 'assets/svg/settingsActiveColor.svg';
   static const String successIcon = 'assets/svg/successIcon.svg';
   static const String supportIcon = 'assets/svg/supportIcon.svg';
   static const String walletIcon = 'assets/svg/walletIcon.svg';

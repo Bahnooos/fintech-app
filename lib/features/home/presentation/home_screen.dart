@@ -2,17 +2,42 @@ import 'package:fintech_app/core/theme/app_color.dart';
 import 'package:fintech_app/core/theme/app_images.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+import 'widgets/custom_bottom_nav_bar.dart';
+import 'widgets/home_screen_body.dart';
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
+
+  void _onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.electricBlue,
+      body: SafeArea(
+        child: IndexedStack(
+          index: _currentIndex,
+          children: const [
+            HomeScreenBody(),
+            Center(child: Text('Market Screen')),
+            Center(child: Text('Portfolio Screen')),
+            Center(child: Text('Settings Screen')),
+          ],
+        ),
       ),
-      body: Center(
-        child: Image.asset(AppImages.masterCardImage),
+      bottomNavigationBar: CustomBottomNavBar(
+        currentIndex: _currentIndex,
+        onTap: _onTabTapped,
       ),
     );
   }
