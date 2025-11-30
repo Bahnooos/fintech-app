@@ -50,6 +50,8 @@ dependencies:
   retrofit: ^4.9.1
   retrofit_generator: ^10.2.0
   skeletonizer: ^2.1.0+1
+  # Customizable animated page indicator with a set of built-in effects.
+  smooth_page_indicator: ^1.2.1
 
 dev_dependencies:
   build_runner: ^2.10.4
@@ -85,10 +87,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: MyFlutterApp
+      fonts:
+        - asset: assets/fonts/MyFlutterApp.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
