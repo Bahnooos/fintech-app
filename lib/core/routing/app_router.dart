@@ -10,6 +10,7 @@ import 'package:fintech_app/features/auth/login/presentation/screens/login_scree
 import 'package:fintech_app/features/auth/register/presentation/screens/register_screen.dart';
 import 'package:fintech_app/features/home/presentation/home_screen.dart';
 import 'package:fintech_app/features/home/presentation/logic/cubit/home_cubit.dart';
+import 'package:fintech_app/features/onbaording/presentation/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,7 +31,6 @@ class AppRouter {
           ),
         );
 
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
       //! Auth Screen
       case Routes.authScreen:
         return MaterialPageRoute(builder: (_) => const AuthScreen());
