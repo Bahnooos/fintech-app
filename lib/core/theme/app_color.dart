@@ -33,6 +33,8 @@ class AppColors {
   static const Color stormGray = Color(0xFF787A8D);
   static const Color mediumGray = Color(0xFF8F8F8F);
   static const Color stoneGray = Color(0xFF949494);
+  static const Color lightGray = Color(0xffCBD5E1);
+  static const Color lighterGray = Color(0xff4F5962);
 
   /// White shades - darkest to lightest
   static const Color silverWhite = Color(0xFFF7F7F7);
