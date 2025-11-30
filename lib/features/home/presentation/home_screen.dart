@@ -1,3 +1,5 @@
+import 'package:fintech_app/core/theme/app_color.dart';
+import 'package:fintech_app/core/theme/app_images.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/custom_bottom_nav_bar.dart';
