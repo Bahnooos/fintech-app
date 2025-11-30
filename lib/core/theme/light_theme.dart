@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'app_color.dart';
+import 'font_weight_helper.dart';
 import 'text_styles.dart';
 
 /// Light theme configuration
@@ -88,7 +89,7 @@ class LightTheme {
       unselectedItemColor: _colorScheme.onSurface.withAlpha(153),
       type: BottomNavigationBarType.fixed,
       elevation: 0,
-      selectedLabelStyle: TextStyles.font12CloudWhiteMeduim,
+      selectedLabelStyle: TextStyles.font12DarkerBlackBold,
       unselectedLabelStyle: TextStyles.font12SmokeGrayRegular,
     );
   }
@@ -161,55 +162,71 @@ class LightTheme {
 
   /// Text Theme
   static TextTheme get _textTheme {
-    return TextTheme(
+return TextTheme(
+      // Heading 1
       displayLarge: TextStyles.font32DeepForestBold.copyWith(
-        fontSize: 34,
         color: _colorScheme.onSurface,
-        height: 1.1,
+        height: 1.2, // Headings usually have tighter height
       ),
+
+      // Heading 2
       displayMedium: TextStyles.font28SnowWhiteBold.copyWith(
         color: _colorScheme.onSurface,
-        height: 1.1,
+        height: 1.2,
       ),
-      displaySmall: TextStyles.font20PrimaryBold.copyWith(
-        fontSize: 22,
+
+      // Heading 3
+      displaySmall: TextStyles.font20TwilightPurpleMeduim.copyWith(
         color: _colorScheme.onSurface,
-        height: 1.1,
+        height: 1.2,
       ),
+
+      // Heading 4
       headlineMedium: TextStyles.font18TwilightPurpleSemiBold.copyWith(
-        fontSize: 17,
         color: _colorScheme.onSurface,
-        height: 1.1,
+        height: 1.2,
       ),
+      
+      // Heading 5 (Medium Weight per image)
+      titleMedium: TextStyles.font16MediumGrayRegular.copyWith(
+        color: _colorScheme.onSurface,
+        height: 1.3,
+        fontWeight: FontWeightHelper.medium,
+      ),
+      
+      // Paragraph Regular
       bodyLarge: TextStyles.font16MediumGrayRegular.copyWith(
-        fontSize: 17,
-        color: _colorScheme.onSurface,
-        height: 1.4,
+        color: _colorScheme.onSurface.withAlpha(230),
+        height: 1.5, // Body text needs breathing room
       ),
-      bodyMedium: TextStyles.font14SmokeGrayRegular.copyWith(
-        fontSize: 15,
-        color: _colorScheme.onSurface,
-        height: 1.4,
-      ),
-      bodySmall: TextStyles.font14SmokeGrayRegular.copyWith(
-        fontSize: 13,
+
+      // Paragraph Medium
+      bodyMedium: TextStyles.font14TwilightPurpleMeduim.copyWith(
         color: _colorScheme.onSurface.withAlpha(153),
-        height: 1.4,
+        height: 1.5,
       ),
-      labelLarge: TextStyles.font18SnowWhiteBold.copyWith(
-        fontSize: 17,
+
+      // Paragraph Small / Helper Text
+      bodySmall: TextStyles.font12SmokeGrayRegular.copyWith(
+        color: _colorScheme.onSurface.withAlpha(153),
+        height: 1.5,
+      ),
+
+      // Text Button : Large
+      labelLarge: TextStyles.font16MediumGrayRegular.copyWith(
         color: _colorScheme.onPrimary,
-        height: 1.1,
+        height: 1.0, // Buttons align better with height 1
       ),
+
+      // Text Button : Small
       labelMedium: TextStyles.font14TwilightPurpleMeduim.copyWith(
-        fontSize: 15,
         color: _colorScheme.onSurface,
-        height: 1.1,
+        height: 1.0,
       ),
+      
       labelSmall: TextStyles.font12CloudWhiteMeduim.copyWith(
-        fontSize: 11,
-        color: _colorScheme.onSurface.withAlpha(153),
-        height: 1.1,
+        color: _colorScheme.onSurface,
+        height: 1.0,
       ),
     );
   }

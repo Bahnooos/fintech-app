@@ -9,8 +9,11 @@ import 'package:fintech_app/features/auth/get_started/auth_screen.dart';
 import 'package:fintech_app/features/auth/login/presentation/screens/login_screen.dart';
 import 'package:fintech_app/features/auth/register/presentation/screens/register_screen.dart';
 import 'package:fintech_app/features/home/presentation/home_screen.dart';
-import 'package:fintech_app/features/onbaording/presentation/screens/onboarding_screen.dart';
+import 'package:fintech_app/features/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../di/dependency_injection.dart';
 
 class AppRouter {
   Route? onGenerateRoute(RouteSettings settings) {
@@ -20,6 +23,13 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
       //! Home Screen
       case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<HomeCubit>()..fetchAllData(),
+            child: const HomeScreen(),
+          ),
+        );
+
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       //! Auth Screen
       case Routes.authScreen:
