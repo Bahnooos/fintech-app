@@ -15,48 +15,49 @@ class WeeklyProfitPill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          'Weekly Profit',
-          style: context.labelMedium_14?.copyWith(
-            fontWeight: FontWeightHelper.regular,
-            color: Colors.white,
+    return Padding(
+      padding: EdgeInsets.only(left: 16.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Weekly Profit',
+            style: context.labelMedium_14?.copyWith(
+              fontWeight: FontWeightHelper.regular,
+              color: Colors.white,
+              letterSpacing: .44,
+            ),
           ),
-        ),
-        4.horizontalSpace,
+          6.horizontalSpace,
 
-        Container(
-          height: 22.h,
-
-          padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 4.h),
-          decoration: BoxDecoration(
-            color: Colors.white.withValues(alpha: 0.2),
-            borderRadius: BorderRadius.circular(16.r),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                '${percentage.toStringAsFixed(2)}%',
-                style: context.labelSmall_12?.copyWith(
-                  color: AppColors.cloudWhite,
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 4.h),
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.2),
+              borderRadius: BorderRadius.circular(16.r),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  '${percentage.toStringAsFixed(2)}%',
+                  style: context.labelSmall_12?.copyWith(
+                    color: AppColors.cloudWhite,
+                    letterSpacing: 0,
+                  ),
                 ),
-              ),
-              2.horizontalSpace,
-              Icon(
-                Icons.keyboard_arrow_down,
-                size: 16.r,
-                color: AppColors.snowWhite,
-              ),
-            ],
+                2.horizontalSpace,
+                Icon(
+                  Icons.keyboard_arrow_down,
+                  size: 16.r,
+                  color: AppColors.snowWhite,
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
