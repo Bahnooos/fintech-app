@@ -10,6 +10,8 @@ import 'package:fintech_app/features/auth/login/presentation/screens/login_scree
 import 'package:fintech_app/features/auth/register/presentation/screens/register_screen.dart';
 import 'package:fintech_app/features/home/presentation/home_screen.dart';
 import 'package:fintech_app/features/home/presentation/logic/cubit/home_cubit.dart';
+import 'package:fintech_app/features/market/presentation/logic/market_cubit.dart';
+import 'package:fintech_app/features/market/presentation/screens/market_screen.dart';
 import 'package:fintech_app/features/onbaording/presentation/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -62,7 +64,13 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const VerifiedRegisterScreen(),
         );
-
+      case Routes.marketScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => MarketCubit(),
+            child: MarketScreen(),
+          ),
+        );
       default:
         return null;
     }

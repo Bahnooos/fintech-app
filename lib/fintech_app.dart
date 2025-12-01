@@ -19,7 +19,7 @@ class FintechApp extends StatelessWidget {
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
         themeMode: ThemeMode.system,
-        initialRoute: Routes.onboardingScreen,
+        initialRoute: Routes.marketScreen,
         onGenerateRoute: appRouter.onGenerateRoute,
       ),
     );
