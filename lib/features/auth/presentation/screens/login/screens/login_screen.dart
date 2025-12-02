@@ -7,9 +7,9 @@ import 'package:fintech_app/core/widgets/custom_auth_header.dart';
 import 'package:fintech_app/core/widgets/custom_background_image.dart';
 import 'package:fintech_app/core/widgets/custom_button.dart';
 import 'package:fintech_app/core/widgets/custom_text_form_field.dart';
-import 'package:fintech_app/features/auth/login/presentation/widgets/biometric_login_buttons.dart';
-import 'package:fintech_app/features/auth/login/presentation/widgets/custom_divider_with_text.dart';
-import 'package:fintech_app/features/auth/login/presentation/widgets/login_row_option.dart';
+import 'package:fintech_app/features/auth/presentation/screens/login/widgets/biometric_login_buttons.dart';
+import 'package:fintech_app/features/auth/presentation/screens/login/widgets/custom_divider_with_text.dart';
+import 'package:fintech_app/features/auth/presentation/screens/login/widgets/login_row_option.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

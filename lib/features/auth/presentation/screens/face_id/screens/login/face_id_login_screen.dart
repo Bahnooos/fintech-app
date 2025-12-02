@@ -5,12 +5,12 @@ import 'package:fintech_app/core/theme/app_images.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
 import 'package:fintech_app/core/widgets/custom_background_image.dart';
 import 'package:fintech_app/core/widgets/custom_button.dart';
-import 'package:fintech_app/features/auth/fingerprint/presentation/widgets/custom_title_subtitle.dart';
+import 'package:fintech_app/features/auth/presentation/screens/fingerprint/widgets/custom_title_subtitle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class VerifiedLoginScreen extends StatelessWidget {
-  const VerifiedLoginScreen({super.key});
+class FaceIdLoginScreen extends StatelessWidget {
+  const FaceIdLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,14 +34,14 @@ class VerifiedLoginScreen extends StatelessWidget {
                         Center(
                           child: Image.asset(
                             isDarkMode
-                                ? AppImages.verifiedDarkImage
-                                : AppImages.verifiedImage,
+                                ? AppImages.faceIdVerifiedDarkImage
+                                : AppImages.faceIdVerifiedImage,
                             width: 150.w,
                             height: 150.h,
                           ),
                         ),
                         CustomTitleSubtitle(
-                          topSpacing: 80,
+                          topSpacing: 30,
                           title: ' You’re verified',
                           titleStyle: isDarkMode
                               ? TextStyles.font26SnowWhiteBold
