@@ -3,18 +3,18 @@ part 'api_error_model.g.dart';
 
 @JsonSerializable(createToJson: false)
 class ApiErrorModel {
+  @JsonKey(name: 'error')
   final String? message;
-  final int? statusCode;
-  final Map<String, dynamic>? errors;
+  
 
-  ApiErrorModel({this.errors,this.message, this.statusCode});
+ const ApiErrorModel({ this.message});
   factory ApiErrorModel.fromJson(Map<String, dynamic> json) =>
       _$ApiErrorModelFromJson(json);
 
-  String getAllErrorsMessages() {
-    return errors!.entries.map((entry) {
-      final value = entry.value;
-      return '${value.join(', ')}';
-    }).join('\n');
-  }
+  // String getAllErrorsMessages() {
+  //   return errors!.entries.map((entry) {
+  //     final value = entry.value;
+  //     return '${value.join(', ')}';
+  //   }).join('\n');
+  // }
 }
