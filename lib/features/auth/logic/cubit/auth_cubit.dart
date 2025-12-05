@@ -40,14 +40,11 @@ class AuthCubit extends Cubit<AuthState> {
     );
   }
 
-  Future<void> login({
-    required String email,
-    required String password,
-  }) async {
+  Future<void> login() async {
     emit(const AuthState.loginLoading());
     final result = await authRepo.login(
-      email: email,
-      password: password,
+      email: loginEmailController.text,
+      password: loginPasswordController.text,
     );
     result.when(
       success: (user) => emit(AuthState.loginSuccess(user)),

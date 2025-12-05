@@ -6,7 +6,7 @@ import 'package:fintech_app/core/widgets/custom_auth_header.dart';
 import 'package:fintech_app/core/widgets/custom_background_image.dart';
 import 'package:fintech_app/core/widgets/custom_button.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_cubit.dart';
-import 'package:fintech_app/features/auth/presentation/screens/register/widgets/build_bloc_listner.dart';
+import 'package:fintech_app/features/auth/presentation/screens/register/widgets/build_register_bloc_listner.dart';
 import 'package:fintech_app/features/auth/presentation/screens/register/widgets/register_form_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,7 +17,7 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BuildBlocListner(
+    return BuildRegisterBlocListner(
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         body: SafeArea(
