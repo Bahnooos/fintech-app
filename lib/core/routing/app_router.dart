@@ -11,6 +11,7 @@ import 'package:fintech_app/features/auth/register/presentation/screens/register
 import 'package:fintech_app/features/home/presentation/home_screen.dart';
 import 'package:fintech_app/features/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:fintech_app/features/market/presentation/logic/market_cubit.dart';
+import 'package:fintech_app/features/market/presentation/screens/coin_details_screen.dart';
 import 'package:fintech_app/features/market/presentation/screens/market_screen.dart';
 import 'package:fintech_app/features/onbaording/presentation/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
@@ -69,6 +70,14 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => MarketCubit(),
             child: MarketScreen(),
+          ),
+        );
+      case Routes.coinDetailsScreen:
+        MarketCubit marketCubit = settings.arguments as MarketCubit;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider.value(
+            value: marketCubit,
+            child: CoinDetailsScreen(),
           ),
         );
       default:

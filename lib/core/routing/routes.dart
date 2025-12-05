@@ -11,4 +11,5 @@ class Routes {
   static const String fingerprintRegisterScreen = '/fingerprintRegisterScreen';
   static const String verifiedRegisterScreen = '/verifiedRegisterScreen';
   static const String marketScreen = '/marketScreen';
+  static const String coinDetailsScreen = '/coinDetailsScreen';
 }

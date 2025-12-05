@@ -62,6 +62,11 @@ class TextStyles {
     color: AppColors.darkGray,
     fontWeight: FontWeightHelper.regular,
   );
+  static TextStyle font12BlackRegular = GoogleFonts.lato(
+    fontSize: 12.sp,
+    color: AppColors.twilightPurple,
+    fontWeight: FontWeightHelper.regular,
+  );
   static TextStyle font12PrimaryRegular = GoogleFonts.lato(
     fontSize: 12.sp,
     color: AppColors.primary,
@@ -99,6 +104,12 @@ class TextStyles {
     color: AppColors.mediumGray,
     fontWeight: FontWeightHelper.medium,
   );
+  static TextStyle? font14LatoMedium = GoogleFonts.lato(
+    fontSize: 14.sp,
+    color: AppColors.onboardingBlack,
+    fontWeight: FontWeightHelper.medium,
+  );
+
   static TextStyle font12CloudWhiteMeduim = GoogleFonts.lato(
     fontSize: 12.sp,
     color: AppColors.cloudWhite,

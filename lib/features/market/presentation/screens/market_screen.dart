@@ -1,6 +1,8 @@
+import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
 import 'package:fintech_app/features/market/domain/filter_entity.dart';
 import 'package:fintech_app/features/market/presentation/logic/market_cubit.dart';
+import 'package:fintech_app/features/market/presentation/widgets/coin_overview_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -75,6 +77,27 @@ class MarketScreen extends StatelessWidget {
                             ),
                           ),
                       ],
+                    ),
+                  ),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        spacing: 8.sp,
+                        children: [
+                          for (var coin in _marketCubit.coins)
+                            GestureDetector(
+                              onTap: () {
+                                _marketCubit.selectedCoin = coin;
+                                Navigator.pushNamed(
+                                  context,
+                                  Routes.coinDetailsScreen,
+                                  arguments: _marketCubit,
+                                );
+                              },
+                              child: CoinOverviewCard(coin: coin),
+                            ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
