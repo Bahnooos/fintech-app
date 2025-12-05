@@ -1,4 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:fintech_app/features/auth/data/repo/auth_repo_impl.dart';
+import 'package:fintech_app/features/auth/logic/cubit/auth_cubit.dart';
+import 'package:fintech_app/features/auth/presentation/repo/auth_repo.dart';
 import 'package:fintech_app/features/home/data/apis/home_api_service.dart';
 import 'package:fintech_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:fintech_app/features/home/presentation/repos/home_repo.dart';
@@ -12,6 +15,10 @@ final getIt = GetIt.instance;
 Future<void> initGetIt() async {
   // Dio & Api Service
   Dio dio = DioFactory.getDio();
+
+  /// Auth
+  getIt.registerLazySingleton<AuthRepo>(() => AuthRepoImpl());
+  getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt()));
 
   /// Home_Api_Service =>  Home_Repo => Home_Cubit
   getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));

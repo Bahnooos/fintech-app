@@ -39,12 +39,18 @@ class LoginScreen extends StatelessWidget {
                     ),
                     verticalSpace(100),
                     CustomTextFormField(
+                      validator: (String value) {
+                        return null;
+                      },
                       hintText: 'E-mail ID',
                       onTap: () {},
                       prefixIcon: const Icon(MyFlutterApp.emailicon),
                     ),
                     verticalSpace(16),
                     CustomTextFormField(
+                      validator: (String value) {
+                        return null;
+                      },
                       hintText: 'Password',
                       onTap: () {},
                       prefixIcon: const Icon(MyFlutterApp.passwordicon),
