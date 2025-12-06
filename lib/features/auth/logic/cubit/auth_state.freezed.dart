@@ -55,7 +55,7 @@ extension AuthStatePatterns on AuthState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( RegisterLoading value)?  registerLoading,TResult Function( RegisterSuccess value)?  registerSuccess,TResult Function( RegisterFailure value)?  registerFailure,TResult Function( LoginLoading value)?  loginLoading,TResult Function( LoginSuccess value)?  loginSuccess,TResult Function( LoginFailure value)?  loginFailure,TResult Function( LogoutLoading value)?  logoutLoading,TResult Function( LogoutSuccess value)?  logoutSuccess,TResult Function( LogoutFailure value)?  logoutFailure,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( RegisterLoading value)?  registerLoading,TResult Function( RegisterSuccess value)?  registerSuccess,TResult Function( RegisterFailure value)?  registerFailure,TResult Function( LoginLoading value)?  loginLoading,TResult Function( LoginSuccess value)?  loginSuccess,TResult Function( LoginFailure value)?  loginFailure,TResult Function( LogoutLoading value)?  logoutLoading,TResult Function( LogoutSuccess value)?  logoutSuccess,TResult Function( LogoutFailure value)?  logoutFailure,TResult Function( BiometricLoading value)?  biometricLoading,TResult Function( BiometricSuccess value)?  biometricSuccess,TResult Function( BiometricFailure value)?  biometricFailure,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
@@ -68,7 +68,10 @@ return loginSuccess(_that);case LoginFailure() when loginFailure != null:
 return loginFailure(_that);case LogoutLoading() when logoutLoading != null:
 return logoutLoading(_that);case LogoutSuccess() when logoutSuccess != null:
 return logoutSuccess(_that);case LogoutFailure() when logoutFailure != null:
-return logoutFailure(_that);case _:
+return logoutFailure(_that);case BiometricLoading() when biometricLoading != null:
+return biometricLoading(_that);case BiometricSuccess() when biometricSuccess != null:
+return biometricSuccess(_that);case BiometricFailure() when biometricFailure != null:
+return biometricFailure(_that);case _:
   return orElse();
 
 }
@@ -86,7 +89,7 @@ return logoutFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( RegisterLoading value)  registerLoading,required TResult Function( RegisterSuccess value)  registerSuccess,required TResult Function( RegisterFailure value)  registerFailure,required TResult Function( LoginLoading value)  loginLoading,required TResult Function( LoginSuccess value)  loginSuccess,required TResult Function( LoginFailure value)  loginFailure,required TResult Function( LogoutLoading value)  logoutLoading,required TResult Function( LogoutSuccess value)  logoutSuccess,required TResult Function( LogoutFailure value)  logoutFailure,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( RegisterLoading value)  registerLoading,required TResult Function( RegisterSuccess value)  registerSuccess,required TResult Function( RegisterFailure value)  registerFailure,required TResult Function( LoginLoading value)  loginLoading,required TResult Function( LoginSuccess value)  loginSuccess,required TResult Function( LoginFailure value)  loginFailure,required TResult Function( LogoutLoading value)  logoutLoading,required TResult Function( LogoutSuccess value)  logoutSuccess,required TResult Function( LogoutFailure value)  logoutFailure,required TResult Function( BiometricLoading value)  biometricLoading,required TResult Function( BiometricSuccess value)  biometricSuccess,required TResult Function( BiometricFailure value)  biometricFailure,}){
 final _that = this;
 switch (_that) {
 case _Initial():
@@ -99,7 +102,10 @@ return loginSuccess(_that);case LoginFailure():
 return loginFailure(_that);case LogoutLoading():
 return logoutLoading(_that);case LogoutSuccess():
 return logoutSuccess(_that);case LogoutFailure():
-return logoutFailure(_that);case _:
+return logoutFailure(_that);case BiometricLoading():
+return biometricLoading(_that);case BiometricSuccess():
+return biometricSuccess(_that);case BiometricFailure():
+return biometricFailure(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -116,7 +122,7 @@ return logoutFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( RegisterLoading value)?  registerLoading,TResult? Function( RegisterSuccess value)?  registerSuccess,TResult? Function( RegisterFailure value)?  registerFailure,TResult? Function( LoginLoading value)?  loginLoading,TResult? Function( LoginSuccess value)?  loginSuccess,TResult? Function( LoginFailure value)?  loginFailure,TResult? Function( LogoutLoading value)?  logoutLoading,TResult? Function( LogoutSuccess value)?  logoutSuccess,TResult? Function( LogoutFailure value)?  logoutFailure,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( RegisterLoading value)?  registerLoading,TResult? Function( RegisterSuccess value)?  registerSuccess,TResult? Function( RegisterFailure value)?  registerFailure,TResult? Function( LoginLoading value)?  loginLoading,TResult? Function( LoginSuccess value)?  loginSuccess,TResult? Function( LoginFailure value)?  loginFailure,TResult? Function( LogoutLoading value)?  logoutLoading,TResult? Function( LogoutSuccess value)?  logoutSuccess,TResult? Function( LogoutFailure value)?  logoutFailure,TResult? Function( BiometricLoading value)?  biometricLoading,TResult? Function( BiometricSuccess value)?  biometricSuccess,TResult? Function( BiometricFailure value)?  biometricFailure,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
@@ -129,7 +135,10 @@ return loginSuccess(_that);case LoginFailure() when loginFailure != null:
 return loginFailure(_that);case LogoutLoading() when logoutLoading != null:
 return logoutLoading(_that);case LogoutSuccess() when logoutSuccess != null:
 return logoutSuccess(_that);case LogoutFailure() when logoutFailure != null:
-return logoutFailure(_that);case _:
+return logoutFailure(_that);case BiometricLoading() when biometricLoading != null:
+return biometricLoading(_that);case BiometricSuccess() when biometricSuccess != null:
+return biometricSuccess(_that);case BiometricFailure() when biometricFailure != null:
+return biometricFailure(_that);case _:
   return null;
 
 }
@@ -146,7 +155,7 @@ return logoutFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  registerLoading,TResult Function( UserModel user)?  registerSuccess,TResult Function( String message)?  registerFailure,TResult Function()?  loginLoading,TResult Function( UserModel user)?  loginSuccess,TResult Function( String message)?  loginFailure,TResult Function()?  logoutLoading,TResult Function()?  logoutSuccess,TResult Function( String message)?  logoutFailure,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  registerLoading,TResult Function( UserModel user)?  registerSuccess,TResult Function( String message)?  registerFailure,TResult Function()?  loginLoading,TResult Function( UserModel user)?  loginSuccess,TResult Function( String message)?  loginFailure,TResult Function()?  logoutLoading,TResult Function()?  logoutSuccess,TResult Function( String message)?  logoutFailure,TResult Function()?  biometricLoading,TResult Function()?  biometricSuccess,TResult Function( String message)?  biometricFailure,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case RegisterLoading() when registerLoading != null:
@@ -158,7 +167,10 @@ return loginSuccess(_that.user);case LoginFailure() when loginFailure != null:
 return loginFailure(_that.message);case LogoutLoading() when logoutLoading != null:
 return logoutLoading();case LogoutSuccess() when logoutSuccess != null:
 return logoutSuccess();case LogoutFailure() when logoutFailure != null:
-return logoutFailure(_that.message);case _:
+return logoutFailure(_that.message);case BiometricLoading() when biometricLoading != null:
+return biometricLoading();case BiometricSuccess() when biometricSuccess != null:
+return biometricSuccess();case BiometricFailure() when biometricFailure != null:
+return biometricFailure(_that.message);case _:
   return orElse();
 
 }
@@ -176,7 +188,7 @@ return logoutFailure(_that.message);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  registerLoading,required TResult Function( UserModel user)  registerSuccess,required TResult Function( String message)  registerFailure,required TResult Function()  loginLoading,required TResult Function( UserModel user)  loginSuccess,required TResult Function( String message)  loginFailure,required TResult Function()  logoutLoading,required TResult Function()  logoutSuccess,required TResult Function( String message)  logoutFailure,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  registerLoading,required TResult Function( UserModel user)  registerSuccess,required TResult Function( String message)  registerFailure,required TResult Function()  loginLoading,required TResult Function( UserModel user)  loginSuccess,required TResult Function( String message)  loginFailure,required TResult Function()  logoutLoading,required TResult Function()  logoutSuccess,required TResult Function( String message)  logoutFailure,required TResult Function()  biometricLoading,required TResult Function()  biometricSuccess,required TResult Function( String message)  biometricFailure,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case RegisterLoading():
@@ -188,7 +200,10 @@ return loginSuccess(_that.user);case LoginFailure():
 return loginFailure(_that.message);case LogoutLoading():
 return logoutLoading();case LogoutSuccess():
 return logoutSuccess();case LogoutFailure():
-return logoutFailure(_that.message);case _:
+return logoutFailure(_that.message);case BiometricLoading():
+return biometricLoading();case BiometricSuccess():
+return biometricSuccess();case BiometricFailure():
+return biometricFailure(_that.message);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -205,7 +220,7 @@ return logoutFailure(_that.message);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  registerLoading,TResult? Function( UserModel user)?  registerSuccess,TResult? Function( String message)?  registerFailure,TResult? Function()?  loginLoading,TResult? Function( UserModel user)?  loginSuccess,TResult? Function( String message)?  loginFailure,TResult? Function()?  logoutLoading,TResult? Function()?  logoutSuccess,TResult? Function( String message)?  logoutFailure,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  registerLoading,TResult? Function( UserModel user)?  registerSuccess,TResult? Function( String message)?  registerFailure,TResult? Function()?  loginLoading,TResult? Function( UserModel user)?  loginSuccess,TResult? Function( String message)?  loginFailure,TResult? Function()?  logoutLoading,TResult? Function()?  logoutSuccess,TResult? Function( String message)?  logoutFailure,TResult? Function()?  biometricLoading,TResult? Function()?  biometricSuccess,TResult? Function( String message)?  biometricFailure,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case RegisterLoading() when registerLoading != null:
@@ -217,7 +232,10 @@ return loginSuccess(_that.user);case LoginFailure() when loginFailure != null:
 return loginFailure(_that.message);case LogoutLoading() when logoutLoading != null:
 return logoutLoading();case LogoutSuccess() when logoutSuccess != null:
 return logoutSuccess();case LogoutFailure() when logoutFailure != null:
-return logoutFailure(_that.message);case _:
+return logoutFailure(_that.message);case BiometricLoading() when biometricLoading != null:
+return biometricLoading();case BiometricSuccess() when biometricSuccess != null:
+return biometricSuccess();case BiometricFailure() when biometricFailure != null:
+return biometricFailure(_that.message);case _:
   return null;
 
 }
@@ -302,7 +320,7 @@ class RegisterSuccess implements AuthState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$RegisterSuccessCopyWith<RegisterSuccess> get copyWith => __$RegisterSuccessCopyWithImpl<RegisterSuccess>(this, _$identity);
+$RegisterSuccessCopyWith<RegisterSuccess> get copyWith => _$RegisterSuccessCopyWithImpl<RegisterSuccess>(this, _$identity);
 
 
 
@@ -324,8 +342,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$RegisterSuccessCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
-  factory _$RegisterSuccessCopyWith(RegisterSuccess value, $Res Function(RegisterSuccess) _then) = __$RegisterSuccessCopyWithImpl;
+abstract mixin class $RegisterSuccessCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+  factory $RegisterSuccessCopyWith(RegisterSuccess value, $Res Function(RegisterSuccess) _then) = _$RegisterSuccessCopyWithImpl;
 @useResult
 $Res call({
  UserModel user
@@ -336,9 +354,9 @@ $Res call({
 
 }
 /// @nodoc
-class __$RegisterSuccessCopyWithImpl<$Res>
-    implements _$RegisterSuccessCopyWith<$Res> {
-  __$RegisterSuccessCopyWithImpl(this._self, this._then);
+class _$RegisterSuccessCopyWithImpl<$Res>
+    implements $RegisterSuccessCopyWith<$Res> {
+  _$RegisterSuccessCopyWithImpl(this._self, this._then);
 
   final RegisterSuccess _self;
   final $Res Function(RegisterSuccess) _then;
@@ -368,7 +386,7 @@ class RegisterFailure implements AuthState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$RegisterFailureCopyWith<RegisterFailure> get copyWith => __$RegisterFailureCopyWithImpl<RegisterFailure>(this, _$identity);
+$RegisterFailureCopyWith<RegisterFailure> get copyWith => _$RegisterFailureCopyWithImpl<RegisterFailure>(this, _$identity);
 
 
 
@@ -390,8 +408,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$RegisterFailureCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
-  factory _$RegisterFailureCopyWith(RegisterFailure value, $Res Function(RegisterFailure) _then) = __$RegisterFailureCopyWithImpl;
+abstract mixin class $RegisterFailureCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+  factory $RegisterFailureCopyWith(RegisterFailure value, $Res Function(RegisterFailure) _then) = _$RegisterFailureCopyWithImpl;
 @useResult
 $Res call({
  String message
@@ -402,9 +420,9 @@ $Res call({
 
 }
 /// @nodoc
-class __$RegisterFailureCopyWithImpl<$Res>
-    implements _$RegisterFailureCopyWith<$Res> {
-  __$RegisterFailureCopyWithImpl(this._self, this._then);
+class _$RegisterFailureCopyWithImpl<$Res>
+    implements $RegisterFailureCopyWith<$Res> {
+  _$RegisterFailureCopyWithImpl(this._self, this._then);
 
   final RegisterFailure _self;
   final $Res Function(RegisterFailure) _then;
@@ -466,7 +484,7 @@ class LoginSuccess implements AuthState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$LoginSuccessCopyWith<LoginSuccess> get copyWith => __$LoginSuccessCopyWithImpl<LoginSuccess>(this, _$identity);
+$LoginSuccessCopyWith<LoginSuccess> get copyWith => _$LoginSuccessCopyWithImpl<LoginSuccess>(this, _$identity);
 
 
 
@@ -488,8 +506,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$LoginSuccessCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
-  factory _$LoginSuccessCopyWith(LoginSuccess value, $Res Function(LoginSuccess) _then) = __$LoginSuccessCopyWithImpl;
+abstract mixin class $LoginSuccessCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+  factory $LoginSuccessCopyWith(LoginSuccess value, $Res Function(LoginSuccess) _then) = _$LoginSuccessCopyWithImpl;
 @useResult
 $Res call({
  UserModel user
@@ -500,9 +518,9 @@ $Res call({
 
 }
 /// @nodoc
-class __$LoginSuccessCopyWithImpl<$Res>
-    implements _$LoginSuccessCopyWith<$Res> {
-  __$LoginSuccessCopyWithImpl(this._self, this._then);
+class _$LoginSuccessCopyWithImpl<$Res>
+    implements $LoginSuccessCopyWith<$Res> {
+  _$LoginSuccessCopyWithImpl(this._self, this._then);
 
   final LoginSuccess _self;
   final $Res Function(LoginSuccess) _then;
@@ -532,7 +550,7 @@ class LoginFailure implements AuthState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$LoginFailureCopyWith<LoginFailure> get copyWith => __$LoginFailureCopyWithImpl<LoginFailure>(this, _$identity);
+$LoginFailureCopyWith<LoginFailure> get copyWith => _$LoginFailureCopyWithImpl<LoginFailure>(this, _$identity);
 
 
 
@@ -554,8 +572,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$LoginFailureCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
-  factory _$LoginFailureCopyWith(LoginFailure value, $Res Function(LoginFailure) _then) = __$LoginFailureCopyWithImpl;
+abstract mixin class $LoginFailureCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+  factory $LoginFailureCopyWith(LoginFailure value, $Res Function(LoginFailure) _then) = _$LoginFailureCopyWithImpl;
 @useResult
 $Res call({
  String message
@@ -566,9 +584,9 @@ $Res call({
 
 }
 /// @nodoc
-class __$LoginFailureCopyWithImpl<$Res>
-    implements _$LoginFailureCopyWith<$Res> {
-  __$LoginFailureCopyWithImpl(this._self, this._then);
+class _$LoginFailureCopyWithImpl<$Res>
+    implements $LoginFailureCopyWith<$Res> {
+  _$LoginFailureCopyWithImpl(this._self, this._then);
 
   final LoginFailure _self;
   final $Res Function(LoginFailure) _then;
@@ -662,7 +680,7 @@ class LogoutFailure implements AuthState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$LogoutFailureCopyWith<LogoutFailure> get copyWith => __$LogoutFailureCopyWithImpl<LogoutFailure>(this, _$identity);
+$LogoutFailureCopyWith<LogoutFailure> get copyWith => _$LogoutFailureCopyWithImpl<LogoutFailure>(this, _$identity);
 
 
 
@@ -684,8 +702,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$LogoutFailureCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
-  factory _$LogoutFailureCopyWith(LogoutFailure value, $Res Function(LogoutFailure) _then) = __$LogoutFailureCopyWithImpl;
+abstract mixin class $LogoutFailureCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+  factory $LogoutFailureCopyWith(LogoutFailure value, $Res Function(LogoutFailure) _then) = _$LogoutFailureCopyWithImpl;
 @useResult
 $Res call({
  String message
@@ -696,9 +714,9 @@ $Res call({
 
 }
 /// @nodoc
-class __$LogoutFailureCopyWithImpl<$Res>
-    implements _$LogoutFailureCopyWith<$Res> {
-  __$LogoutFailureCopyWithImpl(this._self, this._then);
+class _$LogoutFailureCopyWithImpl<$Res>
+    implements $LogoutFailureCopyWith<$Res> {
+  _$LogoutFailureCopyWithImpl(this._self, this._then);
 
   final LogoutFailure _self;
   final $Res Function(LogoutFailure) _then;
@@ -707,6 +725,136 @@ class __$LogoutFailureCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
   return _then(LogoutFailure(
+null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class BiometricLoading implements AuthState {
+  const BiometricLoading();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BiometricLoading);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'AuthState.biometricLoading()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class BiometricSuccess implements AuthState {
+  const BiometricSuccess();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BiometricSuccess);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'AuthState.biometricSuccess()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class BiometricFailure implements AuthState {
+  const BiometricFailure(this.message);
+  
+
+ final  String message;
+
+/// Create a copy of AuthState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BiometricFailureCopyWith<BiometricFailure> get copyWith => _$BiometricFailureCopyWithImpl<BiometricFailure>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BiometricFailure&&(identical(other.message, message) || other.message == message));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,message);
+
+@override
+String toString() {
+  return 'AuthState.biometricFailure(message: $message)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $BiometricFailureCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+  factory $BiometricFailureCopyWith(BiometricFailure value, $Res Function(BiometricFailure) _then) = _$BiometricFailureCopyWithImpl;
+@useResult
+$Res call({
+ String message
+});
+
+
+
+
+}
+/// @nodoc
+class _$BiometricFailureCopyWithImpl<$Res>
+    implements $BiometricFailureCopyWith<$Res> {
+  _$BiometricFailureCopyWithImpl(this._self, this._then);
+
+  final BiometricFailure _self;
+  final $Res Function(BiometricFailure) _then;
+
+/// Create a copy of AuthState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
+  return _then(BiometricFailure(
 null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,
   ));

@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:fintech_app/core/networking/api_reuslt.dart';
+import 'package:fintech_app/core/services/local_auth_services.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_state.dart';
 import 'package:fintech_app/features/auth/presentation/repo/auth_repo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   final loginFormKey = GlobalKey<FormState>();
@@ -23,8 +25,32 @@ class AuthCubit extends Cubit<AuthState> {
   final TextEditingController loginEmailController = TextEditingController();
   final TextEditingController loginPasswordController = TextEditingController();
 
-  AuthCubit(this.authRepo) : super(const AuthState.initial());
+  AuthCubit(this.authRepo, this.authService) : super(const AuthState.initial());
   final AuthRepo authRepo;
+  final LocalAuthService authService;
+
+  ///! Biometrics
+  Future<void> authenticateWithBiometrics() async {
+    emit(const AuthState.biometricLoading());
+    try {
+      final authenticated = await authService.authenticate(
+        reason: 'Use biometrics to log in',
+      );
+      if (authenticated) {
+        emit(const AuthState.biometricSuccess());
+      } else {
+        emit(const AuthState.biometricFailure("Authentication cancelled"));
+      }
+    } on PlatformException catch (e) {
+      emit(
+        AuthState.biometricFailure(
+          e.message ?? "Biometric authentication failed",
+        ),
+      );
+    }
+  }
+
+  ///! Register
   Future<void> register() async {
     emit(const AuthState.registerLoading());
     final result = await authRepo.register(
@@ -40,6 +66,7 @@ class AuthCubit extends Cubit<AuthState> {
     );
   }
 
+  ///! Login
   Future<void> login() async {
     emit(const AuthState.loginLoading());
     final result = await authRepo.login(
@@ -52,6 +79,7 @@ class AuthCubit extends Cubit<AuthState> {
     );
   }
 
+  ///! Logout
   Future<void> logOut() async {
     emit(const AuthState.logoutLoading());
     final result = await authRepo.logOut();

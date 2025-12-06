@@ -21,4 +21,9 @@ class AuthState with _$AuthState {
   const factory AuthState.logoutLoading() = LogoutLoading;
   const factory AuthState.logoutSuccess() = LogoutSuccess;
   const factory AuthState.logoutFailure(String message) = LogoutFailure;
+
+  // Biometrics
+  const factory AuthState.biometricLoading() = BiometricLoading;
+  const factory AuthState.biometricSuccess() = BiometricSuccess;
+  const factory AuthState.biometricFailure(String message) = BiometricFailure;
 }

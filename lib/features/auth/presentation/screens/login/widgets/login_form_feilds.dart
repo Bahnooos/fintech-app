@@ -54,6 +54,7 @@ class _LoginFormFeildsState extends State<LoginFormFeilds> {
             hintText: 'Password',
             onTap: () {},
             prefixIcon: const Icon(MyFlutterApp.passwordicon),
+            isObscureText: true,
           ),
           verticalSpace(12),
         ],
