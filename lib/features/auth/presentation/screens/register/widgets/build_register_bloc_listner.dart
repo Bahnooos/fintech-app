@@ -1,6 +1,6 @@
 import 'package:fintech_app/core/helpers/extension.dart';
+import 'package:fintech_app/core/helpers/flutter_toast.dart';
 import 'package:fintech_app/core/routing/routes.dart';
-import 'package:fintech_app/core/widgets/custom_error_dialog.dart';
 import 'package:fintech_app/core/widgets/custom_loading_dialog.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_cubit.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_state.dart';
@@ -25,13 +25,23 @@ class BuildRegisterBlocListner extends StatelessWidget {
             Navigator.of(context, rootNavigator: true).pop();
             await Future.delayed(const Duration(milliseconds: 500));
             if (!context.mounted) return;
+            FlutterToast.showFlutterToast(
+              message: 'Register Successfully',
+              state: ToastStates.success,
+              context: context,
+            );
             context.pushNamedAndRemoveUntil(
               Routes.loginScreen,
               (route) => false,
             );
           },
           registerFailure: (message) {
-            showErrorDialog(context, message);
+            Navigator.of(context, rootNavigator: true).pop();
+            FlutterToast.showFlutterToast(
+              message: message,
+              state: ToastStates.error,
+              context: context,
+            );
           },
         );
       },

@@ -1,5 +1,5 @@
+import 'package:fintech_app/core/helpers/flutter_toast.dart';
 import 'package:fintech_app/core/routing/routes.dart';
-import 'package:fintech_app/core/widgets/custom_error_dialog.dart';
 import 'package:fintech_app/core/widgets/custom_loading_dialog.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_cubit.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_state.dart';
@@ -24,13 +24,23 @@ class BuildLoginBlocListner extends StatelessWidget {
             Navigator.of(context, rootNavigator: true).pop();
             await Future.delayed(const Duration(milliseconds: 500));
             if (!context.mounted) return;
+            FlutterToast.showFlutterToast(
+              message: 'Login Successfully',
+              state: ToastStates.success,
+              context: context,
+            );
             Navigator.of(context, rootNavigator: true).pushNamedAndRemoveUntil(
               Routes.homeScreen,
               (route) => false,
             );
           },
-          loginFailure: (error) {
-            showErrorDialog(context, error);
+          loginFailure: (message) {
+            Navigator.of(context, rootNavigator: true).pop();
+            FlutterToast.showFlutterToast(
+              message: message,
+              state: ToastStates.error,
+              context: context,
+            );
           },
         );
       },
