@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-// TODO: Replace with your actual package path
 import 'package:fintech_app/features/home/data/models/global_data_response.dart'; 
 
 void main() {

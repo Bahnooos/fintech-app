@@ -28,7 +28,7 @@ class HomeCubit extends Cubit<HomeState> {
       failure: (errorMessage) => emit(
         state.copyWith(
           globalStatus: SectionStatus.error,
-          globalError: errorMessage.toString(),
+          globalError: errorMessage.message,
         ),
       ),
     );
@@ -47,7 +47,7 @@ class HomeCubit extends Cubit<HomeState> {
       failure: (errorMessage) => emit(
         state.copyWith(
           trendingStatus: SectionStatus.error,
-          trendingError: errorMessage.toString(),
+          trendingError: errorMessage.message,
         ),
       ),
     );
@@ -66,7 +66,7 @@ class HomeCubit extends Cubit<HomeState> {
       failure: (errorMessage) => emit(
         state.copyWith(
           coinsStatus: SectionStatus.error,
-          coinsError: errorMessage.toString(),
+          coinsError: errorMessage.message,
         ),
       ),
     );
