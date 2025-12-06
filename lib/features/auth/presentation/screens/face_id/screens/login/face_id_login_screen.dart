@@ -7,7 +7,7 @@ import 'package:fintech_app/core/widgets/custom_background_image.dart';
 import 'package:fintech_app/core/widgets/custom_button.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_cubit.dart';
 import 'package:fintech_app/features/auth/presentation/screens/fingerprint/widgets/custom_title_subtitle.dart';
-import 'package:fintech_app/features/auth/presentation/screens/login/screens/login_screen.dart';
+import 'package:fintech_app/features/auth/presentation/screens/login/widgets/biometrics_bloc_listner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

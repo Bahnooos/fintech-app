@@ -1,5 +1,4 @@
 import 'package:fintech_app/core/helpers/extension.dart';
-import 'package:fintech_app/core/helpers/flutter_toast.dart';
 import 'package:fintech_app/core/helpers/spacing.dart';
 import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/widgets/custom_auth_footer.dart';
@@ -7,9 +6,7 @@ import 'package:fintech_app/core/widgets/custom_auth_header.dart';
 import 'package:fintech_app/core/widgets/custom_background_image.dart';
 import 'package:fintech_app/core/widgets/custom_button.dart';
 import 'package:fintech_app/core/widgets/custom_divider_with_text.dart';
-import 'package:fintech_app/core/widgets/custom_loading_dialog.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_cubit.dart';
-import 'package:fintech_app/features/auth/logic/cubit/auth_state.dart';
 import 'package:fintech_app/features/auth/presentation/screens/login/widgets/biometric_login_buttons.dart';
 import 'package:fintech_app/features/auth/presentation/screens/login/widgets/build_login_bloc_listner.dart';
 import 'package:fintech_app/features/auth/presentation/screens/login/widgets/login_form_feilds.dart';
@@ -89,39 +86,5 @@ class LoginScreen extends StatelessWidget {
     if (formKey.currentState?.validate() ?? false) {
       context.read<AuthCubit>().login();
     }
-  }
-}
-
-class BiomerticsBlocListner extends StatelessWidget {
-  const BiomerticsBlocListner({super.key, required this.child});
-  final Widget child;
-  @override
-  Widget build(BuildContext context) {
-    return BlocListener<AuthCubit, AuthState>(
-      listener: (context, state) {
-        state.whenOrNull(
-          biometricLoading: () {
-            showLoadingDialog(context);
-          },
-          biometricSuccess: () async {
-            Navigator.of(context, rootNavigator: true).pop();
-            // Navigate to home
-            context.pushNamedAndRemoveUntil(
-              Routes.homeScreen,
-              (route) => false,
-            );
-          },
-          biometricFailure: (message) {
-            Navigator.of(context, rootNavigator: true).pop();
-            FlutterToast.showFlutterToast(
-              message: message,
-              state: ToastStates.error,
-              context: context,
-            );
-          },
-        );
-      },
-      child: child,
-    );
   }
 }
