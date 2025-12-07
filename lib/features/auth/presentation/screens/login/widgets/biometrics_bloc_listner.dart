@@ -1,4 +1,3 @@
-import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:fintech_app/core/helpers/flutter_toast.dart';
 import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/widgets/custom_loading_dialog.dart';
@@ -20,8 +19,8 @@ class BiomerticsBlocListner extends StatelessWidget {
           },
           biometricSuccess: () async {
             Navigator.of(context, rootNavigator: true).pop();
-            // Navigate to home
-            context.pushNamedAndRemoveUntil(
+            // Navigate to home screen using root navigator to escape auth flow
+            Navigator.of(context, rootNavigator: true).pushNamedAndRemoveUntil(
               Routes.homeScreen,
               (route) => false,
             );

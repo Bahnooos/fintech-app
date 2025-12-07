@@ -1,12 +1,9 @@
-import 'package:fintech_app/core/helpers/extension.dart';
 import 'package:fintech_app/core/helpers/spacing.dart';
-import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/theme/app_images.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
+import 'package:fintech_app/core/widgets/custom_auth_header.dart';
 import 'package:fintech_app/core/widgets/custom_background_image.dart';
-import 'package:fintech_app/core/widgets/custom_button.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_cubit.dart';
-import 'package:fintech_app/features/auth/presentation/screens/fingerprint/widgets/custom_title_subtitle.dart';
 import 'package:fintech_app/features/auth/presentation/screens/login/widgets/biometrics_bloc_listner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,42 +42,26 @@ class _FaceIdLoginScreenState extends State<FaceIdLoginScreen> {
                 ),
                 child: Column(
                   children: [
-                    Expanded(
-                      child: Column(
-                        children: [
-                          verticalSpace(250),
-                          Center(
-                            child: Image.asset(
-                              isDarkMode
-                                  ? AppImages.faceIdVerifiedDarkImage
-                                  : AppImages.faceIdVerifiedImage,
-                              width: 150.w,
-                              height: 150.h,
-                            ),
-                          ),
-                          CustomTitleSubtitle(
-                            topSpacing: 30,
-                            title: ' You\'re verified',
-                            titleStyle: isDarkMode
-                                ? TextStyles.font26SnowWhiteBold
-                                : TextStyles.font26PrimaryBold,
-                            subtitle:
-                                'You have been verified your\ninformation completely. Let\'s make transactions!',
-                            subtitleStyle: isDarkMode
-                                ? TextStyles.font18SnowWhiteRegular
-                                : TextStyles.font18OnboardingBlackRegular,
-                          ),
-                        ],
-                      ),
+                    const CustomAuthHeader(
+                      title: 'Face ID verification',
+                      subtitle: '',
                     ),
-
-                    CustomButton(
-                      text: 'Continue To Home',
-                      onPressed: () => context.pushNamed(
-                        Routes.homeScreen,
-                      ),
+                    verticalSpace(100),
+                    Image.asset(
+                      isDarkMode
+                          ? AppImages.faceIdVerifiedDarkImage
+                          : AppImages.faceIdVerifiedImage,
+                      width: 150.w,
+                      height: 150.h,
                     ),
-                    verticalSpace(30),
+                    verticalSpace(100),
+                    Text(
+                      textAlign: TextAlign.center,
+                      'Please verify your identity using Face ID and it will proceed automatically.',
+                      style: isDarkMode
+                          ? TextStyles.font16SnowWhiteRegular
+                          : TextStyles.font16MediumGrayRegular,
+                    ),
                   ],
                 ),
               ),
