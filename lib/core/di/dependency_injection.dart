@@ -4,6 +4,8 @@ import 'package:fintech_app/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_cubit.dart';
 import 'package:fintech_app/features/auth/presentation/repo/auth_repo.dart';
 import 'package:fintech_app/features/home/data/apis/home_api_service.dart';
+import 'package:fintech_app/features/home/data/data_sources/home_local_data_source.dart';
+import 'package:fintech_app/features/home/data/data_sources/home_local_data_source_impl.dart';
 import 'package:fintech_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:fintech_app/features/home/presentation/repos/home_repo.dart';
 import 'package:get_it/get_it.dart';
@@ -23,9 +25,22 @@ Future<void> initGetIt() async {
   getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt(), getIt()));
 
   /// Home_Api_Service =>  Home_Repo => Home_Cubit
-  getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
-  getIt.registerLazySingleton<HomeRepo>(
-    () => HomeRepoImpl(homeApiService: getIt()),
+  /// Home Feature Dependencies
+  /// HomeLocalDataSource => HomeApiService => HomeRepo => HomeCubit
+
+  getIt.registerLazySingleton<HomeLocalDataSource>(
+    () => HomeLocalDataSourceImpl(),
   );
+
+  getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
+
+  getIt.registerLazySingleton<HomeRepo>(
+    () => HomeRepoImpl(
+      homeApiService: getIt(),
+      localDataSource: getIt(),
+    ),
+  );
+
+  // Cubit
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
 }
