@@ -1,11 +1,20 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
 import 'api_error_model.dart';
+import 'firebase_error_handler.dart';
 
+/// Centralized error handler for all types of errors (Dio, Firebase, etc.)
 class ApiErrorHandler {
-  // late ApiErrorModel apiErrorModel;
-  static ApiErrorModel handle(error) {
+  /// Main error handling method - handles all error types
+  static ApiErrorModel handle(dynamic error) {
+    // Handle Firebase Authentication errors
+    if (error is FirebaseAuthException) {
+      return FirebaseErrorHandler.handle(error);
+    }
+
+    // Handle Dio HTTP errors
     if (error is DioException) {
       switch (error.type) {
         case DioExceptionType.connectionError:

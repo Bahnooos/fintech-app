@@ -20,6 +20,7 @@ class CustomTextFormField extends StatelessWidget {
     this.errorBorder,
     this.isObscureText = false,
     this.controller,
+    required this.validator,
   });
   final String hintText;
   final Color? backgroundColor;
@@ -35,11 +36,20 @@ class CustomTextFormField extends StatelessWidget {
   final bool? isObscureText;
   final void Function() onTap;
   final TextEditingController? controller;
+  final String? Function(String) validator;
+
   @override
   Widget build(BuildContext context) {
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return TextFormField(
-      style: TextStyles.font14PrimarySemiBold,
+      validator: (value) {
+        return validator(value!);
+      },
+      style: isDarkMode
+          ? TextStyles.font14CloudWhiteSemiBold
+          : TextStyles.font14PrimarySemiBold,
+      cursorColor: isDarkMode ? AppColors.snowWhite : AppColors.primary,
+
       controller: controller,
       onTap: onTap,
       obscureText: isObscureText!,
@@ -68,6 +78,17 @@ class CustomTextFormField extends StatelessWidget {
             enabledBorder ??
             OutlineInputBorder(
               borderSide: BorderSide(
+                color: focusedBorderColor ?? AppColors.primary,
+                width: 2.w,
+                style: BorderStyle.solid,
+              ),
+              borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
+            ),
+
+        focusedBorder:
+            focusedBorder ??
+            OutlineInputBorder(
+              borderSide: BorderSide(
                 color:
                     enabledBorderColor ??
                     (isDarkMode ? AppColors.snowWhite : AppColors.darkGray),
@@ -76,16 +97,7 @@ class CustomTextFormField extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
             ),
-        focusedBorder:
-            focusedBorder ??
-            OutlineInputBorder(
-              borderSide: BorderSide(
-                color: focusedBorderColor ?? AppColors.primary,
-                width: 2.w,
-                style: BorderStyle.solid,
-              ),
-              borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
-            ),
+
         errorBorder:
             errorBorder ??
             OutlineInputBorder(
