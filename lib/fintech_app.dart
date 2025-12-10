@@ -1,6 +1,8 @@
 import 'package:fintech_app/core/routing/app_router.dart';
 import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/theme/app_theme.dart';
+import 'package:fintech_app/features/payment/presentation/screens/buy_crypto.dart';
+import 'package:fintech_app/features/payment/presentation/screens/payment_method_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,6 +23,7 @@ class FintechApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         initialRoute: Routes.homeScreen,
         onGenerateRoute: appRouter.onGenerateRoute,
+      
       ),
     );
   }
