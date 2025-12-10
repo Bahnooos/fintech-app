@@ -1,12 +1,18 @@
 import 'package:bloc/bloc.dart';
 import 'package:fintech_app/features/market/data/models/coin_overview_model.dart';
+import 'package:fintech_app/features/market/data/repositories/market_repository.dart';
 import 'package:fintech_app/features/market/domain/filter_entity.dart';
 import 'package:meta/meta.dart';
 
 part 'market_state.dart';
 
 class MarketCubit extends Cubit<MarketState> {
-  MarketCubit() : super(MarketInitial());
+  final MarketRepository marketRepository = MarketRepository();
+
+  MarketCubit() : super(MarketInitial()) {
+    fetchMarketData();
+  }
+
   CoinOverviewModel? selectedCoin;
   FilterEntity selectedFilter = FilterEntity(
     filterId: "All",
@@ -19,56 +25,102 @@ class MarketCubit extends Cubit<MarketState> {
     FilterEntity(filterId: "Favorites", filterName: "Favorites"),
   ];
 
-  void selectFilter(FilterEntity filter) {
-    selectedFilter = filter;
-    emit(MarketFilterSelectedState());
+  List<CoinOverviewModel> coins = [];
+  String searchQuery = '';
+  int currentPage = 0;
+  bool isLoadingMore = false;
+  bool hasMoreData = true;
+  final int pageSize = 50;
+
+  void selectFilter(FilterEntity filter) {}
+
+  /// Function Name: getDisplayCoins
+  ///
+  /// Purpose: Returns filtered coins based on search query
+  ///
+  /// Parameters: None
+  ///
+  /// Returns: List<CoinOverviewModel>
+  List<CoinOverviewModel> get getDisplayCoins {
+    if (searchQuery.isEmpty) {
+      return coins;
+    }
+    return coins.where((coin) {
+      return coin.coinName.toLowerCase().contains(searchQuery.toLowerCase()) ||
+          coin.symbol.toLowerCase().contains(searchQuery.toLowerCase()) ||
+          coin.coinId.toLowerCase().contains(searchQuery.toLowerCase());
+    }).toList();
   }
 
-  List<CoinOverviewModel> coins = [
-    CoinOverviewModel(
-      coinId: "1",
-      coinName: "Bitcoin",
-      marketCapRank: 9,
-      coinImage:
-          "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-      currentPrice: 1321213,
-      priceChangePercentage24h: -1.3,
-    ),
-    CoinOverviewModel(
-      coinId: "1",
-      coinName: "Bitcoin",
-      marketCapRank: 6,
-      coinImage:
-          "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-      currentPrice: 1321313,
-      priceChangePercentage24h: -1.3,
-    ),
-    CoinOverviewModel(
-      coinId: "1",
-      coinName: "Bitcoin",
-      marketCapRank: 3,
-      coinImage:
-          "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-      currentPrice: 1321213,
-      priceChangePercentage24h: -1.3,
-    ),
-    CoinOverviewModel(
-      coinId: "1",
-      coinName: "Bitcoin",
-      marketCapRank: 2,
-      coinImage:
-          "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-      currentPrice: 132213,
-      priceChangePercentage24h: -1.3,
-    ),
-    CoinOverviewModel(
-      coinId: "1",
-      marketCapRank: 1,
-      coinName: "Bitcoin",
-      coinImage:
-          "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-      currentPrice: 1312213,
-      priceChangePercentage24h: 1.3,
-    ),
-  ];
+  /// Function Name: updateSearchQuery
+  ///
+  /// Purpose: Updates search query and filters coins
+  ///
+  /// Parameters:
+  /// - query: Search query string
+  ///
+  /// Returns: void
+  void updateSearchQuery(String query) {
+    searchQuery = query;
+    emit(MarketSearchQueryUpdatedState());
+  }
+
+  /// Function Name: loadMoreData
+  ///
+  /// Purpose: Loads next page of market data when user scrolls to bottom
+  ///
+  /// Parameters: None
+  ///
+  /// Returns: void
+  Future<void> loadMoreData() async {
+    // Prevent multiple simultaneous requests
+    if (isLoadingMore || !hasMoreData) return;
+
+    isLoadingMore = true;
+    emit(MarketLoadingMoreState());
+
+    currentPage++;
+
+    final result = await marketRepository.fetchMarketData(
+      pageNumber: currentPage,
+      pageSize: pageSize,
+    );
+
+    if (result.isLeft) {
+      currentPage--; // Revert page increment on error
+      isLoadingMore = false;
+      emit(MarketLoadMoreErrorState());
+    } else {
+      final newCoins = result.getOrElse(() => []);
+
+      if (newCoins.isEmpty || newCoins.length < pageSize) {
+        hasMoreData = false;
+      }
+
+      coins.addAll(newCoins);
+      print('Total coins: ${coins.length}');
+
+      isLoadingMore = false;
+      emit(MarketSuccessState());
+    }
+  }
+
+  void fetchMarketData() {
+    emit(MarketLoadingState());
+    currentPage = 1;
+    hasMoreData = true;
+    marketRepository
+        .fetchMarketData(
+          pageNumber: currentPage,
+          pageSize: pageSize,
+        )
+        .then((result) {
+          if (result.isLeft) {
+            emit(MarketErrorState());
+          } else {
+            coins = result.getOrElse(() => []);
+            emit(MarketSuccessState());
+          }
+        });
+  }
 }

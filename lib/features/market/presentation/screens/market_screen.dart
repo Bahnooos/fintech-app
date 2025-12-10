@@ -1,3 +1,9 @@
+/// ****************** FILE INFO ******************
+/// File Name: market_screen.dart
+/// Purpose: Market screen displaying crypto coins with pagination
+/// Author: Mohamed Elrashidy
+/// Created At: 09/12/2025
+
 import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
 import 'package:fintech_app/features/market/domain/filter_entity.dart';
@@ -11,11 +17,44 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 import '../widgets/filter_card.dart';
 
-class MarketScreen extends StatelessWidget {
-  MarketScreen({super.key});
+class MarketScreen extends StatefulWidget {
+  const MarketScreen({super.key});
 
+  @override
+  State<MarketScreen> createState() => _MarketScreenState();
+}
+
+class _MarketScreenState extends State<MarketScreen> {
   final TextEditingController _searchController = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
   late MarketCubit _marketCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  /// Function Name: _onScroll
+  ///
+  /// Purpose: Triggers loading more data when user scrolls to 90% of the list
+  ///
+  /// Parameters: None
+  ///
+  /// Returns: void
+  void _onScroll() {
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent * 0.9) {
+      _marketCubit.loadMoreData();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +73,7 @@ class MarketScreen extends StatelessWidget {
                   CustomTextFormField(
                     controller: _searchController,
                     onChanged: (value) {
-                      // Handle search logic here
+                      _marketCubit.updateSearchQuery(value ?? '');
                     },
                     hintText: "Search",
                     onTap: () {},
@@ -80,25 +119,40 @@ class MarketScreen extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        spacing: 8.sp,
-                        children: [
-                          for (var coin in _marketCubit.coins)
-                            GestureDetector(
-                              onTap: () {
-                                _marketCubit.selectedCoin = coin;
-                                Navigator.pushNamed(
-                                  context,
-                                  Routes.coinDetailsScreen,
-                                  arguments: _marketCubit,
-                                );
-                              },
-                              child: CoinOverviewCard(coin: coin),
+                    child: _marketCubit.getDisplayCoins.isEmpty
+                        ? Center(
+                            child: Text(
+                              _marketCubit.searchQuery.isEmpty
+                                  ? "No coins available"
+                                  : "No results found for '${_marketCubit.searchQuery}'",
+                              style: TextStyles.font16MediumGrayRegular,
                             ),
-                        ],
-                      ),
-                    ),
+                          )
+                        : SingleChildScrollView(
+                            controller: _scrollController,
+                            child: Column(
+                              spacing: 8.sp,
+                              children: [
+                                for (var coin in _marketCubit.getDisplayCoins)
+                                  GestureDetector(
+                                    onTap: () {
+                                      _marketCubit.selectedCoin = coin;
+                                      Navigator.pushNamed(
+                                        context,
+                                        Routes.coinDetailsScreen,
+                                        arguments: _marketCubit,
+                                      );
+                                    },
+                                    child: CoinOverviewCard(coin: coin),
+                                  ),
+                                if (state is MarketLoadingMoreState)
+                                  Padding(
+                                    padding: EdgeInsets.all(16.h),
+                                    child: const CircularProgressIndicator(),
+                                  ),
+                              ],
+                            ),
+                          ),
                   ),
                 ],
               );
