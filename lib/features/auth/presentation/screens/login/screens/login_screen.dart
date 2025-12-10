@@ -56,9 +56,8 @@ class LoginScreen extends StatelessWidget {
                       const CustomDividerWithText(text: 'Or login with'),
                       verticalSpace(30),
                       BiometricLoginButtons(
-                        onFingerprintTap: () => context.pushNamed(
-                          Routes.fingerprintLoginScreen,
-                        ),
+                        onFingerprintTap: () =>
+                            context.pushNamed(Routes.fingerprintLoginScreen),
                         onFaceIdTap: () => context.pushNamed(
                           Routes.faceIdLoginScreen,
                         ),

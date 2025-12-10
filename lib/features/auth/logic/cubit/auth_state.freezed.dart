@@ -55,7 +55,7 @@ extension AuthStatePatterns on AuthState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( RegisterLoading value)?  registerLoading,TResult Function( RegisterSuccess value)?  registerSuccess,TResult Function( RegisterFailure value)?  registerFailure,TResult Function( LoginLoading value)?  loginLoading,TResult Function( LoginSuccess value)?  loginSuccess,TResult Function( LoginFailure value)?  loginFailure,TResult Function( LogoutLoading value)?  logoutLoading,TResult Function( LogoutSuccess value)?  logoutSuccess,TResult Function( LogoutFailure value)?  logoutFailure,TResult Function( BiometricLoading value)?  biometricLoading,TResult Function( BiometricSuccess value)?  biometricSuccess,TResult Function( BiometricFailure value)?  biometricFailure,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( RegisterLoading value)?  registerLoading,TResult Function( RegisterSuccess value)?  registerSuccess,TResult Function( RegisterFailure value)?  registerFailure,TResult Function( LoginLoading value)?  loginLoading,TResult Function( LoginSuccess value)?  loginSuccess,TResult Function( LoginFailure value)?  loginFailure,TResult Function( LogoutLoading value)?  logoutLoading,TResult Function( LogoutSuccess value)?  logoutSuccess,TResult Function( LogoutFailure value)?  logoutFailure,TResult Function( BiometricLoading value)?  biometricLoading,TResult Function( BiometricSuccess value)?  biometricSuccess,TResult Function( BiometricFailure value)?  biometricFailure,TResult Function( ChangeIconVisibility value)?  changeIconVisibility,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
@@ -71,7 +71,8 @@ return logoutSuccess(_that);case LogoutFailure() when logoutFailure != null:
 return logoutFailure(_that);case BiometricLoading() when biometricLoading != null:
 return biometricLoading(_that);case BiometricSuccess() when biometricSuccess != null:
 return biometricSuccess(_that);case BiometricFailure() when biometricFailure != null:
-return biometricFailure(_that);case _:
+return biometricFailure(_that);case ChangeIconVisibility() when changeIconVisibility != null:
+return changeIconVisibility(_that);case _:
   return orElse();
 
 }
@@ -89,7 +90,7 @@ return biometricFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( RegisterLoading value)  registerLoading,required TResult Function( RegisterSuccess value)  registerSuccess,required TResult Function( RegisterFailure value)  registerFailure,required TResult Function( LoginLoading value)  loginLoading,required TResult Function( LoginSuccess value)  loginSuccess,required TResult Function( LoginFailure value)  loginFailure,required TResult Function( LogoutLoading value)  logoutLoading,required TResult Function( LogoutSuccess value)  logoutSuccess,required TResult Function( LogoutFailure value)  logoutFailure,required TResult Function( BiometricLoading value)  biometricLoading,required TResult Function( BiometricSuccess value)  biometricSuccess,required TResult Function( BiometricFailure value)  biometricFailure,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( RegisterLoading value)  registerLoading,required TResult Function( RegisterSuccess value)  registerSuccess,required TResult Function( RegisterFailure value)  registerFailure,required TResult Function( LoginLoading value)  loginLoading,required TResult Function( LoginSuccess value)  loginSuccess,required TResult Function( LoginFailure value)  loginFailure,required TResult Function( LogoutLoading value)  logoutLoading,required TResult Function( LogoutSuccess value)  logoutSuccess,required TResult Function( LogoutFailure value)  logoutFailure,required TResult Function( BiometricLoading value)  biometricLoading,required TResult Function( BiometricSuccess value)  biometricSuccess,required TResult Function( BiometricFailure value)  biometricFailure,required TResult Function( ChangeIconVisibility value)  changeIconVisibility,}){
 final _that = this;
 switch (_that) {
 case _Initial():
@@ -105,7 +106,8 @@ return logoutSuccess(_that);case LogoutFailure():
 return logoutFailure(_that);case BiometricLoading():
 return biometricLoading(_that);case BiometricSuccess():
 return biometricSuccess(_that);case BiometricFailure():
-return biometricFailure(_that);case _:
+return biometricFailure(_that);case ChangeIconVisibility():
+return changeIconVisibility(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -122,7 +124,7 @@ return biometricFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( RegisterLoading value)?  registerLoading,TResult? Function( RegisterSuccess value)?  registerSuccess,TResult? Function( RegisterFailure value)?  registerFailure,TResult? Function( LoginLoading value)?  loginLoading,TResult? Function( LoginSuccess value)?  loginSuccess,TResult? Function( LoginFailure value)?  loginFailure,TResult? Function( LogoutLoading value)?  logoutLoading,TResult? Function( LogoutSuccess value)?  logoutSuccess,TResult? Function( LogoutFailure value)?  logoutFailure,TResult? Function( BiometricLoading value)?  biometricLoading,TResult? Function( BiometricSuccess value)?  biometricSuccess,TResult? Function( BiometricFailure value)?  biometricFailure,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( RegisterLoading value)?  registerLoading,TResult? Function( RegisterSuccess value)?  registerSuccess,TResult? Function( RegisterFailure value)?  registerFailure,TResult? Function( LoginLoading value)?  loginLoading,TResult? Function( LoginSuccess value)?  loginSuccess,TResult? Function( LoginFailure value)?  loginFailure,TResult? Function( LogoutLoading value)?  logoutLoading,TResult? Function( LogoutSuccess value)?  logoutSuccess,TResult? Function( LogoutFailure value)?  logoutFailure,TResult? Function( BiometricLoading value)?  biometricLoading,TResult? Function( BiometricSuccess value)?  biometricSuccess,TResult? Function( BiometricFailure value)?  biometricFailure,TResult? Function( ChangeIconVisibility value)?  changeIconVisibility,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
@@ -138,7 +140,8 @@ return logoutSuccess(_that);case LogoutFailure() when logoutFailure != null:
 return logoutFailure(_that);case BiometricLoading() when biometricLoading != null:
 return biometricLoading(_that);case BiometricSuccess() when biometricSuccess != null:
 return biometricSuccess(_that);case BiometricFailure() when biometricFailure != null:
-return biometricFailure(_that);case _:
+return biometricFailure(_that);case ChangeIconVisibility() when changeIconVisibility != null:
+return changeIconVisibility(_that);case _:
   return null;
 
 }
@@ -155,7 +158,7 @@ return biometricFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  registerLoading,TResult Function( UserModel user)?  registerSuccess,TResult Function( String message)?  registerFailure,TResult Function()?  loginLoading,TResult Function( UserModel user)?  loginSuccess,TResult Function( String message)?  loginFailure,TResult Function()?  logoutLoading,TResult Function()?  logoutSuccess,TResult Function( String message)?  logoutFailure,TResult Function()?  biometricLoading,TResult Function()?  biometricSuccess,TResult Function( String message)?  biometricFailure,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  registerLoading,TResult Function( UserModel user)?  registerSuccess,TResult Function( String message)?  registerFailure,TResult Function()?  loginLoading,TResult Function( UserModel user)?  loginSuccess,TResult Function( String message)?  loginFailure,TResult Function()?  logoutLoading,TResult Function()?  logoutSuccess,TResult Function( String message)?  logoutFailure,TResult Function()?  biometricLoading,TResult Function()?  biometricSuccess,TResult Function( String message)?  biometricFailure,TResult Function( bool isPassword)?  changeIconVisibility,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case RegisterLoading() when registerLoading != null:
@@ -170,7 +173,8 @@ return logoutSuccess();case LogoutFailure() when logoutFailure != null:
 return logoutFailure(_that.message);case BiometricLoading() when biometricLoading != null:
 return biometricLoading();case BiometricSuccess() when biometricSuccess != null:
 return biometricSuccess();case BiometricFailure() when biometricFailure != null:
-return biometricFailure(_that.message);case _:
+return biometricFailure(_that.message);case ChangeIconVisibility() when changeIconVisibility != null:
+return changeIconVisibility(_that.isPassword);case _:
   return orElse();
 
 }
@@ -188,7 +192,7 @@ return biometricFailure(_that.message);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  registerLoading,required TResult Function( UserModel user)  registerSuccess,required TResult Function( String message)  registerFailure,required TResult Function()  loginLoading,required TResult Function( UserModel user)  loginSuccess,required TResult Function( String message)  loginFailure,required TResult Function()  logoutLoading,required TResult Function()  logoutSuccess,required TResult Function( String message)  logoutFailure,required TResult Function()  biometricLoading,required TResult Function()  biometricSuccess,required TResult Function( String message)  biometricFailure,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  registerLoading,required TResult Function( UserModel user)  registerSuccess,required TResult Function( String message)  registerFailure,required TResult Function()  loginLoading,required TResult Function( UserModel user)  loginSuccess,required TResult Function( String message)  loginFailure,required TResult Function()  logoutLoading,required TResult Function()  logoutSuccess,required TResult Function( String message)  logoutFailure,required TResult Function()  biometricLoading,required TResult Function()  biometricSuccess,required TResult Function( String message)  biometricFailure,required TResult Function( bool isPassword)  changeIconVisibility,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case RegisterLoading():
@@ -203,7 +207,8 @@ return logoutSuccess();case LogoutFailure():
 return logoutFailure(_that.message);case BiometricLoading():
 return biometricLoading();case BiometricSuccess():
 return biometricSuccess();case BiometricFailure():
-return biometricFailure(_that.message);case _:
+return biometricFailure(_that.message);case ChangeIconVisibility():
+return changeIconVisibility(_that.isPassword);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -220,7 +225,7 @@ return biometricFailure(_that.message);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  registerLoading,TResult? Function( UserModel user)?  registerSuccess,TResult? Function( String message)?  registerFailure,TResult? Function()?  loginLoading,TResult? Function( UserModel user)?  loginSuccess,TResult? Function( String message)?  loginFailure,TResult? Function()?  logoutLoading,TResult? Function()?  logoutSuccess,TResult? Function( String message)?  logoutFailure,TResult? Function()?  biometricLoading,TResult? Function()?  biometricSuccess,TResult? Function( String message)?  biometricFailure,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  registerLoading,TResult? Function( UserModel user)?  registerSuccess,TResult? Function( String message)?  registerFailure,TResult? Function()?  loginLoading,TResult? Function( UserModel user)?  loginSuccess,TResult? Function( String message)?  loginFailure,TResult? Function()?  logoutLoading,TResult? Function()?  logoutSuccess,TResult? Function( String message)?  logoutFailure,TResult? Function()?  biometricLoading,TResult? Function()?  biometricSuccess,TResult? Function( String message)?  biometricFailure,TResult? Function( bool isPassword)?  changeIconVisibility,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case RegisterLoading() when registerLoading != null:
@@ -235,7 +240,8 @@ return logoutSuccess();case LogoutFailure() when logoutFailure != null:
 return logoutFailure(_that.message);case BiometricLoading() when biometricLoading != null:
 return biometricLoading();case BiometricSuccess() when biometricSuccess != null:
 return biometricSuccess();case BiometricFailure() when biometricFailure != null:
-return biometricFailure(_that.message);case _:
+return biometricFailure(_that.message);case ChangeIconVisibility() when changeIconVisibility != null:
+return changeIconVisibility(_that.isPassword);case _:
   return null;
 
 }
@@ -857,6 +863,72 @@ class _$BiometricFailureCopyWithImpl<$Res>
   return _then(BiometricFailure(
 null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class ChangeIconVisibility implements AuthState {
+  const ChangeIconVisibility(this.isPassword);
+  
+
+ final  bool isPassword;
+
+/// Create a copy of AuthState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ChangeIconVisibilityCopyWith<ChangeIconVisibility> get copyWith => _$ChangeIconVisibilityCopyWithImpl<ChangeIconVisibility>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChangeIconVisibility&&(identical(other.isPassword, isPassword) || other.isPassword == isPassword));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,isPassword);
+
+@override
+String toString() {
+  return 'AuthState.changeIconVisibility(isPassword: $isPassword)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ChangeIconVisibilityCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+  factory $ChangeIconVisibilityCopyWith(ChangeIconVisibility value, $Res Function(ChangeIconVisibility) _then) = _$ChangeIconVisibilityCopyWithImpl;
+@useResult
+$Res call({
+ bool isPassword
+});
+
+
+
+
+}
+/// @nodoc
+class _$ChangeIconVisibilityCopyWithImpl<$Res>
+    implements $ChangeIconVisibilityCopyWith<$Res> {
+  _$ChangeIconVisibilityCopyWithImpl(this._self, this._then);
+
+  final ChangeIconVisibility _self;
+  final $Res Function(ChangeIconVisibility) _then;
+
+/// Create a copy of AuthState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? isPassword = null,}) {
+  return _then(ChangeIconVisibility(
+null == isPassword ? _self.isPassword : isPassword // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 

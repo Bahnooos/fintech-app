@@ -1,4 +1,5 @@
 import 'package:fintech_app/core/helpers/extension.dart';
+import 'package:fintech_app/core/helpers/shared_pref.dart';
 import 'package:fintech_app/core/helpers/spacing.dart';
 import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/theme/app_images.dart';
@@ -54,14 +55,32 @@ class FaceIdRegisterScreen extends StatelessWidget {
                         child: CustomButton(
                           type: ButtonType.outlined,
                           text: 'Skip',
-                          onPressed: () => context.pushNamed(Routes.homeScreen),
+                          onPressed: () async {
+                            final sharedPref = await SharedPref.getInstance();
+                            final firstName =
+                                sharedPref.getUserName() ?? 'User';
+                            if (!context.mounted) return;
+                            context.pushNamed(
+                              Routes.homeScreen,
+                              argument: firstName,
+                            );
+                          },
                         ),
                       ),
                       horizontalSpace(18),
                       Expanded(
                         child: CustomButton(
                           text: 'Continue',
-                          onPressed: () => context.pushNamed(Routes.homeScreen),
+                          onPressed: () async {
+                            final sharedPref = await SharedPref.getInstance();
+                            final firstName =
+                                sharedPref.getUserName() ?? 'User';
+                            if (!context.mounted) return;
+                            context.pushNamed(
+                              Routes.homeScreen,
+                              argument: firstName,
+                            );
+                          },
                         ),
                       ),
                     ],
