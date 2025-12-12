@@ -1,8 +1,6 @@
 import 'package:fintech_app/core/di/dependency_injection.dart';
 import 'package:fintech_app/core/helpers/extension.dart';
-import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_cubit.dart';
-import 'package:fintech_app/features/auth/logic/cubit/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -44,24 +42,10 @@ class HomeHeader extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.r),
               ),
-              child: BlocListener<AuthCubit, AuthState>(
-                listener: (context, state) {
-                  state.mapOrNull(
-                    loginSuccess: (value) {
-                      Navigator.pushNamed(context, Routes.authFlow);
-                    },
-                  );
-                },
-                child: GestureDetector(
-                  onTap: () async {
-                    Navigator.pushReplacementNamed(context, Routes.authFlow);
-                  },
-                  child: SvgPicture.asset(
-                    'assets/svg/notificationIcon.svg',
-                    width: 24.w,
-                    height: 24.h,
-                  ),
-                ),
+              child: SvgPicture.asset(
+                'assets/svg/notificationIcon.svg',
+                width: 24.w,
+                height: 24.h,
               ),
             ),
           ],

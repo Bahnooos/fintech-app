@@ -44,12 +44,13 @@ class AppImages {
   static const String marketActiveColor = 'assets/svg/marketActiveColor.svg';
   static const String notificationIcon = 'assets/svg/notificationIcon.svg';
   static const String portfolioIcon = 'assets/svg/portfolioIcon.svg';
-  static const String portfolioActiveColor = 'assets/svg/protfolioActiveColor.svg';
+  static const String portfolioActiveColor =
+      'assets/svg/protfolioActiveColor.svg';
   static const String profileIcon = 'assets/svg/profileIcon.svg';
   static const String settingIcon = 'assets/svg/settingIcon.svg';
   static const String settingActiveColor = 'assets/svg/settingsActiveColor.svg';
   static const String successIcon = 'assets/svg/successIcon.svg';
   static const String supportIcon = 'assets/svg/supportIcon.svg';
   static const String walletIcon = 'assets/svg/walletIcon.svg';
-  static const String arrowIconLightMode = 'assets/svg/arrowIconLightMode.svg';
+  static const String arrowIconLightMode = 'assets/svg/ArrowRightIconLight.svg';
 }

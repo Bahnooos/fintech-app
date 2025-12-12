@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:fintech_app/core/helpers/shared_pref.dart';
 import 'package:fintech_app/core/services/local_auth_services.dart';
+import 'package:fintech_app/core/theme/theme_cubit.dart';
 import 'package:fintech_app/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_cubit.dart';
 import 'package:fintech_app/features/auth/presentation/repo/auth_repo.dart';
@@ -20,13 +21,15 @@ Future<void> initGetIt() async {
   // Dio & Api Service
   Dio dio = DioFactory.getDio();
 
+  final SharedPref sharedPref = await SharedPref.getInstance();
+
   /// Auth
   getIt.registerLazySingleton<AuthRepo>(() => AuthRepoImpl());
   getIt.registerLazySingleton<LocalAuthService>(() => LocalAuthService());
   getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt(), getIt()));
 
-  final sharedPref = await SharedPref.getInstance();
   getIt.registerSingleton<SharedPref>(sharedPref);
+  getIt.registerLazySingleton<ThemeCubit>(() => ThemeCubit(getIt()));
 
   /// Home_Api_Service =>  Home_Repo => Home_Cubit
   /// Home Feature Dependencies
