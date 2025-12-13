@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:fintech_app/core/helpers/shared_pref.dart';
 import 'package:fintech_app/core/networking/api_reuslt.dart';
 import 'package:fintech_app/core/services/local_auth_services.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_state.dart';
@@ -7,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  final loginFormKey = GlobalKey<FormState>();
-  final registerFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> registerFormKey = GlobalKey<FormState>();
 
   final TextEditingController registerFirstNameController =
       TextEditingController();
@@ -25,7 +26,15 @@ class AuthCubit extends Cubit<AuthState> {
   final TextEditingController loginEmailController = TextEditingController();
   final TextEditingController loginPasswordController = TextEditingController();
 
-  AuthCubit(this.authRepo, this.authService) : super(const AuthState.initial());
+  late final SharedPref sharedPref;
+
+  bool isPassword = true;
+  IconData isPasswordIcon = Icons.visibility_off_outlined;
+
+  AuthCubit(this.authRepo, this.authService)
+    : super(const AuthState.initial()) {
+    _initPref();
+  }
   final AuthRepo authRepo;
   final LocalAuthService authService;
 
@@ -48,6 +57,38 @@ class AuthCubit extends Cubit<AuthState> {
         ),
       );
     }
+  }
+
+  // ///! Biometric Login - Direct login for registered users
+  // Future<void> loginUsingBiometric() async {
+  //   emit(const AuthState.biometricLoading());
+
+  //   final userId = sharedPref.getUserId();
+  //   if (userId == null) {
+  //     emit(const AuthState.biometricFailure('User not found'));
+  //     return;
+  //   }
+  //   final result = await authRepo.getUserById(userId);
+  //   result.when(
+  //     success: (user) {
+  //       sharedPref.saveUserId(user.uid);
+  //       sharedPref.setLoggedIn(true);
+  //       sharedPref.saveUserName(user.firstName);
+  //       emit(AuthState.loginSuccess(user));
+  //     },
+  //     failure: (error) {
+  //       emit(
+  //         AuthState.loginFailure(
+  //           error.message ?? 'Login using biomertic failed',
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
+
+  ///! iniaiate the shared preferences
+  Future<void> _initPref() async {
+    sharedPref = await SharedPref.getInstance();
   }
 
   ///! Register
@@ -74,18 +115,21 @@ class AuthCubit extends Cubit<AuthState> {
       password: loginPasswordController.text,
     );
     result.when(
-      success: (user) => emit(AuthState.loginSuccess(user)),
+      success: (user) async {
+        await sharedPref.saveUserId(user.uid);
+        await sharedPref.setLoggedIn(true);
+        await sharedPref.saveUserName(user.firstName);
+        emit(AuthState.loginSuccess(user));
+      },
       failure: (error) => emit(AuthState.loginFailure(error.message!)),
     );
   }
 
-  ///! Logout
-  Future<void> logOut() async {
-    emit(const AuthState.logoutLoading());
-    final result = await authRepo.logOut();
-    result.when(
-      success: (_) => emit(const AuthState.initial()),
-      failure: (error) => emit(AuthState.logoutFailure(error.message!)),
-    );
+  void changeIconVisibility() {
+    isPassword = !isPassword;
+    isPasswordIcon = isPassword
+        ? Icons.visibility_off_outlined
+        : Icons.visibility_outlined;
+    emit(AuthState.changeIconVisibility(isPassword));
   }
 }

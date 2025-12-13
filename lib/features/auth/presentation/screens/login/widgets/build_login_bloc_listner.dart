@@ -23,7 +23,9 @@ class BuildLoginBlocListner extends StatelessWidget {
           loginSuccess: (user) async {
             Navigator.of(context, rootNavigator: true).pop();
             await Future.delayed(const Duration(milliseconds: 500));
+
             if (!context.mounted) return;
+            showLoadingDialog(context);
             FlutterToast.showFlutterToast(
               message: 'Login Successfully',
               state: ToastStates.success,
@@ -32,6 +34,7 @@ class BuildLoginBlocListner extends StatelessWidget {
             Navigator.of(context, rootNavigator: true).pushNamedAndRemoveUntil(
               Routes.homeScreen,
               (route) => false,
+              arguments: user.firstName,
             );
           },
           loginFailure: (message) {

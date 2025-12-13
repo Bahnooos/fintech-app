@@ -24,21 +24,21 @@ class AppRouter {
       case Routes.onboardingScreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
 
-      //! Home Screen
-      case Routes.homeScreen:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<HomeCubit>()..fetchAllData(),
-            child: const HomeScreen(),
-          ),
-        );
-
       //! Auth Flow
       case Routes.authFlow:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (_) => getIt<AuthCubit>(),
             child: const AuthFlowRoot(),
+          ),
+        );
+
+      //! Home Screen
+      case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<HomeCubit>()..fetchAllData(),
+            child: const HomeScreen(),
           ),
         );
 

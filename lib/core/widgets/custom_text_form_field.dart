@@ -21,6 +21,7 @@ class CustomTextFormField extends StatelessWidget {
     this.isObscureText = false,
     this.controller,
     required this.validator,
+    this.suffixIcon,
   });
   final String hintText;
   final Color? backgroundColor;
@@ -37,6 +38,7 @@ class CustomTextFormField extends StatelessWidget {
   final void Function() onTap;
   final TextEditingController? controller;
   final String? Function(String) validator;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +56,7 @@ class CustomTextFormField extends StatelessWidget {
       onTap: onTap,
       obscureText: isObscureText!,
       decoration: InputDecoration(
+        suffixIcon: suffixIcon,
         enabled: true,
         isDense: true,
         fillColor:

@@ -1,7 +1,9 @@
 import 'package:fintech_app/core/cache/cache_helper.dart';
 import 'package:fintech_app/core/cache/hive_adapters.dart';
 import 'package:fintech_app/core/di/dependency_injection.dart';
+import 'package:fintech_app/core/helpers/shared_pref.dart';
 import 'package:fintech_app/core/routing/app_router.dart';
+import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/fintech_app.dart';
 import 'package:fintech_app/firebase_options.dart';
 import 'package:fintech_app/my_observer.dart';
@@ -14,7 +16,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // IMPORTANT: Register Hive type adapters FIRST (before opening box)
   HiveAdapters.registerAdapters();
-  
+
   // Then initialize Hive cache (opens the box)
   await CacheHelper.init();
   // await Firebase.initializeApp();
@@ -25,7 +27,18 @@ Future<void> main() async {
   // Initialize dependency injection
   await initGetIt();
 
+  final sharedPref = await SharedPref.getInstance();
+  final isLoggedIn = sharedPref.isLoggedIn() && sharedPref.getUserId() != null;
+  final initialRoute = isLoggedIn ? Routes.homeScreen : Routes.onboardingScreen;
+  final initialRouteArguments = isLoggedIn
+      ? (sharedPref.getUserName() ?? 'User')
+      : null;
+
   runApp(
-    FintechApp(appRouter: AppRouter()),
+    FintechApp(
+      appRouter: AppRouter(),
+      initialRoute: initialRoute,
+      initialRouteArguments: initialRouteArguments,
+    ),
   );
 }

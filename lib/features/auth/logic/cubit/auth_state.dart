@@ -26,4 +26,7 @@ class AuthState with _$AuthState {
   const factory AuthState.biometricLoading() = BiometricLoading;
   const factory AuthState.biometricSuccess() = BiometricSuccess;
   const factory AuthState.biometricFailure(String message) = BiometricFailure;
+
+  const factory AuthState.changeIconVisibility(bool isPassword) =
+      ChangeIconVisibility;
 }

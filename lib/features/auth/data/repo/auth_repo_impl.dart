@@ -61,25 +61,4 @@ class AuthRepoImpl implements AuthRepo {
       return ApiReuslt.failure(ApiErrorHandler.handle(error));
     }
   }
-
-  @override
-  Future<ApiReuslt<void>> logOut() async {
-    try {
-      await _auth.signOut();
-      return const ApiReuslt.success(null);
-    } catch (error) {
-      return ApiReuslt.failure(ApiErrorHandler.handle(error));
-    }
-  }
-
-  @override
-  Future<UserModel?> getCurrentUser() async {
-    final current = _auth.currentUser;
-    if (current == null) return null;
-    final data = await _firestore
-        .collection(AppConstant.userCollection)
-        .doc(current.uid)
-        .get();
-    return UserModel.fromJson(data.data()!);
-  }
 }

@@ -71,6 +71,7 @@ class SharedPref {
   static const String _keyIsLoggedIn = 'is_logged_in';
   static const String _keyUserEmail = 'user_email';
   static const String _keyUserName = 'user_name';
+  static const String _keyIsDarkTheme = 'dark_theme';
 
   // User Token Management
   Future<bool> saveUserToken(String token) async {
@@ -112,6 +113,15 @@ class SharedPref {
     return getString(_keyUserEmail);
   }
 
+  // Dark Theme
+  Future<bool> saveAppMode(bool isDark) async {
+    return await setBool(_keyIsDarkTheme, isDark);
+  }
+
+  bool? getAppMode() {
+    return getBool(_keyIsDarkTheme);
+  }
+
   // User Name
   Future<bool> saveUserName(String name) async {
     return await setString(_keyUserName, name);
@@ -128,6 +138,7 @@ class SharedPref {
     await remove(_keyUserEmail);
     await remove(_keyUserName);
     await setLoggedIn(false);
+    await saveAppMode(false);
     return true;
   }
 }
