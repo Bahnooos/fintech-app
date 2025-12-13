@@ -11,6 +11,8 @@ class AppImages {
   static const String masterCardImage = 'assets/image/masterCardImage.png';
   static const String profileImage = 'assets/image/profileImage.png';
   static const String osImage = 'assets/image/osImage.jpg';
+  static const String batImage = 'assets/image/batImage.jpg';
+  static const String pedriImage = 'assets/image/pedriImage.jpg';
   static const String rippleImage = 'assets/image/rippleImaeg.png';
   static const String solanaImage = 'assets/image/solanaImage.png';
   static const String visaImage = 'assets/image/visaImage.png';

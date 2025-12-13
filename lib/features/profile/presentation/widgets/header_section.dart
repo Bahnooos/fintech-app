@@ -41,7 +41,7 @@ class HeaderSection extends StatelessWidget {
                           radius: 48.r,
                           backgroundImage: user.profileImage != null
                               ? NetworkImage(user.profileImage!)
-                              : const AssetImage(AppImages.osImage)
+                              : const AssetImage(AppImages.pedriImage)
                                     as ImageProvider,
                         ),
                         verticalSpace(24),
