@@ -10,6 +10,9 @@ class AppImages {
   static const String litecoinImage = 'assets/image/litecoinImage.png';
   static const String masterCardImage = 'assets/image/masterCardImage.png';
   static const String profileImage = 'assets/image/profileImage.png';
+  static const String osImage = 'assets/image/osImage.jpg';
+  static const String batImage = 'assets/image/batImage.jpg';
+  static const String pedriImage = 'assets/image/pedriImage.jpg';
   static const String rippleImage = 'assets/image/rippleImaeg.png';
   static const String solanaImage = 'assets/image/solanaImage.png';
  
@@ -44,7 +47,8 @@ class AppImages {
   static const String marketActiveColor = 'assets/svg/marketActiveColor.svg';
   static const String notificationIcon = 'assets/svg/notificationIcon.svg';
   static const String portfolioIcon = 'assets/svg/portfolioIcon.svg';
-  static const String portfolioActiveColor = 'assets/svg/protfolioActiveColor.svg';
+  static const String portfolioActiveColor =
+      'assets/svg/protfolioActiveColor.svg';
   static const String profileIcon = 'assets/svg/profileIcon.svg';
   static const String settingIcon = 'assets/svg/settingIcon.svg';
   static const String settingActiveColor = 'assets/svg/settingsActiveColor.svg';
@@ -56,4 +60,5 @@ class AppImages {
   static const String dollarCircleImage = 'assets/image/dollar-circle.png';
   static const String arrowDownImage = 'assets/image/Arrow - Down 3.png';
   static const String visaImage = 'assets/image/visa.png';
+  static const String arrowIconLightMode = 'assets/svg/ArrowRightIconLight.svg';
 }
