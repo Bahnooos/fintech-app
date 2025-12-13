@@ -5,7 +5,7 @@ class DioFactory {
   DioFactory._();
   static const _apiKey = String.fromEnvironment('API_KEY');
   static Dio? dio;
-  static Dio getDio() {
+  static Dio getDio({Map<String, String>? headers}) {
     Duration timeOut = const Duration(seconds: 30);
     if (dio == null) {
       dio = Dio();
@@ -13,17 +13,20 @@ class DioFactory {
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
       addDioInterceptor();
-      addHeader();
-      return dio!;
-    } else {
-      return dio!;
+      addHeader(headers: headers);
     }
+
+    addHeader(headers: headers);
+    return dio!;
   }
 
-  static void addHeader() async {
-    dio?.options.headers = {
-      'x-cg-demo-api-key': _apiKey,
-    };
+  static void addHeader({Map<String, String>? headers}) async {
+    dio?.options.headers =
+        headers ??
+        {
+          'x-cg-demo-api-key': _apiKey,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        };
   }
 
   static void addDioInterceptor() {

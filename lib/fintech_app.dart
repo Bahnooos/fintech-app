@@ -1,6 +1,8 @@
 import 'package:fintech_app/core/di/dependency_injection.dart';
 import 'package:fintech_app/core/routing/app_router.dart';
 import 'package:fintech_app/core/theme/app_theme.dart';
+import 'package:fintech_app/features/payment/presentation/screens/buy_crypto.dart';
+import 'package:fintech_app/features/payment/presentation/screens/payment_method_screen.dart';
 import 'package:fintech_app/core/theme/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,6 +25,14 @@ class FintechApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
+      builder: (context, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: ThemeMode.system,
+        initialRoute: Routes.homeScreen,
+        onGenerateRoute: appRouter.onGenerateRoute,
+      
       builder: (context, child) => BlocProvider(
         create: (context) => getIt<ThemeCubit>(),
         child: BlocSelector<ThemeCubit, bool, ThemeMode>(

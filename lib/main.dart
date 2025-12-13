@@ -1,5 +1,6 @@
 import 'package:fintech_app/core/cache/cache_helper.dart';
 import 'package:fintech_app/core/cache/hive_adapters.dart';
+import 'package:fintech_app/core/config/env_config.dart';
 import 'package:fintech_app/core/di/dependency_injection.dart';
 import 'package:fintech_app/core/helpers/shared_pref.dart';
 import 'package:fintech_app/core/routing/app_router.dart';
@@ -10,16 +11,21 @@ import 'package:fintech_app/my_observer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
 Future<void> main() async {
   Bloc.observer = MyBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
+  // Load environment variables
+  await dotenv.load(fileName: '.env');
+
   // IMPORTANT: Register Hive type adapters FIRST (before opening box)
   HiveAdapters.registerAdapters();
 
   // Then initialize Hive cache (opens the box)
   await CacheHelper.init();
-  // await Firebase.initializeApp();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -27,6 +33,8 @@ Future<void> main() async {
   // Initialize dependency injection
   await initGetIt();
 
+  // Initialize Stripe with env key
+  Stripe.publishableKey = EnvConfig.stripePublishableKey;
   final sharedPref = await SharedPref.getInstance();
   final isLoggedIn = sharedPref.isLoggedIn() && sharedPref.getUserId() != null;
   final initialRoute = isLoggedIn ? Routes.homeScreen : Routes.onboardingScreen;

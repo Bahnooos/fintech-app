@@ -15,7 +15,7 @@ class AppImages {
   static const String pedriImage = 'assets/image/pedriImage.jpg';
   static const String rippleImage = 'assets/image/rippleImaeg.png';
   static const String solanaImage = 'assets/image/solanaImage.png';
-  static const String visaImage = 'assets/image/visaImage.png';
+ 
   static const String getStartedImage = 'assets/image/getStartedImage.png';
   static const String onboarding1 = 'assets/image/onboarding1.png';
   static const String onboarding2 = 'assets/image/onboarding2.png';
@@ -55,5 +55,10 @@ class AppImages {
   static const String successIcon = 'assets/svg/successIcon.svg';
   static const String supportIcon = 'assets/svg/supportIcon.svg';
   static const String walletIcon = 'assets/svg/walletIcon.svg';
+  static const String arrowIconLightMode = 'assets/svg/arrowIconLightMode.svg';
+  static const String swapImage = 'assets/image/Swap.png';
+  static const String dollarCircleImage = 'assets/image/dollar-circle.png';
+  static const String arrowDownImage = 'assets/image/Arrow - Down 3.png';
+  static const String visaImage = 'assets/image/visa.png';
   static const String arrowIconLightMode = 'assets/svg/ArrowRightIconLight.svg';
 }
