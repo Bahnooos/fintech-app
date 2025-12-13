@@ -9,11 +9,11 @@ class ExchangeRateInfo extends StatelessWidget {
   final double rate;
 
   const ExchangeRateInfo({
-    Key? key,
+    super.key,
     required this.fromCurrency,
     required this.toCurrency,
     required this.rate,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,3 @@
-
-
 import 'package:fintech_app/core/theme/text_styles.dart';
 import 'package:fintech_app/features/payment/presentation/widgets/currency_drop_down.dart';
 import 'package:flutter/material.dart';
@@ -14,14 +12,14 @@ class ReceiveSection extends StatelessWidget {
   final bool isLoading;
 
   const ReceiveSection({
-    Key? key,
+    super.key,
     required this.label,
     required this.amount,
     required this.currency,
     required this.currencies,
     required this.onCurrencySelected,
     this.isLoading = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +34,7 @@ class ReceiveSection extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: Text(
-                amount,
-                style: TextStyles.font20PrimaryBold
-              ),
+              child: Text(amount, style: TextStyles.font20PrimaryBold),
             ),
             SizedBox(width: 8.w),
             CustomCurrencyDropdown(

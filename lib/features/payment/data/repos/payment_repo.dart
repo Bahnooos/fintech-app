@@ -1,3 +1,5 @@
+// ignore_for_file: unused_catch_clause
+
 import 'package:dio/dio.dart';
 import 'package:fintech_app/core/networking/api_error_handler.dart';
 import 'package:fintech_app/core/networking/api_error_model.dart';
@@ -6,6 +8,7 @@ import 'package:fintech_app/core/service/stripe_service.dart';
 import 'package:fintech_app/features/payment/data/apis/coin_apis.dart';
 import 'package:fintech_app/features/payment/data/models/coin_model/coin_model.dart';
 import 'package:fintech_app/features/payment/data/models/coin_model/price_model.dart';
+
 class PaymentRepo {
   final StripeService stripeService;
   final CoinService api;
@@ -17,7 +20,7 @@ class PaymentRepo {
       await stripeService.makePayment(intentRequestModel: intentRequestModel);
       return const ApiReuslt.success(null);
     } on PaymentCancelledException catch (e) {
-      return ApiReuslt.failure(
+      return const ApiReuslt.failure(
         ApiErrorModel(message: 'cancelled'),
       );
     } catch (e) {
@@ -30,12 +33,16 @@ class PaymentRepo {
     }
   }
 
-  Future<ApiReuslt<void>> makePaymentWithCard({required intentRequestModel}) async {
+  Future<ApiReuslt<void>> makePaymentWithCard({
+    required intentRequestModel,
+  }) async {
     try {
-      await stripeService.makePaymentWithCard(intentRequestModel: intentRequestModel);
+      await stripeService.makePaymentWithCard(
+        intentRequestModel: intentRequestModel,
+      );
       return const ApiReuslt.success(null);
     } on PaymentCancelledException catch (e) {
-      return ApiReuslt.failure(
+      return const ApiReuslt.failure(
         ApiErrorModel(message: 'cancelled'),
       );
     } catch (e) {
@@ -47,7 +54,6 @@ class PaymentRepo {
       }
     }
   }
-
 
   Future<ApiReuslt<List<CoinModel>>> getCoins(String vsCurrency) async {
     try {

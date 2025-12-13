@@ -1,8 +1,8 @@
 import 'package:fintech_app/core/theme/app_color.dart';
 import 'package:fintech_app/core/theme/app_images.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
-import 'package:fintech_app/features/payment/presentation/widgets/payment_method_chips.dart';
 import 'package:fintech_app/features/payment/presentation/widgets/credit_card_widget.dart';
+import 'package:fintech_app/features/payment/presentation/widgets/payment_method_chips.dart';
 import 'package:fintech_app/features/payment/presentation/widgets/payment_option_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,9 +11,9 @@ class PaymentOptionsSection extends StatelessWidget {
   final VoidCallback onPaymentMethodTap;
 
   const PaymentOptionsSection({
-    Key? key,
+    super.key,
     required this.onPaymentMethodTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,6 @@
-import 'package:fintech_app/core/di/dependency_injection.dart';
 import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/theme/app_color.dart';
 import 'package:fintech_app/features/payment/presentation/cubit/payment_states.dart';
-import 'package:fintech_app/features/payment/presentation/screens/payment_method_screen.dart';
 import 'package:fintech_app/features/payment/presentation/widgets/continue_button.dart';
 import 'package:fintech_app/features/payment/presentation/widgets/exchange_rate_info.dart';
 import 'package:fintech_app/features/payment/presentation/widgets/fee_card.dart';
@@ -27,7 +25,7 @@ class BuyCryptoBody extends StatelessWidget {
   onCurrencySelected; // Callback when a currency is selected
 
   const BuyCryptoBody({
-    Key? key,
+    super.key,
     required this.amountController,
     required this.fromCurrency,
     required this.toCurrency,
@@ -38,7 +36,7 @@ class BuyCryptoBody extends StatelessWidget {
     required this.onSwap,
     required this.onAmountChanged,
     required this.onCurrencySelected,
-  }) : super(key: key);
+  });
 
   double _getAmount() {
     return double.tryParse(amountController.text.replaceAll(',', '')) ?? 0;

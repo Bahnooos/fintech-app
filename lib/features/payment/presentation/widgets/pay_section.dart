@@ -13,7 +13,7 @@ class PaySection extends StatelessWidget {
   final bool isEditable;
 
   const PaySection({
-    Key? key,
+    super.key,
     required this.label,
     required this.controller,
     required this.currency,
@@ -21,7 +21,7 @@ class PaySection extends StatelessWidget {
     required this.onChanged,
     required this.onCurrencySelected,
     this.isEditable = true,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

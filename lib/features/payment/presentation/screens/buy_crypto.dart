@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:fintech_app/core/theme/app_color.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
 import 'package:fintech_app/features/payment/presentation/cubit/payment_cubit.dart';
@@ -7,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BuyCryptoScreen extends StatefulWidget {
-  const BuyCryptoScreen({Key? key}) : super(key: key);
+  const BuyCryptoScreen({super.key});
 
   @override
   State<BuyCryptoScreen> createState() => _BuyCryptoScreenState();
@@ -171,6 +173,4 @@ class _BuyCryptoScreenState extends State<BuyCryptoScreen> {
       ),
     );
   }
-
-
 }

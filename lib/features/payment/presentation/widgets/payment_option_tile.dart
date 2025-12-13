@@ -10,11 +10,11 @@ class PaymentOptionTile extends StatelessWidget {
   final IconData icon;
 
   const PaymentOptionTile({
-    Key? key,
+    super.key,
     required this.title,
     required this.onTap,
     this.icon = Icons.arrow_forward_ios,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +29,13 @@ class PaymentOptionTile extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              title,
-              style: TextStyles.font16PrimarySemiBold
+            Text(title, style: TextStyles.font16PrimarySemiBold),
+            Transform.rotate(
+              angle: 1.57,
+              child: const Image(
+                image: AssetImage(AppImages.arrowDownImage),
+              ),
             ),
-            Transform.rotate(angle: 1.57,
-            child: const Image(image: AssetImage(AppImages.arrowDownImage),))
           ],
         ),
       ),

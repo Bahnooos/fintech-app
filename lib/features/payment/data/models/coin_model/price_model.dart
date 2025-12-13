@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:json_annotation/json_annotation.dart';
 
 part 'price_model.g.dart';
@@ -6,7 +8,7 @@ part 'price_model.g.dart';
 class SimplePriceModel {
   @JsonKey(includeFromJson: false, includeToJson: false)
   final double? price;
-  
+
   // نحتفظ بالـ raw data
   final Map<String, dynamic>? rawData;
 
@@ -18,16 +20,16 @@ class SimplePriceModel {
   // Custom factory constructor لاستخراج السعر بشكل ديناميكي
   factory SimplePriceModel.fromJson(Map<String, dynamic> json) {
     double? extractedPrice;
-    
+
     try {
       // الـ response شكله: {"ethereum": {"usd": 3016.65}}
       // نحتاج نستخرج السعر بغض النظر عن اسم العملة
-      
+
       if (json.isNotEmpty) {
         // نجيب أول key (مثلاً "ethereum")
         final coinKey = json.keys.first;
         final coinData = json[coinKey];
-        
+
         if (coinData is Map<String, dynamic> && coinData.isNotEmpty) {
           // نجيب أول value اللي هو السعر
           final priceValue = coinData.values.first;
@@ -40,7 +42,7 @@ class SimplePriceModel {
     } catch (e) {
       print('Error parsing price: $e');
     }
-    
+
     return SimplePriceModel(
       price: extractedPrice,
       rawData: json,
@@ -48,7 +50,7 @@ class SimplePriceModel {
   }
 
   Map<String, dynamic> toJson() => rawData ?? {'price': price};
-  
+
   @override
   String toString() => 'SimplePriceModel(price: $price, rawData: $rawData)';
 }

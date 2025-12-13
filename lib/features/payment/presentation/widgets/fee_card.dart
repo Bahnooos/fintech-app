@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class FeeCard extends StatelessWidget {
   final double fee;
 
-  const FeeCard({Key? key, required this.fee}) : super(key: key);
+  const FeeCard({super.key, required this.fee});
 
   @override
   Widget build(BuildContext context) {

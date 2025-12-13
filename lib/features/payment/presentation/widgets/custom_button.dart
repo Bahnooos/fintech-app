@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:fintech_app/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,7 +49,8 @@ class AppButton extends StatelessWidget {
         onPressed: canPress ? onPressed : null,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor ?? AppColors.primary,
-          disabledBackgroundColor: disabledBackgroundColor ??
+          disabledBackgroundColor:
+              disabledBackgroundColor ??
               (backgroundColor ?? AppColors.primary).withOpacity(0.5),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius.r),
@@ -66,7 +69,8 @@ class AppButton extends StatelessWidget {
               )
             : Text(
                 text,
-                style: textStyle ??
+                style:
+                    textStyle ??
                     TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w600,

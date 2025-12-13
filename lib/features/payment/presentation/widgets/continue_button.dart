@@ -3,6 +3,7 @@ import 'package:fintech_app/core/theme/text_styles.dart';
 import 'package:fintech_app/features/payment/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class ContinueButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final bool isLoading;
@@ -43,7 +44,7 @@ class ContinueButton extends StatelessWidget {
 class ErrorMessage extends StatelessWidget {
   final String message;
 
-  const ErrorMessage({Key? key, required this.message}) : super(key: key);
+  const ErrorMessage({super.key, required this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -78,20 +79,23 @@ class ConfirmationDialog extends StatelessWidget {
   final VoidCallback? onConfirm;
 
   const ConfirmationDialog({
-    Key? key,
+    super.key,
     required this.convertedAmount,
     required this.toCurrency,
     required this.fromCurrency,
     required this.payAmount,
     required this.fee,
     this.onConfirm,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
-      title: Text('Confirm Purchase', style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold)),
+      title: Text(
+        'Confirm Purchase',
+        style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+      ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,8 +107,14 @@ class ConfirmationDialog extends StatelessWidget {
             style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 8.h),
-          Text('For: $fromCurrency $payAmount', style: TextStyle(fontSize: 14.sp)),
-          Text('Fee: \$${fee.toStringAsFixed(2)}', style: TextStyle(fontSize: 14.sp)),
+          Text(
+            'For: $fromCurrency $payAmount',
+            style: TextStyle(fontSize: 14.sp),
+          ),
+          Text(
+            'Fee: \$${fee.toStringAsFixed(2)}',
+            style: TextStyle(fontSize: 14.sp),
+          ),
         ],
       ),
       actions: [

@@ -11,13 +11,13 @@ class CustomCurrencyDropdown extends StatelessWidget {
   final bool isCrypto;
 
   const CustomCurrencyDropdown({
-    Key? key,
+    super.key,
     required this.selectedCurrency,
     required this.currencies,
     required this.onSelected,
     required this.icon,
     this.isCrypto = false,
-  }) : super(key: key);
+  });
 
   List<Map<String, dynamic>> _getAllCurrencies() {
     final fiatCurrencies = [
@@ -69,7 +69,7 @@ class CustomCurrencyDropdown extends StatelessWidget {
       }
     }
 
-    return [...fiatCurrencies, ...uniqueCryptos.values.toList()];
+    return [...fiatCurrencies, ...uniqueCryptos.values];
   }
 
   @override

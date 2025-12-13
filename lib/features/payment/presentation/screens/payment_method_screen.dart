@@ -18,12 +18,12 @@ class PaymentMethodScreen extends StatefulWidget {
   final double exchangeFee;
 
   const PaymentMethodScreen({
-    Key? key,
+    super.key,
     required this.amount,
     required this.crypto,
     required this.cryptoAmount,
     required this.exchangeFee,
-  }) : super(key: key);
+  });
 
   @override
   State<PaymentMethodScreen> createState() => _PaymentMethodScreenState();
@@ -57,7 +57,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
   Widget _buildScaffold(BuildContext context, bool isLoading) {
     return Scaffold(
       backgroundColor: AppColors.cloudWhite,
-      appBar:AppBar(
+      appBar: AppBar(
         backgroundColor: AppColors.cloudWhite,
         elevation: 0,
         leading: IconButton(
@@ -77,7 +77,6 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
       ),
     );
   }
-
 
   Widget _buildBody(BuildContext context, bool isLoading) {
     return Column(
@@ -136,8 +135,8 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
     );
 
     context.read<PaymentCubit>().makePayment(
-          intentRequestModel: intentRequest,
-        );
+      intentRequestModel: intentRequest,
+    );
   }
 
   void _showSuccessDialog() {
@@ -145,7 +144,9 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
       context: context,
       barrierDismissible: false,
       builder: (dialogContext) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.r),
+        ),
         title: Row(
           children: [
             Icon(Icons.check_circle, color: Colors.green, size: 28.sp),

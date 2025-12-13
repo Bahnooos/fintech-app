@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:dio/dio.dart';
 import 'package:fintech_app/core/config/env_config.dart';
 import 'package:fintech_app/core/networking/dio_factory.dart';
@@ -56,7 +58,9 @@ class StripeService {
       if (e.error.code == FailureCode.Canceled) {
         throw PaymentCancelledException('Payment was cancelled by user');
       } else if (e.error.code == FailureCode.Failed) {
-        throw Exception('Payment failed: ${e.error.message ?? "Unknown error"}');
+        throw Exception(
+          'Payment failed: ${e.error.message ?? "Unknown error"}',
+        );
       } else {
         throw Exception('Stripe error: ${e.error.message ?? "Unknown error"}');
       }
@@ -66,7 +70,9 @@ class StripeService {
   }
 
   // Complete payment process with payment sheet (bottom sheet)
-  Future<void> makePayment({required IntentRequestModel intentRequestModel}) async {
+  Future<void> makePayment({
+    required IntentRequestModel intentRequestModel,
+  }) async {
     try {
       final data = {
         'amount': calculateAmount(intentRequestModel.amount),
@@ -80,10 +86,14 @@ class StripeService {
     } on DioException catch (e) {
       if (e.response != null) {
         print('Dio data: ${e.response?.data}');
-        throw Exception('Network error: ${e.response?.statusMessage ?? "Unknown error"}');
+        throw Exception(
+          'Network error: ${e.response?.statusMessage ?? "Unknown error"}',
+        );
       } else {
         print('Error sending request: $e');
-        throw Exception('Connection error: Unable to connect to payment server');
+        throw Exception(
+          'Connection error: Unable to connect to payment server',
+        );
       }
     } catch (e) {
       print('General error: $e');
@@ -92,7 +102,9 @@ class StripeService {
   }
 
   // Complete payment process with card (full screen - no payment sheet)
-  Future<void> makePaymentWithCard({required IntentRequestModel intentRequestModel}) async {
+  Future<void> makePaymentWithCard({
+    required IntentRequestModel intentRequestModel,
+  }) async {
     try {
       final data = {
         'amount': calculateAmount(intentRequestModel.amount),
@@ -109,26 +121,33 @@ class StripeService {
       if (e.error.code == FailureCode.Canceled) {
         throw PaymentCancelledException('Payment was cancelled by user');
       } else if (e.error.code == FailureCode.Failed) {
-        throw Exception('Payment failed: ${e.error.message ?? "Unknown error"}');
+        throw Exception(
+          'Payment failed: ${e.error.message ?? "Unknown error"}',
+        );
       } else {
         throw Exception('Stripe error: ${e.error.message ?? "Unknown error"}');
       }
     } on DioException catch (e) {
       if (e.response != null) {
-        throw Exception('Network error: ${e.response?.statusMessage ?? "Unknown error"}');
+        throw Exception(
+          'Network error: ${e.response?.statusMessage ?? "Unknown error"}',
+        );
       } else {
-        throw Exception('Connection error: Unable to connect to payment server');
+        throw Exception(
+          'Connection error: Unable to connect to payment server',
+        );
       }
     } catch (e) {
       rethrow;
     }
   }
 }
+
 // Custom exception for payment cancellation
 class PaymentCancelledException implements Exception {
   final String message;
   PaymentCancelledException(this.message);
-  
+
   @override
   String toString() => message;
 }

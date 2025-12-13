@@ -7,24 +7,24 @@ class ReceiptSwitch extends StatelessWidget {
   final ValueChanged<bool> onChanged;
 
   const ReceiptSwitch({
-    Key? key,
+    super.key,
     required this.value,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-         Text(
+        Text(
           'Send receipt to your email',
           style: TextStyles.font12PrimaryMeduim,
         ),
         Switch(
           value: value,
           onChanged: onChanged,
-          activeColor: AppColors.primary,
+          activeThumbColor: AppColors.primary,
         ),
       ],
     );
