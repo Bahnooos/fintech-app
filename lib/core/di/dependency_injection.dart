@@ -10,6 +10,9 @@ import 'package:fintech_app/features/home/data/data_sources/home_local_data_sour
 import 'package:fintech_app/features/home/data/data_sources/home_local_data_source_impl.dart';
 import 'package:fintech_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:fintech_app/features/home/presentation/repos/home_repo.dart';
+import 'package:fintech_app/features/profile/data/repo/user_repo_impl.dart';
+import 'package:fintech_app/features/profile/logic/cubit/user_cubit.dart';
+import 'package:fintech_app/features/profile/presentation/repo/user_repo.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/home/presentation/logic/cubit/home_cubit.dart';
@@ -27,9 +30,13 @@ Future<void> initGetIt() async {
   getIt.registerLazySingleton<AuthRepo>(() => AuthRepoImpl());
   getIt.registerLazySingleton<LocalAuthService>(() => LocalAuthService());
   getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt(), getIt()));
-
+  // Theme
   getIt.registerSingleton<SharedPref>(sharedPref);
   getIt.registerLazySingleton<ThemeCubit>(() => ThemeCubit(getIt()));
+
+  // Profile
+  getIt.registerLazySingleton<UserRepo>(() => UserRepoImpl());
+  getIt.registerLazySingleton<UserCubit>(() => UserCubit(getIt()));
 
   /// Home_Api_Service =>  Home_Repo => Home_Cubit
   /// Home Feature Dependencies

@@ -125,19 +125,6 @@ class AuthCubit extends Cubit<AuthState> {
     );
   }
 
-  ///! Logout
-  Future<void> logOut() async {
-    emit(const AuthState.logoutLoading());
-    final result = await authRepo.logOut();
-    result.when(
-      success: (_) {
-        sharedPref.clearUserData();
-        emit(const AuthState.initial());
-      },
-      failure: (error) => emit(AuthState.logoutFailure(error.message!)),
-    );
-  }
-
   void changeIconVisibility() {
     isPassword = !isPassword;
     isPasswordIcon = isPassword

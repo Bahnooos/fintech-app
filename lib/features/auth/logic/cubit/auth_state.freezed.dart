@@ -55,7 +55,7 @@ extension AuthStatePatterns on AuthState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( RegisterLoading value)?  registerLoading,TResult Function( RegisterSuccess value)?  registerSuccess,TResult Function( RegisterFailure value)?  registerFailure,TResult Function( LoginLoading value)?  loginLoading,TResult Function( LoginSuccess value)?  loginSuccess,TResult Function( LoginFailure value)?  loginFailure,TResult Function( LogoutLoading value)?  logoutLoading,TResult Function( LogoutSuccess value)?  logoutSuccess,TResult Function( LogoutFailure value)?  logoutFailure,TResult Function( BiometricLoading value)?  biometricLoading,TResult Function( BiometricSuccess value)?  biometricSuccess,TResult Function( BiometricFailure value)?  biometricFailure,TResult Function( ChangeIconVisibility value)?  changeIconVisibility,TResult Function( ChangeAppMode value)?  changeAppMode,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( RegisterLoading value)?  registerLoading,TResult Function( RegisterSuccess value)?  registerSuccess,TResult Function( RegisterFailure value)?  registerFailure,TResult Function( LoginLoading value)?  loginLoading,TResult Function( LoginSuccess value)?  loginSuccess,TResult Function( LoginFailure value)?  loginFailure,TResult Function( LogoutLoading value)?  logoutLoading,TResult Function( LogoutSuccess value)?  logoutSuccess,TResult Function( LogoutFailure value)?  logoutFailure,TResult Function( BiometricLoading value)?  biometricLoading,TResult Function( BiometricSuccess value)?  biometricSuccess,TResult Function( BiometricFailure value)?  biometricFailure,TResult Function( ChangeIconVisibility value)?  changeIconVisibility,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
@@ -72,8 +72,7 @@ return logoutFailure(_that);case BiometricLoading() when biometricLoading != nul
 return biometricLoading(_that);case BiometricSuccess() when biometricSuccess != null:
 return biometricSuccess(_that);case BiometricFailure() when biometricFailure != null:
 return biometricFailure(_that);case ChangeIconVisibility() when changeIconVisibility != null:
-return changeIconVisibility(_that);case ChangeAppMode() when changeAppMode != null:
-return changeAppMode(_that);case _:
+return changeIconVisibility(_that);case _:
   return orElse();
 
 }
@@ -91,7 +90,7 @@ return changeAppMode(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( RegisterLoading value)  registerLoading,required TResult Function( RegisterSuccess value)  registerSuccess,required TResult Function( RegisterFailure value)  registerFailure,required TResult Function( LoginLoading value)  loginLoading,required TResult Function( LoginSuccess value)  loginSuccess,required TResult Function( LoginFailure value)  loginFailure,required TResult Function( LogoutLoading value)  logoutLoading,required TResult Function( LogoutSuccess value)  logoutSuccess,required TResult Function( LogoutFailure value)  logoutFailure,required TResult Function( BiometricLoading value)  biometricLoading,required TResult Function( BiometricSuccess value)  biometricSuccess,required TResult Function( BiometricFailure value)  biometricFailure,required TResult Function( ChangeIconVisibility value)  changeIconVisibility,required TResult Function( ChangeAppMode value)  changeAppMode,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( RegisterLoading value)  registerLoading,required TResult Function( RegisterSuccess value)  registerSuccess,required TResult Function( RegisterFailure value)  registerFailure,required TResult Function( LoginLoading value)  loginLoading,required TResult Function( LoginSuccess value)  loginSuccess,required TResult Function( LoginFailure value)  loginFailure,required TResult Function( LogoutLoading value)  logoutLoading,required TResult Function( LogoutSuccess value)  logoutSuccess,required TResult Function( LogoutFailure value)  logoutFailure,required TResult Function( BiometricLoading value)  biometricLoading,required TResult Function( BiometricSuccess value)  biometricSuccess,required TResult Function( BiometricFailure value)  biometricFailure,required TResult Function( ChangeIconVisibility value)  changeIconVisibility,}){
 final _that = this;
 switch (_that) {
 case _Initial():
@@ -108,8 +107,7 @@ return logoutFailure(_that);case BiometricLoading():
 return biometricLoading(_that);case BiometricSuccess():
 return biometricSuccess(_that);case BiometricFailure():
 return biometricFailure(_that);case ChangeIconVisibility():
-return changeIconVisibility(_that);case ChangeAppMode():
-return changeAppMode(_that);case _:
+return changeIconVisibility(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -126,7 +124,7 @@ return changeAppMode(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( RegisterLoading value)?  registerLoading,TResult? Function( RegisterSuccess value)?  registerSuccess,TResult? Function( RegisterFailure value)?  registerFailure,TResult? Function( LoginLoading value)?  loginLoading,TResult? Function( LoginSuccess value)?  loginSuccess,TResult? Function( LoginFailure value)?  loginFailure,TResult? Function( LogoutLoading value)?  logoutLoading,TResult? Function( LogoutSuccess value)?  logoutSuccess,TResult? Function( LogoutFailure value)?  logoutFailure,TResult? Function( BiometricLoading value)?  biometricLoading,TResult? Function( BiometricSuccess value)?  biometricSuccess,TResult? Function( BiometricFailure value)?  biometricFailure,TResult? Function( ChangeIconVisibility value)?  changeIconVisibility,TResult? Function( ChangeAppMode value)?  changeAppMode,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( RegisterLoading value)?  registerLoading,TResult? Function( RegisterSuccess value)?  registerSuccess,TResult? Function( RegisterFailure value)?  registerFailure,TResult? Function( LoginLoading value)?  loginLoading,TResult? Function( LoginSuccess value)?  loginSuccess,TResult? Function( LoginFailure value)?  loginFailure,TResult? Function( LogoutLoading value)?  logoutLoading,TResult? Function( LogoutSuccess value)?  logoutSuccess,TResult? Function( LogoutFailure value)?  logoutFailure,TResult? Function( BiometricLoading value)?  biometricLoading,TResult? Function( BiometricSuccess value)?  biometricSuccess,TResult? Function( BiometricFailure value)?  biometricFailure,TResult? Function( ChangeIconVisibility value)?  changeIconVisibility,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
@@ -143,8 +141,7 @@ return logoutFailure(_that);case BiometricLoading() when biometricLoading != nul
 return biometricLoading(_that);case BiometricSuccess() when biometricSuccess != null:
 return biometricSuccess(_that);case BiometricFailure() when biometricFailure != null:
 return biometricFailure(_that);case ChangeIconVisibility() when changeIconVisibility != null:
-return changeIconVisibility(_that);case ChangeAppMode() when changeAppMode != null:
-return changeAppMode(_that);case _:
+return changeIconVisibility(_that);case _:
   return null;
 
 }
@@ -161,7 +158,7 @@ return changeAppMode(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  registerLoading,TResult Function( UserModel user)?  registerSuccess,TResult Function( String message)?  registerFailure,TResult Function()?  loginLoading,TResult Function( UserModel user)?  loginSuccess,TResult Function( String message)?  loginFailure,TResult Function()?  logoutLoading,TResult Function()?  logoutSuccess,TResult Function( String message)?  logoutFailure,TResult Function()?  biometricLoading,TResult Function()?  biometricSuccess,TResult Function( String message)?  biometricFailure,TResult Function( bool isPassword)?  changeIconVisibility,TResult Function( bool isDark)?  changeAppMode,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  registerLoading,TResult Function( UserModel user)?  registerSuccess,TResult Function( String message)?  registerFailure,TResult Function()?  loginLoading,TResult Function( UserModel user)?  loginSuccess,TResult Function( String message)?  loginFailure,TResult Function()?  logoutLoading,TResult Function()?  logoutSuccess,TResult Function( String message)?  logoutFailure,TResult Function()?  biometricLoading,TResult Function()?  biometricSuccess,TResult Function( String message)?  biometricFailure,TResult Function( bool isPassword)?  changeIconVisibility,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case RegisterLoading() when registerLoading != null:
@@ -177,8 +174,7 @@ return logoutFailure(_that.message);case BiometricLoading() when biometricLoadin
 return biometricLoading();case BiometricSuccess() when biometricSuccess != null:
 return biometricSuccess();case BiometricFailure() when biometricFailure != null:
 return biometricFailure(_that.message);case ChangeIconVisibility() when changeIconVisibility != null:
-return changeIconVisibility(_that.isPassword);case ChangeAppMode() when changeAppMode != null:
-return changeAppMode(_that.isDark);case _:
+return changeIconVisibility(_that.isPassword);case _:
   return orElse();
 
 }
@@ -196,7 +192,7 @@ return changeAppMode(_that.isDark);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  registerLoading,required TResult Function( UserModel user)  registerSuccess,required TResult Function( String message)  registerFailure,required TResult Function()  loginLoading,required TResult Function( UserModel user)  loginSuccess,required TResult Function( String message)  loginFailure,required TResult Function()  logoutLoading,required TResult Function()  logoutSuccess,required TResult Function( String message)  logoutFailure,required TResult Function()  biometricLoading,required TResult Function()  biometricSuccess,required TResult Function( String message)  biometricFailure,required TResult Function( bool isPassword)  changeIconVisibility,required TResult Function( bool isDark)  changeAppMode,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  registerLoading,required TResult Function( UserModel user)  registerSuccess,required TResult Function( String message)  registerFailure,required TResult Function()  loginLoading,required TResult Function( UserModel user)  loginSuccess,required TResult Function( String message)  loginFailure,required TResult Function()  logoutLoading,required TResult Function()  logoutSuccess,required TResult Function( String message)  logoutFailure,required TResult Function()  biometricLoading,required TResult Function()  biometricSuccess,required TResult Function( String message)  biometricFailure,required TResult Function( bool isPassword)  changeIconVisibility,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case RegisterLoading():
@@ -212,8 +208,7 @@ return logoutFailure(_that.message);case BiometricLoading():
 return biometricLoading();case BiometricSuccess():
 return biometricSuccess();case BiometricFailure():
 return biometricFailure(_that.message);case ChangeIconVisibility():
-return changeIconVisibility(_that.isPassword);case ChangeAppMode():
-return changeAppMode(_that.isDark);case _:
+return changeIconVisibility(_that.isPassword);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -230,7 +225,7 @@ return changeAppMode(_that.isDark);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  registerLoading,TResult? Function( UserModel user)?  registerSuccess,TResult? Function( String message)?  registerFailure,TResult? Function()?  loginLoading,TResult? Function( UserModel user)?  loginSuccess,TResult? Function( String message)?  loginFailure,TResult? Function()?  logoutLoading,TResult? Function()?  logoutSuccess,TResult? Function( String message)?  logoutFailure,TResult? Function()?  biometricLoading,TResult? Function()?  biometricSuccess,TResult? Function( String message)?  biometricFailure,TResult? Function( bool isPassword)?  changeIconVisibility,TResult? Function( bool isDark)?  changeAppMode,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  registerLoading,TResult? Function( UserModel user)?  registerSuccess,TResult? Function( String message)?  registerFailure,TResult? Function()?  loginLoading,TResult? Function( UserModel user)?  loginSuccess,TResult? Function( String message)?  loginFailure,TResult? Function()?  logoutLoading,TResult? Function()?  logoutSuccess,TResult? Function( String message)?  logoutFailure,TResult? Function()?  biometricLoading,TResult? Function()?  biometricSuccess,TResult? Function( String message)?  biometricFailure,TResult? Function( bool isPassword)?  changeIconVisibility,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case RegisterLoading() when registerLoading != null:
@@ -246,8 +241,7 @@ return logoutFailure(_that.message);case BiometricLoading() when biometricLoadin
 return biometricLoading();case BiometricSuccess() when biometricSuccess != null:
 return biometricSuccess();case BiometricFailure() when biometricFailure != null:
 return biometricFailure(_that.message);case ChangeIconVisibility() when changeIconVisibility != null:
-return changeIconVisibility(_that.isPassword);case ChangeAppMode() when changeAppMode != null:
-return changeAppMode(_that.isDark);case _:
+return changeIconVisibility(_that.isPassword);case _:
   return null;
 
 }
@@ -934,72 +928,6 @@ class _$ChangeIconVisibilityCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? isPassword = null,}) {
   return _then(ChangeIconVisibility(
 null == isPassword ? _self.isPassword : isPassword // ignore: cast_nullable_to_non_nullable
-as bool,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class ChangeAppMode implements AuthState {
-  const ChangeAppMode(this.isDark);
-  
-
- final  bool isDark;
-
-/// Create a copy of AuthState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$ChangeAppModeCopyWith<ChangeAppMode> get copyWith => _$ChangeAppModeCopyWithImpl<ChangeAppMode>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChangeAppMode&&(identical(other.isDark, isDark) || other.isDark == isDark));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,isDark);
-
-@override
-String toString() {
-  return 'AuthState.changeAppMode(isDark: $isDark)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $ChangeAppModeCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
-  factory $ChangeAppModeCopyWith(ChangeAppMode value, $Res Function(ChangeAppMode) _then) = _$ChangeAppModeCopyWithImpl;
-@useResult
-$Res call({
- bool isDark
-});
-
-
-
-
-}
-/// @nodoc
-class _$ChangeAppModeCopyWithImpl<$Res>
-    implements $ChangeAppModeCopyWith<$Res> {
-  _$ChangeAppModeCopyWithImpl(this._self, this._then);
-
-  final ChangeAppMode _self;
-  final $Res Function(ChangeAppMode) _then;
-
-/// Create a copy of AuthState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? isDark = null,}) {
-  return _then(ChangeAppMode(
-null == isDark ? _self.isDark : isDark // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }
