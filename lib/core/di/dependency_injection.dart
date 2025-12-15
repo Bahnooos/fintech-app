@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:fintech_app/core/service/stripe_service.dart';
 import 'package:fintech_app/core/helpers/shared_pref.dart';
+import 'package:fintech_app/core/service/stripe_service.dart';
 import 'package:fintech_app/core/services/local_auth_services.dart';
 import 'package:fintech_app/core/theme/theme_cubit.dart';
 import 'package:fintech_app/features/auth/data/repo/auth_repo_impl.dart';
@@ -41,7 +41,7 @@ Future<void> initGetIt() async {
 
   // Profile
   getIt.registerLazySingleton<UserRepo>(() => UserRepoImpl());
-  getIt.registerLazySingleton<UserCubit>(() => UserCubit(getIt()));
+  getIt.registerFactory<UserCubit>(() => UserCubit(getIt()));
 
   /// Home_Api_Service =>  Home_Repo => Home_Cubit
   /// Home Feature Dependencies
@@ -64,7 +64,6 @@ Future<void> initGetIt() async {
   // Payment Feature Dependencies
   _initPaymentDependencies();
 }
-
 
 void _initPaymentDependencies() {
   getIt.registerLazySingleton<CoinService>(() => CoinService(getIt<Dio>()));

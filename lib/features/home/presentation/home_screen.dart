@@ -19,7 +19,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
-  // ✅ Create screens lazily
   late final List<Widget> _screens;
 
   @override
@@ -29,10 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
       const HomeScreenBody(),
       const Center(child: Text('Market Screen')),
       const Center(child: Text('Portfolio Screen')),
-      BlocProvider.value(
-        value: getIt<UserCubit>()..getCurrentUser(),
-        child: const SettingsScreen(),
-      ),
+      const SettingsScreen(),
     ];
   }
 
@@ -46,9 +42,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: IndexedStack(
-          index: _currentIndex,
-          children: _screens,
+        child: BlocProvider.value(
+          value: getIt<UserCubit>()..getCurrentUser(),
+          child: IndexedStack(
+            index: _currentIndex,
+            children: _screens,
+          ),
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(

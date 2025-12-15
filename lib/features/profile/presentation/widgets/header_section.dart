@@ -46,7 +46,7 @@ class HeaderSection extends StatelessWidget {
                         ),
                         verticalSpace(24),
                         Text(
-                          '${user.firstName}${user.lastName}',
+                          '${user.firstName} ${user.lastName}',
                           style: TextStyles.font24PrimaryBold.copyWith(
                             color: isDarkMode
                                 ? AppColors.snowWhite

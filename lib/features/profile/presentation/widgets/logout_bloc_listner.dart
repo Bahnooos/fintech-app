@@ -17,7 +17,7 @@ class LogoutBlocListenr extends StatelessWidget {
         state.whenOrNull(
           loggingOut: () => showLoadingDialog(context),
           logoutSuccess: () {
-            Navigator.pop(context);
+            Navigator.of(context, rootNavigator: true).pop();
             FlutterToast.showFlutterToast(
               message: 'Logout successfully',
               state: ToastStates.success,

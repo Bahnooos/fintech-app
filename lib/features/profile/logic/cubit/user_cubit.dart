@@ -72,7 +72,6 @@ class UserCubit extends Cubit<UserState> {
     result.when(
       success: (_) {
         emit(const UserState.logoutSuccess());
-        emit(const UserState.initial());
       },
       failure: (error) =>
           emit(UserState.logoutFailure(error.message ?? 'Failed logout')),
