@@ -16,7 +16,7 @@ class BalanceCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 24.w),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(12.r),
         color: AppColors.cardGradient,
       ),
       child: Stack(
@@ -59,7 +59,7 @@ class BalanceCard extends StatelessWidget {
                   ),
                   8.verticalSpace,
                   Text(
-                    '\$${143421.12}',
+                    '\$143,421.12',
                     style: context.displayMedium_28?.copyWith(
                       color: Colors.white,
                     ),
@@ -73,22 +73,22 @@ class BalanceCard extends StatelessWidget {
           CustomGradientCard(
             bottom: -60.h,
             left: -60.w,
-            width: 135.w,
-            height: 135.h,
+            width: 130.w,
+            height: 130.h,
             opacity: .1,
           ),
           CustomGradientCard(
             bottom: -60.h,
             left: -60.w,
-            width: 152.w,
-            height: 152.h,
+            width: 145.w,
+            height: 145.h,
             opacity: .1,
           ),
           CustomGradientCard(
             bottom: -60.h,
             left: -60.w,
-            width: 170.w,
-            height: 170.h,
+            width: 165.w,
+            height: 165.h,
             opacity: .1,
           ),
         ],

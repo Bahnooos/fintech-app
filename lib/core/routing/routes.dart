@@ -2,6 +2,7 @@ class Routes {
   static const String onboardingScreen = '/onboardingScreen';
   static const String homeScreen = '/home';
   static const String authScreen = '/authScreen';
+  static const String authFlow = '/authFlow';
   static const String loginScreen = '/loginScreen';
   static const String registerScreen = '/registerScreen';
   static const String faceIdLoginScreen = '/faceIdLoginScreen';
@@ -12,4 +13,7 @@ class Routes {
   static const String verifiedRegisterScreen = '/verifiedRegisterScreen';
   static const String marketScreen = '/marketScreen';
   static const String coinDetailsScreen = '/coinDetailsScreen';
+  static const String buyCoins = '/buyCoins';
+  static const String paymentDetails = '/paymentDetails';
+  static const String cardPayment = '/cardPayment';
 }

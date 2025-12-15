@@ -20,8 +20,6 @@ class CustomBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
     return Container(
-      height: 70.h,
-      padding: EdgeInsets.symmetric(horizontal: 15.w),
       decoration: BoxDecoration(
         color: isDark ? AppColors.blackColor : Colors.white,
         boxShadow: [
@@ -33,10 +31,10 @@ class CustomBottomNavBar extends StatelessWidget {
         ],
       ),
       child: SafeArea(
+        top: false,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
+          padding: EdgeInsets.symmetric(vertical: 12.h),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _NavBarItem(
                 icon: AppImages.homeIcon,
@@ -91,10 +89,9 @@ class _NavBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+    return Expanded(
+      child: InkWell(
+        onTap: onTap,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -109,13 +106,16 @@ class _NavBarItem extends StatelessWidget {
               ),
             ),
             6.verticalSpace,
-            Text(
-              label,
-              style: isSelected
-                  ? context.bodySmall_12?.copyWith(
-                      color: AppColors.primary,
-                    )
-                  : context.bodySmall_12,
+            Flexible(
+              child: Text(
+                label,
+                maxLines: 1,
+                style: isSelected
+                    ? context.bodySmall_12?.copyWith(
+                        color: AppColors.primary,
+                      )
+                    : context.bodySmall_12,
+              ),
             ),
           ],
         ),

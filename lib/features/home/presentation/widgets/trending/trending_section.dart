@@ -93,7 +93,7 @@ class TrendingSection extends StatelessWidget {
 
                 case SectionStatus.error:
                   return Center(
-                    child: Text(state.globalError ?? ''),
+                    child: Text(state.trendingError ?? ''),
                   );
               }
             },
