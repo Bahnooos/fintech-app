@@ -212,8 +212,8 @@ class _CardPaymentScreenState extends State<CardPaymentScreen> {
     );
 
     context.read<PaymentCubit>().makePaymentWithCard(
-          intentRequestModel: intentRequest,
-        );
+      intentRequestModel: intentRequest,
+    );
   }
 
   void _showSuccessDialog() {
@@ -221,7 +221,9 @@ class _CardPaymentScreenState extends State<CardPaymentScreen> {
       context: context,
       barrierDismissible: false,
       builder: (dialogContext) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.r),
+        ),
         title: Row(
           children: [
             Icon(Icons.check_circle, color: Colors.green, size: 28.sp),
@@ -245,7 +247,8 @@ class _CardPaymentScreenState extends State<CardPaymentScreen> {
               context.read<PaymentCubit>().resetPayment();
               // Go back to the buy crypto screen
               Navigator.of(context).popUntil(
-                (route) => route.settings.name == Routes.buyCoins || route.isFirst,
+                (route) =>
+                    route.settings.name == Routes.buyCoins || route.isFirst,
               );
             },
             child: const Text('OK'),

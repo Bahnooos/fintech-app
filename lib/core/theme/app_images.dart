@@ -40,6 +40,7 @@ class AppImages {
   static const String ethereumIcon = 'assets/svg/EthereumIcon.svg';
   static const String failureIcon = 'assets/svg/failureIcon.svg';
   static const String homeIcon = 'assets/svg/homeIcon.svg';
+  static const String menuIcon = 'assets/svg/menu.svg';
   static const String homeActiveColor = 'assets/svg/homeActiveColor.svg';
   static const String languageIcon = 'assets/svg/languageIcon.svg';
   static const String litecoinIcon = 'assets/svg/LitecoinIcon.svg';

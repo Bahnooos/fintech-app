@@ -239,8 +239,8 @@ class TextStyles {
     color: AppColors.snowWhite,
     fontWeight: FontWeightHelper.bold,
   );
-  static TextStyle font20DeepForestBold = GoogleFonts.lato(
-    fontSize: 20.sp,
+  static TextStyle font18DeepForestBold = GoogleFonts.lato(
+    fontSize: 18.sp,
     color: AppColors.deepForest,
     fontWeight: FontWeightHelper.bold,
   );

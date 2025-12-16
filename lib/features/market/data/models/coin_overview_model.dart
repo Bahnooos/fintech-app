@@ -19,14 +19,14 @@ class CoinOverviewModel {
 
   factory CoinOverviewModel.fromJson(Map<String, dynamic> json) {
     return CoinOverviewModel(
-      coinId: json['id'],
-      coinName: json['name'],
-      coinImage: json['image'],
-      currentPrice: (json['current_price'] as num).toDouble(),
-      marketCapRank: json['market_cap_rank'],
-      priceChangePercentage24h: (json['price_change_percentage_24h'] as num)
-          .toDouble(),
-      symbol: json['symbol'],
+      coinId: json['id'] ?? '',
+      coinName: json['name'] ?? 'Unknown',
+      coinImage: json['image'] ?? '',
+      currentPrice: (json['current_price'] as num?)?.toDouble() ?? 0.0,
+      marketCapRank: json['market_cap_rank'] ?? 0,
+      priceChangePercentage24h:
+          (json['price_change_percentage_24h'] as num?)?.toDouble() ?? 0.0,
+      symbol: json['symbol'] ?? '',
     );
   }
 }

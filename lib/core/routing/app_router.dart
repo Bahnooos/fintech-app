@@ -50,7 +50,6 @@ class AppRouter {
           ),
         );
 
-
       case Routes.buyCoins:
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
@@ -89,7 +88,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => MarketCubit(),
-            child: MarketScreen(),
+            child: const MarketScreen(),
           ),
         );
       case Routes.coinDetailsScreen:
@@ -97,7 +96,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
             value: marketCubit,
-            child: CoinDetailsScreen(),
+            child: const CoinDetailsScreen(),
           ),
         );
       default:

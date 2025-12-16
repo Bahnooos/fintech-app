@@ -6,9 +6,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/theme/app_color.dart';
 import '../../../../core/theme/text_styles.dart';
 
-class CoinDetailsScreen extends StatelessWidget {
-  CoinDetailsScreen({super.key});
+class CoinDetailsScreen extends StatefulWidget {
+  const CoinDetailsScreen({super.key});
+
+  @override
+  State<CoinDetailsScreen> createState() => _CoinDetailsScreenState();
+}
+
+class _CoinDetailsScreenState extends State<CoinDetailsScreen> {
   late MarketCubit _marketCubit;
+
   @override
   Widget build(BuildContext context) {
     _marketCubit = context.read<MarketCubit>();
@@ -32,7 +39,7 @@ class CoinDetailsScreen extends StatelessWidget {
                     padding: EdgeInsetsGeometry.zero,
                   ),
                   Text("Coin Details", style: TextStyles.font24PrimaryBold),
-                  SizedBox(width: 48.w), // Placeholder for alignment
+                  SizedBox(width: 48.w),
                 ],
               ),
               Row(
@@ -55,7 +62,7 @@ class CoinDetailsScreen extends StatelessWidget {
                   ),
                   Text(
                     _marketCubit.selectedCoin!.coinName,
-                    style: TextStyles.font20DeepForestBold,
+                    style: TextStyles.font18DeepForestBold,
                   ),
                 ],
               ),
@@ -104,7 +111,7 @@ class CoinDetailsScreen extends StatelessWidget {
                 style: TextStyles.font16SmokeGrayRegular,
               ),
 
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [],
               ),
@@ -125,7 +132,7 @@ class CoinDetailsScreen extends StatelessWidget {
         ),
 
         Text(
-          '${value}\$',
+          '$value\$',
           style: TextStyles.font14LatoMedium,
         ),
       ],

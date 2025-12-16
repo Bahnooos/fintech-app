@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, unused_local_variable
+
 import 'package:dart_either/dart_either.dart';
 import 'package:dio/dio.dart';
 import 'package:fintech_app/core/networking/api_constant.dart';
@@ -13,8 +15,8 @@ class DioRepository {
   static void configureDio() {
     // Set default configs
     dio.options.baseUrl = ApiConstant.baseUrl;
-    dio.options.connectTimeout = Duration(seconds: 5);
-    dio.options.receiveTimeout = Duration(seconds: 3);
+    dio.options.connectTimeout = const Duration(seconds: 5);
+    dio.options.receiveTimeout = const Duration(seconds: 3);
   }
 
   static Future<Either<ApiErrorModel, dynamic>> getRequest(

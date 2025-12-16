@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:fintech_app/core/theme/app_color.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
 import 'package:fintech_app/features/market/domain/filter_entity.dart';
@@ -8,6 +10,7 @@ class FilterCard extends StatelessWidget {
   FilterCard({required this.filterEntity, required this.isSelected, super.key});
   FilterEntity filterEntity;
   bool isSelected;
+
   @override
   Widget build(BuildContext context) {
     return Container(

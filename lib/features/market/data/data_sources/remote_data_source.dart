@@ -3,6 +3,9 @@
 /// Purpose: Remote data source for fetching market data from API
 /// Author: Mohamed Elrashidy
 /// Created At: 09/12/2025
+// ignore_for_file: unintended_html_in_doc_comment
+
+library;
 
 import 'package:dart_either/dart_either.dart';
 import 'package:fintech_app/core/networking/api_constant.dart';

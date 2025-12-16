@@ -3,6 +3,9 @@
 /// Purpose: Repository for market data operations
 /// Author: Mohamed Elrashidy
 /// Created At: 09/12/2025
+// ignore_for_file: unintended_html_in_doc_comment, avoid_print
+
+library;
 
 import 'dart:core';
 
@@ -37,9 +40,19 @@ class MarketRepository {
 
     if (result.isLeft) return result;
 
-    final List<CoinOverviewModel> coins = List<Map<String, dynamic>>.from(
-      result.getOrElse(() => []),
-    ).map((json) => CoinOverviewModel.fromJson(json)).toList();
-    return result = Right(coins);
+    final rawData = result.getOrElse(() => []);
+    final List<CoinOverviewModel> coins = [];
+
+    for (var json in List<Map<String, dynamic>>.from(rawData)) {
+      try {
+        coins.add(CoinOverviewModel.fromJson(json));
+      } catch (e) {
+        // Skip invalid items and log error
+        print('Error parsing coin: $e');
+        print('Problematic JSON: $json');
+      }
+    }
+
+    return Right(coins);
   }
 }

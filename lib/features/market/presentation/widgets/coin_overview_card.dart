@@ -33,28 +33,34 @@ class CoinOverviewCard extends StatelessWidget {
             ),
           ),
           SizedBox(width: 12.w),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                coin.coinName,
-                style: TextStyles.font20DeepForestBold,
-              ),
-              Text(
-                "Rank #${coin.marketCapRank}",
-                style: TextStyles.font16MediumGrayRegular,
-              ),
-            ],
+          Expanded(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  coin.coinName,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyles.font18DeepForestBold,
+                ),
+                SizedBox(height: 4.h),
+                Text(
+                  "Rank #${coin.marketCapRank}",
+                  style: TextStyles.font16MediumGrayRegular,
+                ),
+              ],
+            ),
           ),
-          Spacer(),
+
+          const Spacer(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 "\$${coin.currentPrice.toStringAsFixed(0)}",
-                style: TextStyles.font20DeepForestBold,
+                style: TextStyles.font18DeepForestBold,
               ),
               performanceInfo(coin.priceChangePercentage24h),
             ],

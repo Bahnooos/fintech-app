@@ -1,8 +1,10 @@
+// ignore_for_file: avoid_print
+
 import 'package:bloc/bloc.dart';
 import 'package:fintech_app/features/market/data/models/coin_overview_model.dart';
 import 'package:fintech_app/features/market/data/repositories/market_repository.dart';
 import 'package:fintech_app/features/market/domain/filter_entity.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
 
 part 'market_state.dart';
 
@@ -40,7 +42,7 @@ class MarketCubit extends Cubit<MarketState> {
   ///
   /// Parameters: None
   ///
-  /// Returns: List<CoinOverviewModel>
+  /// Returns: List< CoinOverv iewModel>
   List<CoinOverviewModel> get getDisplayCoins {
     if (searchQuery.isEmpty) {
       return coins;

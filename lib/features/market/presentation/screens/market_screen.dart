@@ -3,9 +3,12 @@
 /// Purpose: Market screen displaying crypto coins with pagination
 /// Author: Mohamed Elrashidy
 /// Created At: 09/12/2025
+library;
 
 import 'package:fintech_app/core/routing/routes.dart';
+import 'package:fintech_app/core/theme/app_images.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
+import 'package:fintech_app/core/widgets/custom_loading_dialog.dart';
 import 'package:fintech_app/features/market/domain/filter_entity.dart';
 import 'package:fintech_app/features/market/presentation/logic/market_cubit.dart';
 import 'package:fintech_app/features/market/presentation/widgets/coin_overview_card.dart';
@@ -73,7 +76,7 @@ class _MarketScreenState extends State<MarketScreen> {
                   CustomTextFormField(
                     controller: _searchController,
                     onChanged: (value) {
-                      _marketCubit.updateSearchQuery(value ?? '');
+                      _marketCubit.updateSearchQuery(value);
                     },
                     hintText: "Search",
                     onTap: () {},
@@ -91,12 +94,15 @@ class _MarketScreenState extends State<MarketScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SvgPicture.asset(
-                          "assets/svg/menu.svg",
+                          AppImages.menuIcon,
                           height: 24.h,
                           width: 24.w,
                         ),
                       ],
                     ),
+                    validator: (String p1) {
+                      return null;
+                    },
                   ),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -148,7 +154,7 @@ class _MarketScreenState extends State<MarketScreen> {
                                 if (state is MarketLoadingMoreState)
                                   Padding(
                                     padding: EdgeInsets.all(16.h),
-                                    child: const CircularProgressIndicator(),
+                                    child: const CustomLoadingDialog(),
                                   ),
                               ],
                             ),
