@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../portfolio/presentation/portfolio_screen.dart';
 import 'widgets/custom_bottom_nav_bar.dart';
 import 'widgets/home_screen_body.dart';
 
@@ -28,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: const [
             HomeScreenBody(),
             Center(child: Text('Market Screen')),
-            Center(child: Text('Portfolio Screen')),
+            PortfolioScreen(),
             Center(child: Text('Settings Screen')),
           ],
         ),
