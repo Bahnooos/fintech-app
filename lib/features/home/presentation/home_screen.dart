@@ -1,6 +1,7 @@
 import 'package:fintech_app/core/di/dependency_injection.dart';
 import 'package:fintech_app/features/market/presentation/logic/market_cubit.dart';
 import 'package:fintech_app/features/market/presentation/screens/market_screen.dart';
+import 'package:fintech_app/features/portfolio/presentation/portfolio_screen.dart';
 import 'package:fintech_app/features/profile/logic/cubit/user_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
         create: (context) => MarketCubit(),
         child: const MarketScreen(),
       ),
-      const Center(child: Text('Portfolio Screen')),
+      const PortfolioScreen(),
       const SettingsScreen(),
     ];
   }
