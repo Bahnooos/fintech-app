@@ -12,6 +12,13 @@ class BiomerticsBlocListner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthCubit, AuthState>(
+      listenWhen: (previous, current) =>
+          current is BiometricLoading ||
+          current is BiometricSuccess ||
+          current is BiometricFailure ||
+          current is LoginLoading ||
+          current is LoginSuccess ||
+          current is LoginFailure,
       listener: (context, state) {
         state.whenOrNull(
           biometricLoading: () {
@@ -19,13 +26,43 @@ class BiomerticsBlocListner extends StatelessWidget {
           },
           biometricSuccess: () async {
             Navigator.of(context, rootNavigator: true).pop();
-            // Navigate to home screen using root navigator to escape auth flow
+            await Future.delayed(const Duration(milliseconds: 500));
+
+            if (!context.mounted) return;
+            FlutterToast.showFlutterToast(
+              message: 'Login Successfully',
+              state: ToastStates.success,
+              context: context,
+            );
             Navigator.of(context, rootNavigator: true).pushNamedAndRemoveUntil(
               Routes.homeScreen,
               (route) => false,
             );
           },
           biometricFailure: (message) {
+            FlutterToast.showFlutterToast(
+              message: message,
+              state: ToastStates.error,
+              context: context,
+            );
+          },
+          loginLoading: () {},
+          loginSuccess: (user) async {
+            Navigator.of(context, rootNavigator: true).pop();
+            await Future.delayed(const Duration(milliseconds: 500));
+
+            if (!context.mounted) return;
+            FlutterToast.showFlutterToast(
+              message: 'Login Successfully',
+              state: ToastStates.success,
+              context: context,
+            );
+            Navigator.of(context, rootNavigator: true).pushNamedAndRemoveUntil(
+              Routes.homeScreen,
+              (route) => false,
+            );
+          },
+          loginFailure: (message) {
             Navigator.of(context, rootNavigator: true).pop();
             FlutterToast.showFlutterToast(
               message: message,

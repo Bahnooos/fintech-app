@@ -11,27 +11,26 @@ import 'package:fintech_app/features/auth/presentation/screens/login/screens/log
 import 'package:fintech_app/features/auth/presentation/screens/register/screens/register_screen.dart';
 import 'package:fintech_app/features/home/presentation/home_screen.dart';
 import 'package:fintech_app/features/home/presentation/logic/cubit/home_cubit.dart';
+import 'package:fintech_app/features/market/presentation/logic/market_cubit.dart';
+import 'package:fintech_app/features/market/presentation/screens/coin_details_screen.dart';
+import 'package:fintech_app/features/market/presentation/screens/market_screen.dart';
 import 'package:fintech_app/features/onbaording/presentation/screens/onboarding_screen.dart';
+import 'package:fintech_app/features/payment/presentation/cubit/payment_cubit.dart';
+import 'package:fintech_app/features/payment/presentation/screens/buy_crypto.dart';
+import 'package:fintech_app/features/payment/presentation/screens/card_payment_screen.dart';
+import 'package:fintech_app/features/payment/presentation/screens/payment_method_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../di/dependency_injection.dart';
 
 class AppRouter {
+  final PaymentCubit _paymentCubit = getIt<PaymentCubit>();
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       //! Onboarding Screen
       case Routes.onboardingScreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
-
-      //! Home Screen
-      case Routes.homeScreen:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<HomeCubit>()..fetchAllData(),
-            child: const HomeScreen(),
-          ),
-        );
 
       //! Auth Flow
       case Routes.authFlow:
@@ -42,9 +41,72 @@ class AppRouter {
           ),
         );
 
+      //! Home Screen
+      case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<HomeCubit>()..fetchAllData(),
+            child: const HomeScreen(),
+          ),
+        );
+
+
+      case Routes.buyCoins:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider.value(
+            value: _paymentCubit,
+            child: const BuyCryptoScreen(),
+          ),
+        );
+      case Routes.paymentDetails:
+        final args = settings.arguments as Map<String, dynamic>?;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider.value(
+            value: _paymentCubit,
+            child: PaymentMethodScreen(
+              amount: args?['amount'] ?? '',
+              crypto: args?['crypto'] ?? '',
+              cryptoAmount: args?['cryptoAmount'] ?? '',
+              exchangeFee: args?['exchangeFee'] ?? 0.0,
+            ),
+          ),
+        );
+
+      case Routes.cardPayment:
+        final args = settings.arguments as Map<String, dynamic>?;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider.value(
+            value: _paymentCubit,
+            child: CardPaymentScreen(
+              amount: args?['amount'] ?? '',
+              crypto: args?['crypto'] ?? '',
+              cryptoAmount: args?['cryptoAmount'] ?? '',
+              exchangeFee: args?['exchangeFee'] ?? 0.0,
+            ),
+          ),
+        );
+      case Routes.marketScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => MarketCubit(),
+            child: MarketScreen(),
+          ),
+        );
+      case Routes.coinDetailsScreen:
+        MarketCubit marketCubit = settings.arguments as MarketCubit;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider.value(
+            value: marketCubit,
+            child: CoinDetailsScreen(),
+          ),
+        );
       default:
         return null;
     }
+  }
+
+  void dispose() {
+    _paymentCubit.close();
   }
 }
 

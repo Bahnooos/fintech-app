@@ -19,9 +19,9 @@ class FingerprintLoginScreen extends StatefulWidget {
 
 class _FingerprintLoginScreenState extends State<FingerprintLoginScreen> {
   @override
+  @override
   void initState() {
     super.initState();
-    // Trigger biometric authentication when screen loads
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<AuthCubit>().authenticateWithBiometrics();
     });

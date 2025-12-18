@@ -17,15 +17,19 @@ class CustomTextFormField extends StatelessWidget {
     this.errorBorderColor,
     this.focusedBorder,
     this.enabledBorder,
+    this.suffixIcon,
     this.errorBorder,
+    this.onChanged,
     this.isObscureText = false,
     this.controller,
     required this.validator,
+    this.suffixIcon,
   });
   final String hintText;
   final Color? backgroundColor;
   final TextStyle? hintStyle;
   final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final double? borderRadius;
   final Color? enabledBorderColor;
   final Color? focusedBorderColor;
@@ -35,8 +39,10 @@ class CustomTextFormField extends StatelessWidget {
   final InputBorder? errorBorder;
   final bool? isObscureText;
   final void Function() onTap;
+  final void Function(String)? onChanged;
   final TextEditingController? controller;
   final String? Function(String) validator;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -52,10 +58,14 @@ class CustomTextFormField extends StatelessWidget {
 
       controller: controller,
       onTap: onTap,
+      onChanged: onChanged,
       obscureText: isObscureText!,
+
       decoration: InputDecoration(
+        suffixIcon: suffixIcon,
         enabled: true,
         isDense: true,
+        suffixIcon: suffixIcon,
         fillColor:
             backgroundColor ??
             (isDarkMode ? AppColors.blackColor : AppColors.cloudWhite),

@@ -11,4 +11,9 @@ class Routes {
   static const String faceIdRegisterScreen = '/faceIdRegisterScreen';
   static const String fingerprintRegisterScreen = '/fingerprintRegisterScreen';
   static const String verifiedRegisterScreen = '/verifiedRegisterScreen';
+  static const String marketScreen = '/marketScreen';
+  static const String coinDetailsScreen = '/coinDetailsScreen';
+  static const String buyCoins = '/buyCoins';
+  static const String paymentDetails = '/paymentDetails';
+  static const String cardPayment = '/cardPayment';
 }

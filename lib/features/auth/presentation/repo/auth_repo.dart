@@ -14,6 +14,6 @@ abstract class AuthRepo {
     required String email,
     required String password,
   });
-  Future<UserModel?> getCurrentUser();
-  Future<ApiReuslt<void>> logOut();
+  // Future<UserModel?> getCurrentUser();
+  //Future<ApiReuslt<void>> logOut();
 }

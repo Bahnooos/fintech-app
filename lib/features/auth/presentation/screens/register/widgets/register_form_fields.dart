@@ -27,11 +27,14 @@ class _RegisterFormFieldsState extends State<RegisterFormFields> {
   bool hasMinLength = false;
 
   late TextEditingController passwordController;
+  late final GlobalKey<FormState> _formKey;
 
   @override
   void initState() {
     super.initState();
     passwordController = context.read<AuthCubit>().registerPasswordController;
+    _formKey = GlobalKey<FormState>();
+    context.read<AuthCubit>().registerFormKey = _formKey;
     setupPasswordControllerListner();
   }
 
@@ -52,7 +55,7 @@ class _RegisterFormFieldsState extends State<RegisterFormFields> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: context.read<AuthCubit>().registerFormKey,
+      key: _formKey,
       child: Column(
         children: [
           CustomTextFormField(
