@@ -6,6 +6,7 @@ import 'package:hive_ce/hive.dart';
 import 'package:fintech_app/features/home/data/models/coin_model.dart';
 import 'package:fintech_app/features/home/data/models/global_data_response.dart';
 import 'package:fintech_app/features/home/data/models/trending_response.dart';
+import 'package:fintech_app/features/portfolio/data/models/user_holding_model.dart';
 
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {
@@ -16,6 +17,7 @@ extension HiveRegistrar on HiveInterface {
     registerAdapter(GlobalDataResponseAdapter());
     registerAdapter(GlobalMarketDataAdapter());
     registerAdapter(TrendingResponseAdapter());
+    registerAdapter(UserHoldingModelAdapter());
   }
 }
 
@@ -28,5 +30,6 @@ extension IsolatedHiveRegistrar on IsolatedHiveInterface {
     registerAdapter(GlobalDataResponseAdapter());
     registerAdapter(GlobalMarketDataAdapter());
     registerAdapter(TrendingResponseAdapter());
+    registerAdapter(UserHoldingModelAdapter());
   }
 }

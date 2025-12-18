@@ -1,6 +1,7 @@
 import 'package:fintech_app/features/home/data/models/coin_model.dart';
 import 'package:fintech_app/features/home/data/models/global_data_response.dart';
 import 'package:fintech_app/features/home/data/models/trending_response.dart';
+import 'package:fintech_app/features/portfolio/data/models/user_holding_model.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 
 /// Class for registering Hive type adapters
@@ -33,6 +34,9 @@ class HiveAdapters {
     }
     if (!Hive.isAdapterRegistered(6)) {
       Hive.registerAdapter<GlobalMarketData>(GlobalMarketDataAdapter());
+    }
+    if (!Hive.isAdapterRegistered(7)) {
+      Hive.registerAdapter<UserHoldingModel>(UserHoldingModelAdapter());
     }
   }
 }

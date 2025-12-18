@@ -18,7 +18,6 @@ class WeeklyProfitPill extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 16.w),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             'Weekly Profit',
