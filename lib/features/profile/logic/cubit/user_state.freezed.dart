@@ -302,7 +302,7 @@ class Loaded implements UserState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$LoadedCopyWith<Loaded> get copyWith => __$LoadedCopyWithImpl<Loaded>(this, _$identity);
+$LoadedCopyWith<Loaded> get copyWith => _$LoadedCopyWithImpl<Loaded>(this, _$identity);
 
 
 
@@ -324,8 +324,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$LoadedCopyWith<$Res> implements $UserStateCopyWith<$Res> {
-  factory _$LoadedCopyWith(Loaded value, $Res Function(Loaded) _then) = __$LoadedCopyWithImpl;
+abstract mixin class $LoadedCopyWith<$Res> implements $UserStateCopyWith<$Res> {
+  factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) _then) = _$LoadedCopyWithImpl;
 @useResult
 $Res call({
  UserModel user
@@ -336,9 +336,9 @@ $Res call({
 
 }
 /// @nodoc
-class __$LoadedCopyWithImpl<$Res>
-    implements _$LoadedCopyWith<$Res> {
-  __$LoadedCopyWithImpl(this._self, this._then);
+class _$LoadedCopyWithImpl<$Res>
+    implements $LoadedCopyWith<$Res> {
+  _$LoadedCopyWithImpl(this._self, this._then);
 
   final Loaded _self;
   final $Res Function(Loaded) _then;
@@ -368,7 +368,7 @@ class Error implements UserState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$ErrorCopyWith<Error> get copyWith => __$ErrorCopyWithImpl<Error>(this, _$identity);
+$ErrorCopyWith<Error> get copyWith => _$ErrorCopyWithImpl<Error>(this, _$identity);
 
 
 
@@ -390,8 +390,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$ErrorCopyWith<$Res> implements $UserStateCopyWith<$Res> {
-  factory _$ErrorCopyWith(Error value, $Res Function(Error) _then) = __$ErrorCopyWithImpl;
+abstract mixin class $ErrorCopyWith<$Res> implements $UserStateCopyWith<$Res> {
+  factory $ErrorCopyWith(Error value, $Res Function(Error) _then) = _$ErrorCopyWithImpl;
 @useResult
 $Res call({
  String message
@@ -402,9 +402,9 @@ $Res call({
 
 }
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res>
-    implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(this._self, this._then);
+class _$ErrorCopyWithImpl<$Res>
+    implements $ErrorCopyWith<$Res> {
+  _$ErrorCopyWithImpl(this._self, this._then);
 
   final Error _self;
   final $Res Function(Error) _then;
@@ -466,7 +466,7 @@ class UpdateSuccess implements UserState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$UpdateSuccessCopyWith<UpdateSuccess> get copyWith => __$UpdateSuccessCopyWithImpl<UpdateSuccess>(this, _$identity);
+$UpdateSuccessCopyWith<UpdateSuccess> get copyWith => _$UpdateSuccessCopyWithImpl<UpdateSuccess>(this, _$identity);
 
 
 
@@ -488,8 +488,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$UpdateSuccessCopyWith<$Res> implements $UserStateCopyWith<$Res> {
-  factory _$UpdateSuccessCopyWith(UpdateSuccess value, $Res Function(UpdateSuccess) _then) = __$UpdateSuccessCopyWithImpl;
+abstract mixin class $UpdateSuccessCopyWith<$Res> implements $UserStateCopyWith<$Res> {
+  factory $UpdateSuccessCopyWith(UpdateSuccess value, $Res Function(UpdateSuccess) _then) = _$UpdateSuccessCopyWithImpl;
 @useResult
 $Res call({
  UserModel user
@@ -500,9 +500,9 @@ $Res call({
 
 }
 /// @nodoc
-class __$UpdateSuccessCopyWithImpl<$Res>
-    implements _$UpdateSuccessCopyWith<$Res> {
-  __$UpdateSuccessCopyWithImpl(this._self, this._then);
+class _$UpdateSuccessCopyWithImpl<$Res>
+    implements $UpdateSuccessCopyWith<$Res> {
+  _$UpdateSuccessCopyWithImpl(this._self, this._then);
 
   final UpdateSuccess _self;
   final $Res Function(UpdateSuccess) _then;
@@ -532,7 +532,7 @@ class UpdateFailure implements UserState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$UpdateFailureCopyWith<UpdateFailure> get copyWith => __$UpdateFailureCopyWithImpl<UpdateFailure>(this, _$identity);
+$UpdateFailureCopyWith<UpdateFailure> get copyWith => _$UpdateFailureCopyWithImpl<UpdateFailure>(this, _$identity);
 
 
 
@@ -554,8 +554,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$UpdateFailureCopyWith<$Res> implements $UserStateCopyWith<$Res> {
-  factory _$UpdateFailureCopyWith(UpdateFailure value, $Res Function(UpdateFailure) _then) = __$UpdateFailureCopyWithImpl;
+abstract mixin class $UpdateFailureCopyWith<$Res> implements $UserStateCopyWith<$Res> {
+  factory $UpdateFailureCopyWith(UpdateFailure value, $Res Function(UpdateFailure) _then) = _$UpdateFailureCopyWithImpl;
 @useResult
 $Res call({
  String message
@@ -566,9 +566,9 @@ $Res call({
 
 }
 /// @nodoc
-class __$UpdateFailureCopyWithImpl<$Res>
-    implements _$UpdateFailureCopyWith<$Res> {
-  __$UpdateFailureCopyWithImpl(this._self, this._then);
+class _$UpdateFailureCopyWithImpl<$Res>
+    implements $UpdateFailureCopyWith<$Res> {
+  _$UpdateFailureCopyWithImpl(this._self, this._then);
 
   final UpdateFailure _self;
   final $Res Function(UpdateFailure) _then;
@@ -662,7 +662,7 @@ class LogoutFailure implements UserState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$LogoutFailureCopyWith<LogoutFailure> get copyWith => __$LogoutFailureCopyWithImpl<LogoutFailure>(this, _$identity);
+$LogoutFailureCopyWith<LogoutFailure> get copyWith => _$LogoutFailureCopyWithImpl<LogoutFailure>(this, _$identity);
 
 
 
@@ -684,8 +684,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$LogoutFailureCopyWith<$Res> implements $UserStateCopyWith<$Res> {
-  factory _$LogoutFailureCopyWith(LogoutFailure value, $Res Function(LogoutFailure) _then) = __$LogoutFailureCopyWithImpl;
+abstract mixin class $LogoutFailureCopyWith<$Res> implements $UserStateCopyWith<$Res> {
+  factory $LogoutFailureCopyWith(LogoutFailure value, $Res Function(LogoutFailure) _then) = _$LogoutFailureCopyWithImpl;
 @useResult
 $Res call({
  String message
@@ -696,9 +696,9 @@ $Res call({
 
 }
 /// @nodoc
-class __$LogoutFailureCopyWithImpl<$Res>
-    implements _$LogoutFailureCopyWith<$Res> {
-  __$LogoutFailureCopyWithImpl(this._self, this._then);
+class _$LogoutFailureCopyWithImpl<$Res>
+    implements $LogoutFailureCopyWith<$Res> {
+  _$LogoutFailureCopyWithImpl(this._self, this._then);
 
   final LogoutFailure _self;
   final $Res Function(LogoutFailure) _then;

@@ -9,7 +9,7 @@ part of 'price_model.dart';
 // **************************************************************************
 
 SimplePriceModel _$SimplePriceModelFromJson(Map<String, dynamic> json) =>
-    SimplePriceModel(price: (json['price'] as num?)?.toDouble());
+    SimplePriceModel(rawData: json['rawData'] as Map<String, dynamic>?);
 
 Map<String, dynamic> _$SimplePriceModelToJson(SimplePriceModel instance) =>
-    <String, dynamic>{'price': instance.price};
+    <String, dynamic>{'rawData': instance.rawData};

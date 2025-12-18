@@ -1,3 +1,4 @@
+import 'package:fintech_app/core/helpers/flutter_toast.dart';
 import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/theme/app_color.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
@@ -50,7 +51,11 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
       _showSuccessDialog();
     } else if (state is PaymentFailure) {
       _isProcessing = false;
-      _showErrorSnackBar(state.message);
+      FlutterToast.showFlutterToast(
+        message: state.message,
+        state: ToastStates.error,
+        context: context,
+      );
     }
   }
 
@@ -176,12 +181,12 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
     );
   }
 
-  void _showErrorSnackBar(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: Colors.red,
-      ),
-    );
-  }
+  // void _showErrorSnackBar(String message) {
+  //   ScaffoldMessenger.of(context).showSnackBar(
+  //     SnackBar(
+  //       content: Text(message),
+  //       backgroundColor: Colors.red,
+  //     ),
+  //   );
+  // }
 }

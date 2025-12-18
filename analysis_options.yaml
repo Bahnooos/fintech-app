@@ -34,5 +34,6 @@ linter:
 analyzer:
   errors:
     unintended_html_in_doc_comment: ignore
+    avoid_print: ignore
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

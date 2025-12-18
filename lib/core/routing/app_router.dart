@@ -9,6 +9,7 @@ import 'package:fintech_app/features/auth/presentation/screens/fingerprint/scree
 import 'package:fintech_app/features/auth/presentation/screens/fingerprint/screens/register/verified_register_screen.dart';
 import 'package:fintech_app/features/auth/presentation/screens/login/screens/login_screen.dart';
 import 'package:fintech_app/features/auth/presentation/screens/register/screens/register_screen.dart';
+import 'package:fintech_app/features/coin_details/logic/cubit/coin_details_cubit.dart';
 import 'package:fintech_app/features/home/presentation/home_screen.dart';
 import 'package:fintech_app/features/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:fintech_app/features/market/presentation/logic/market_cubit.dart';
@@ -92,12 +93,29 @@ class AppRouter {
           ),
         );
       case Routes.coinDetailsScreen:
-        MarketCubit marketCubit = settings.arguments as MarketCubit;
+        final coinId = settings.arguments as String?;
+
         return MaterialPageRoute(
-          builder: (_) => BlocProvider.value(
-            value: marketCubit,
+          builder: (_) => BlocProvider(
+            create: (context) {
+              print(
+                "🎯 Creating CoinDetailsCubit for coinId: $coinId",
+              ); // Debug
+              final cubit = getIt<CoinDetailsCubit>();
+
+              // ✅ Actually fetch the coin details!
+              if (coinId != null && coinId.isNotEmpty) {
+                print("📡 Fetching coin details for: $coinId"); // Debug
+                cubit.getCoinDetails(coinId);
+              } else {
+                print("❌ No coinId provided!"); // Debug
+              }
+
+              return cubit;
+            },
             child: const CoinDetailsScreen(),
           ),
+          settings: settings,
         );
       default:
         return null;

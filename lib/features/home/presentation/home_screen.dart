@@ -1,4 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:fintech_app/core/di/dependency_injection.dart';
+import 'package:fintech_app/features/coin_details/data/api/coin_details_service.dart';
+import 'package:fintech_app/features/coin_details/data/repo/coin_details_repo_impl.dart';
+import 'package:fintech_app/features/coin_details/logic/cubit/coin_details_cubit.dart';
 import 'package:fintech_app/features/market/presentation/logic/market_cubit.dart';
 import 'package:fintech_app/features/market/presentation/screens/market_screen.dart';
 import 'package:fintech_app/features/profile/logic/cubit/user_cubit.dart';
@@ -28,8 +32,17 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _screens = [
       const HomeScreenBody(),
-      BlocProvider(
-        create: (context) => MarketCubit(),
+      MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => MarketCubit(),
+          ),
+          BlocProvider(
+            create: (context) => CoinDetailsCubit(
+              CoinDetailsRepoImpl(CoinDetailsService(Dio())),
+            ),
+          ),
+        ],
         child: const MarketScreen(),
       ),
       const Center(child: Text('Portfolio Screen')),

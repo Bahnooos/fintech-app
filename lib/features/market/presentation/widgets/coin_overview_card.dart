@@ -1,12 +1,13 @@
 import 'package:fintech_app/core/theme/app_color.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
-import 'package:fintech_app/features/market/data/models/coin_overview_model.dart';
+import 'package:fintech_app/features/coin_details/data/model/coin_details_model.dart'
+    hide Image;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CoinOverviewCard extends StatelessWidget {
   const CoinOverviewCard({required this.coin, super.key});
-  final CoinOverviewModel coin;
+  final CoinDetailsModel coin;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,10 +27,7 @@ class CoinOverviewCard extends StatelessWidget {
             ),
             child: Padding(
               padding: EdgeInsets.all(6.sp),
-              child: Image.network(
-                coin.coinImage,
-                fit: BoxFit.cover,
-              ),
+              child: Image.network(coin.image?.thumb ?? ""),
             ),
           ),
           SizedBox(width: 12.w),
@@ -39,14 +37,14 @@ class CoinOverviewCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  coin.coinName,
+                  coin.name!,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyles.font18DeepForestBold,
                 ),
                 SizedBox(height: 4.h),
                 Text(
-                  "Rank #${coin.marketCapRank}",
+                  coin.symbol?.toUpperCase() ?? "",
                   style: TextStyles.font16MediumGrayRegular,
                 ),
               ],
@@ -59,10 +57,10 @@ class CoinOverviewCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "\$${coin.currentPrice.toStringAsFixed(0)}",
+                "\$${coin.marketData?.currentPrice?['usd']?.toStringAsFixed(2) ?? '0.00'}",
                 style: TextStyles.font18DeepForestBold,
               ),
-              performanceInfo(coin.priceChangePercentage24h),
+              performanceInfo(coin.marketData!.priceChangePercentage24h!),
             ],
           ),
         ],

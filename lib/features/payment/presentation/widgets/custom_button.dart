@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:fintech_app/core/theme/app_color.dart';
+import 'package:fintech_app/core/widgets/custom_loading_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -62,10 +63,7 @@ class AppButton extends StatelessWidget {
             ? SizedBox(
                 height: loadingSize ?? 24.h,
                 width: loadingSize ?? 24.w,
-                child: CircularProgressIndicator(
-                  color: loadingIndicatorColor ?? textColor ?? Colors.white,
-                  strokeWidth: 2.w,
-                ),
+                child: const CustomLoadingDialog(size: 20),
               )
             : Text(
                 text,

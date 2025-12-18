@@ -9,6 +9,7 @@ import 'package:fintech_app/core/routing/routes.dart';
 import 'package:fintech_app/core/theme/app_images.dart';
 import 'package:fintech_app/core/theme/text_styles.dart';
 import 'package:fintech_app/core/widgets/custom_loading_dialog.dart';
+import 'package:fintech_app/features/market/data/models/coin_overview_extension.dart';
 import 'package:fintech_app/features/market/domain/filter_entity.dart';
 import 'package:fintech_app/features/market/presentation/logic/market_cubit.dart';
 import 'package:fintech_app/features/market/presentation/widgets/coin_overview_card.dart';
@@ -143,13 +144,16 @@ class _MarketScreenState extends State<MarketScreen> {
                                   GestureDetector(
                                     onTap: () {
                                       _marketCubit.selectedCoin = coin;
+
                                       Navigator.pushNamed(
                                         context,
                                         Routes.coinDetailsScreen,
-                                        arguments: _marketCubit,
+                                        arguments: coin.coinId,
                                       );
                                     },
-                                    child: CoinOverviewCard(coin: coin),
+                                    child: CoinOverviewCard(
+                                      coin: coin.toCoinDetailsModel(),
+                                    ),
                                   ),
                                 if (state is MarketLoadingMoreState)
                                   Padding(

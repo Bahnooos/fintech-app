@@ -6,6 +6,10 @@ import 'package:fintech_app/core/theme/theme_cubit.dart';
 import 'package:fintech_app/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:fintech_app/features/auth/logic/cubit/auth_cubit.dart';
 import 'package:fintech_app/features/auth/presentation/repo/auth_repo.dart';
+import 'package:fintech_app/features/coin_details/data/api/coin_details_service.dart';
+import 'package:fintech_app/features/coin_details/data/repo/coin_details_repo_impl.dart';
+import 'package:fintech_app/features/coin_details/logic/cubit/coin_details_cubit.dart';
+import 'package:fintech_app/features/coin_details/presentation/repo/coin_details_repo.dart';
 import 'package:fintech_app/features/home/data/apis/home_api_service.dart';
 import 'package:fintech_app/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:fintech_app/features/home/data/data_sources/home_local_data_source_impl.dart';
@@ -38,6 +42,16 @@ Future<void> initGetIt() async {
   // Theme
   getIt.registerSingleton<SharedPref>(sharedPref);
   getIt.registerLazySingleton<ThemeCubit>(() => ThemeCubit(getIt()));
+  getIt.registerLazySingleton<CoinDetailsService>(
+    () => CoinDetailsService(getIt()),
+  );
+  getIt.registerLazySingleton<CoinDetailsRepo>(
+    () => CoinDetailsRepoImpl(getIt()),
+  );
+
+  getIt.registerFactory<CoinDetailsCubit>(
+    () => CoinDetailsCubit(getIt()),
+  );
 
   // Profile
   getIt.registerLazySingleton<UserRepo>(() => UserRepoImpl());

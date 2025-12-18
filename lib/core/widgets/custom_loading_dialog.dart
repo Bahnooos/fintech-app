@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class CustomLoadingDialog extends StatelessWidget {
-  const CustomLoadingDialog({super.key});
-
+  const CustomLoadingDialog({super.key, this.size});
+  final double? size;
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
@@ -14,7 +14,7 @@ class CustomLoadingDialog extends StatelessWidget {
       child: Center(
         child: LoadingAnimationWidget.inkDrop(
           color: isDark ? AppColors.snowWhite : AppColors.primary,
-          size: 60,
+          size: size ?? 60,
         ),
       ),
     );
