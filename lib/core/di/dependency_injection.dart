@@ -18,6 +18,11 @@ import 'package:fintech_app/features/home/presentation/repos/home_repo.dart';
 import 'package:fintech_app/features/payment/data/apis/coin_apis.dart';
 import 'package:fintech_app/features/payment/data/repos/payment_repo.dart';
 import 'package:fintech_app/features/payment/presentation/cubit/payment_cubit.dart';
+import 'package:fintech_app/features/portfolio/data/apis/portfolio_api_service.dart';
+import 'package:fintech_app/features/portfolio/data/data_sources/portfolio_local_data_source.dart';
+import 'package:fintech_app/features/portfolio/data/repos/portfolio_repo_impl.dart';
+import 'package:fintech_app/features/portfolio/presentation/logic/portfolio_cubit.dart';
+import 'package:fintech_app/features/portfolio/presentation/repos/portfolio_repo.dart';
 import 'package:fintech_app/features/profile/data/repo/user_repo_impl.dart';
 import 'package:fintech_app/features/profile/logic/cubit/user_cubit.dart';
 import 'package:fintech_app/features/profile/presentation/repo/user_repo.dart';
@@ -73,7 +78,21 @@ Future<void> initGetIt() async {
     ),
   );
 
+  // Portfolio
+  getIt.registerLazySingleton<PortfolioApiService>(
+    () => PortfolioApiService(dio),
+  );
+  getIt.registerLazySingleton<PortfolioLocalDataSource>(
+    () => PortfolioLocalDataSource(),
+  );
+  getIt.registerLazySingleton<PortfolioRepo>(
+    () => PortfolioRepoImpl(getIt(), getIt()),
+  );
+
+  // Cubits
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
+  getIt.registerFactory<PortfolioCubit>(() => PortfolioCubit(getIt()));
+  //  getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
 
   // Payment Feature Dependencies
   _initPaymentDependencies();
