@@ -1,152 +1,192 @@
-# 🚀 Fintech & Crypto Tracker App (Flutter)
+<body>
 
-A modern, production-ready Fintech & Crypto application built with Flutter.
-The app delivers real-time cryptocurrency market data, smart portfolio tracking,
-secure crypto purchases via Stripe, and a fast offline-first experience.
+<h1>🚀 Fintech & Crypto Tracker App </h1>
 
-Repository:
+<p>
+A modern, production-ready <strong>Fintech & Crypto</strong> application built with <strong>Flutter</strong>.
+The app delivers <strong>real-time cryptocurrency market data</strong>, <strong>smart portfolio tracking</strong>,
+<strong>secure crypto purchases via Stripe</strong>, and a <strong>fast offline-first experience</strong>.
+</p>
+
+<p>
+<strong>Repository:</strong><br />
+<a href="https://github.com/Bahnooos/fintech-app" target="_blank">
 https://github.com/Bahnooos/fintech-app
+</a>
+</p>
 
----
+<h2>✨ Highlights</h2>
+<ul>
+  <li>📈 Real-time cryptocurrency market insights</li>
+  <li>💼 Portfolio tracking with analytics &amp; P&amp;L</li>
+  <li>💳 Buy crypto securely using Stripe payments</li>
+  <li>🔐 Biometric authentication (Face ID / Fingerprint)</li>
+  <li>⚡ Offline-first caching for better performance</li>
+  <li>🧩 Clean, scalable architecture using BLoC / Cubit</li>
+</ul>
 
-## ✨ Highlights
+<h2>🔥 Core Features</h2>
+<ul>
+  <li>🚀 Smooth onboarding experience</li>
+  <li>🔒 Secure authentication
+    <ul>
+      <li>Email &amp; Password</li>
+      <li>Biometric login (Face ID / Fingerprint)</li>
+    </ul>
+  </li>
+  <li>🏠 Home dashboard
+    <ul>
+      <li>Market overview</li>
+      <li>Trending cryptocurrencies</li>
+    </ul>
+  </li>
+  <li>📊 Crypto market
+    <ul>
+      <li>Search &amp; filter</li>
+      <li>Infinite scrolling</li>
+    </ul>
+  </li>
+  <li>💰 Portfolio management
+    <ul>
+      <li>Total balance</li>
+      <li>Profit &amp; Loss tracking</li>
+      <li>Asset allocation charts</li>
+    </ul>
+  </li>
+  <li>💳 Fiat-to-crypto purchases with Stripe integration</li>
+  <li>⚙️ User profile &amp; settings
+    <ul>
+      <li>Light / Dark mode</li>
+      <li>Account management</li>
+    </ul>
+  </li>
+</ul>
 
-- Real-time cryptocurrency market insights
-- Portfolio tracking with analytics & P&L
-- Buy crypto securely using Stripe payments
-- Biometric authentication (Face ID / Fingerprint)
-- Offline-first caching for better performance
-- Clean, scalable architecture using BLoC / Cubit
+<h2>🛠 Tech Stack</h2>
+<ul>
+  <li><strong>Framework:</strong> Flutter (Dart)</li>
+  <li><strong>State Management:</strong> BLoC / Cubit</li>
+  <li><strong>Networking:</strong> Dio, Retrofit</li>
+  <li><strong>Backend:</strong> Firebase (Auth, Firestore)</li>
+  <li><strong>Payments:</strong> Stripe</li>
+  <li><strong>Local Storage:</strong> Hive, Shared Preferences</li>
+  <li><strong>Code Generation:</strong> Freezed, json_serializable</li>
+</ul>
 
----
+<h2>🔌 APIs Used</h2>
+<p>
+<strong>CoinGecko API</strong><br />
+Provides real-time and historical cryptocurrency market data including prices,
+market caps, and trends.
+</p>
+<p>
+📘 Documentation:
+<a href="https://docs.coingecko.com/" target="_blank">
+https://docs.coingecko.com/
+</a>
+</p>
 
-## 🔥 Core Features
+<h2>🎨 UI / UX Design</h2>
+<p>
+<strong>Figma Design File</strong><br />
+Complete UI/UX design for the application including screens, components, and flows.
+</p>
+<p>
+🎨 Figma Link:
+<a href="https://www.figma.com/design/M5xORL4r0I4FqQ8fbHWuMd/Fintech-App?node-id=41-2155&p=f" target="_blank">
+View Design
+</a>
+</p>
 
-- Smooth onboarding experience for new users
-- Secure authentication:
-  - Email & Password
-  - Biometric login (Face ID / Fingerprint)
-- Home dashboard featuring:
-  - Market overview
-  - Trending cryptocurrencies
-- Crypto market:
-  - Search & filter
-  - Infinite scrolling
-- Portfolio management:
-  - Total balance
-  - Profit & Loss tracking
-  - Asset allocation charts
-- Fiat-to-crypto purchases with Stripe integration
-- User profile & settings:
-  - Light / Dark mode
-  - Account management
+<h2>📁 Project Structure</h2>
 
----
+<p>
+The codebase is organized into two main directories under <code>lib/</code>,
+following a <strong>feature-first architecture</strong>.
+</p>
 
-## 🛠 Tech Stack
-
-- Framework: Flutter (Dart)
-- State Management: BLoC / Cubit
-- Networking: Dio, Retrofit
-- Backend: Firebase (Auth, Firestore)
-- Payments: Stripe
-- Local Storage: Hive, Shared Preferences
-- Code Generation: Freezed, json_serializable
-
----
-
-## 📁 Project Structure (High Level)
-
+<pre>
 lib/
-├── core/        # App-wide utilities, DI, networking, theming
-└── features/    # Feature modules (auth, home, portfolio, etc.)
+├── core/
+│   ├── cache/
+│   ├── config/
+│   ├── di/
+│   ├── networking/
+│   ├── routing/
+│   ├── theme/
+│   └── widgets/
+└── features/
+    ├── auth/
+    ├── home/
+    ├── portfolio/
+    └── ... (other features)
+</pre>
 
----
+<p>
+Each feature contains:
+<strong>data</strong>, <strong>logic</strong> (Cubit/BLoC),
+and <strong>presentation</strong> layers.
+</p>
 
-## 🚀 Getting Started
+<h2>🚀 Getting Started</h2>
 
-### Prerequisites
+<h3>Prerequisites</h3>
+<ul>
+  <li>Flutter SDK (stable)</li>
+  <li>Android Studio or VS Code with Flutter plugins</li>
+  <li>Firebase project (Auth / Firestore)</li>
+  <li>Stripe account</li>
+</ul>
 
-- Flutter SDK (stable)
-- Android Studio or VS Code with Flutter plugins
-- Firebase project (Auth / Firestore)
-- Stripe account (for payments)
+<h3>Local Setup</h3>
 
----
-
-### Local Setup
-
-1. Clone the repository
-
+<pre>
 git clone https://github.com/Bahnooos/fintech-app.git
 cd fintech-app
+</pre>
 
-2. Install dependencies
-
+<pre>
 flutter pub get
+</pre>
 
-3. Configure Firebase
-
-- Add google-services.json (Android)
-- Add GoogleService-Info.plist (iOS)
-- Configure lib/firebase_options.dart if using FlutterFire CLI
-
-4. (Optional) Environment variables
-
-STRIPE_PUBLISHABLE_KEY=your_publishable_key
-STRIPE_SECRET_KEY=your_secret_key
-
-5. Run code generation (if needed)
-
+<pre>
 flutter pub run build_runner build --delete-conflicting-outputs
+</pre>
 
-6. Run the app
-
+<pre>
 flutter run
+</pre>
 
----
+<h2>🤝 Contributing</h2>
+<p>Contributions are welcome ❤️</p>
+<ol>
+  <li>Fork the repository</li>
+  <li>Create a feature branch</li>
+  <li>Make changes and run tests</li>
+  <li>Open a Pull Request</li>
+</ol>
 
-## ⚙️ Configuration Notes
+<h2>👥 Contributors</h2>
+<ul>
+  <li>
+    <strong>Bahnooos</strong> — Repository Owner / Maintainer<br />
+    <a href="https://github.com/Bahnooos" target="_blank">https://github.com/Bahnooos</a>
+  </li>
+  <li>
+    <strong>Mohamed Osama Mohamed</strong><br />
+    <a href="https://github.com/wohamedosama" target="_blank">https://github.com/wohamedosama</a>
+  </li>
+  <li>
+    <strong>Habiba Amr</strong><br />
+    <a href="https://github.com/habibaamr26" target="_blank">https://github.com/habibaamr26</a>
+  </li>
+  <li>
+    <strong>Muhammed Elrashidy</strong><br />
+    <a href="https://github.com/MuhammedElrashidy" target="_blank">https://github.com/MuhammedElrashidy</a>
+  </li>
+</ul>
 
-- Android Firebase config: app/google-services.json
-- iOS Firebase config: GoogleService-Info.plist
-- Firebase initialization: lib/firebase_options.dart
+<p>⭐ If you like this project, don’t forget to star the repository!</p>
 
----
-
-## 🤝 Contributing
-
-Contributions are welcome.
-
-1. Fork the repository
-2. Create a feature branch:
-   git checkout -b feat/your-feature
-3. Make your changes and run tests/lints
-4. Commit and push
-5. Open a Pull Request with a clear description
-
----
-
-## 👥 Contributors
-
-- Bahnooos — Repository Owner / Maintainer
-- Mohamed Osama Mohamed
-- Habiba
-- MuhammedElrashidy
-
----
-
-
-## 📄 License
-
-This project does not currently include a license file.
-Consider adding a LICENSE file (e.g. MIT) if you plan to open-source it.
-
----
-
-## 📬 Contact
-
-For questions or support, please open an issue on GitHub:
-https://github.com/Bahnooos/fintech-app
-
-⭐ If you like this project, don’t forget to star the repository!
+</body>
+</html>
