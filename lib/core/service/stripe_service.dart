@@ -1,13 +1,14 @@
 // ignore_for_file: avoid_print
 
 import 'package:dio/dio.dart';
-import 'package:fintech_app/core/config/env_config.dart';
 import 'package:fintech_app/core/networking/dio_factory.dart';
 import 'package:fintech_app/features/payment/data/models/intent_request_model/request_model.dart';
 import 'package:fintech_app/features/payment/data/models/intent_response_model/payment_intint_object/payment_intint_object.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
 class StripeService {
+  static final String _secretKey = dotenv.env['STRIPE_SECRET_KEY'] ?? '';
   Future<PaymentIntentObject> createPaymentIntent({
     required Map<String, dynamic> data,
   }) async {
@@ -15,7 +16,7 @@ class StripeService {
       final dio = DioFactory.getDio(
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
-          'Authorization': 'Bearer ${EnvConfig.stripeSecretKey}',
+          'Authorization': 'Bearer $_secretKey',
         },
       );
       Response response = await dio.post(

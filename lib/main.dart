@@ -1,6 +1,5 @@
 import 'package:fintech_app/core/cache/cache_helper.dart';
 import 'package:fintech_app/core/cache/hive_adapters.dart';
-import 'package:fintech_app/core/config/env_config.dart';
 import 'package:fintech_app/core/di/dependency_injection.dart';
 import 'package:fintech_app/core/helpers/shared_pref.dart';
 import 'package:fintech_app/core/routing/app_router.dart';
@@ -34,7 +33,7 @@ Future<void> main() async {
   await initGetIt();
 
   // Initialize Stripe with env key
-  Stripe.publishableKey = EnvConfig.stripePublishableKey;
+  Stripe.publishableKey = dotenv.env['STRIPE_PUBLISHABLE_KEY'] ?? '';
   final sharedPref = await SharedPref.getInstance();
   final isLoggedIn = sharedPref.isLoggedIn() && sharedPref.getUserId() != null;
   final initialRoute = isLoggedIn ? Routes.homeScreen : Routes.onboardingScreen;
