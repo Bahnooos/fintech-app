@@ -97,6 +97,19 @@ Complete UI/UX design for the application including screens, components, and flo
 View Design
 </a>
 </p>
+<h2>🎬 App Demo Video</h2>
+
+<p>
+Watch the full app demo video showcasing onboarding, authentication,
+market tracking, portfolio management, and Stripe integration.
+</p>
+
+<p>
+🎥 <a href="assets/videos/app_demo.mp4" target="_blank">
+Click here to watch the demo video
+</a>
+</p>
+
 
 <h2>📁 Project Structure</h2>
 
