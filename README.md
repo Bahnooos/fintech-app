@@ -130,9 +130,12 @@ Contributions are welcome.
 ## 👥 Contributors
 
 - Bahnooos — Repository Owner / Maintainer
-- Mohamed Osama Mohamed — Original Author / Flutter Developer
+- Mohamed Osama Mohamed
+- Habiba
+- MuhammedElrashidy
 
 ---
+
 
 ## 📄 License
 
